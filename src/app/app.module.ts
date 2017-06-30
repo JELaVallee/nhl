@@ -9,8 +9,9 @@ import { MaterialModule } from './material/material.module';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
-import { NavbarComponent } from './components/navbar/navbar.component';
+import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ThemepickerComponent } from './components/themepicker/themepicker.component';
+import { WindowRef } from './components/shared/window.ref';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,9 @@ import { ThemepickerComponent } from './components/themepicker/themepicker.compo
     NgxChartsModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    WindowRef
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

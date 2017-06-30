@@ -5,14 +5,20 @@ md-toolbar {
   .header {
     text-transform: uppercase;
     opacity: 0.87;
+    cursor: pointer;
+    font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
   }
 
   .example-icon {
-    padding: 0 14px;
     opacity: 0.87;
+    margin: 0 1em;
   }
 
   .example-spacer {
     flex: 1 1 auto;
+  }
+
+  md-icon {
+    cursor: pointer;
   }
 }
