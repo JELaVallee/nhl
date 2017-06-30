@@ -1,0 +1,291 @@
+@import '../../../node_modules/@angular/material/theming';
+@import 'palette';
+
+// Define the default theme (same as the example above).
+$nhl-primary: mat-palette($mat-grey);
+$nhl-accent:  mat-palette($mat-orange);
+$nhl:   mat-light-theme($nhl-primary, $nhl-accent);
+
+// Include the default theme styles.
+.nhl {
+  @include angular-material-theme($nhl);
+}
+
+$anaheim-ducks-primary: mat-palette($mat-ducksorange);
+$anaheim-ducks-accent:  mat-palette($mat-metallicgold);
+$anaheim-ducks-warn:    mat-palette($mat-white);
+$anaheim-ducks:   mat-light-theme($anaheim-ducks-primary, $anaheim-ducks-accent, $anaheim-ducks-warn);
+
+.anaheim-ducks {
+  @include angular-material-theme($anaheim-ducks);
+}
+
+$arizona-coyotes-primary: mat-palette($mat-brickred);
+$arizona-coyotes-accent:  mat-palette($mat-desertsand);
+$arizona-coyotes-warn:    mat-palette($mat-white);
+$arizona-coyotes:   mat-light-theme($arizona-coyotes-primary, $arizona-coyotes-accent, $arizona-coyotes-warn);
+
+.arizona-coyotes {
+  @include angular-material-theme($arizona-coyotes);
+}
+
+$boston-bruins-primary: mat-palette($mat-bruinsgold);
+$boston-bruins-accent:  mat-palette($mat-bruinsblack);
+$boston-bruins-warn:    mat-palette($mat-white);
+$boston-bruins:   mat-light-theme($boston-bruins-primary, $boston-bruins-accent, $boston-bruins-warn);
+
+.boston-bruins {
+  @include angular-material-theme($boston-bruins);
+}
+
+$buffalo-sabres-primary: mat-palette($mat-navyblue);
+$buffalo-sabres-accent:  mat-palette($mat-sabresgold);
+$buffalo-sabres-warn:    mat-palette($mat-white);
+$buffalo-sabres:   mat-light-theme($buffalo-sabres-primary, $buffalo-sabres-accent, $buffalo-sabres-warn);
+
+.buffalo-sabres {
+  @include angular-material-theme($buffalo-sabres);
+}
+
+$calgary-flames-primary: mat-palette($mat-flamesred);
+$calgary-flames-accent:  mat-palette($mat-flamesgold);
+$calgary-flames-warn:    mat-palette($mat-white);
+$calgary-flames:   mat-light-theme($calgary-flames-primary, $calgary-flames-accent, $calgary-flames-warn);
+
+.calgary-flames {
+  @include angular-material-theme($calgary-flames);
+}
+
+$carolina-hurricanes-primary: mat-palette($mat-hurricanesred);
+$carolina-hurricanes-accent:  mat-palette($mat-hurricanesblack);
+$carolina-hurricanes-warn:    mat-palette($mat-white);
+$carolina-hurricanes:   mat-light-theme($carolina-hurricanes-primary, $carolina-hurricanes-accent, $carolina-hurricanes-warn);
+
+.carolina-hurricanes {
+  @include angular-material-theme($carolina-hurricanes);
+}
+
+$chicago-blackhawks-primary: mat-palette($mat-blackhawksred);
+$chicago-blackhawks-accent:  mat-palette($mat-blackhawksblack);
+$chicago-blackhawks-warn:    mat-palette($mat-blackhawksgold);
+$chicago-blackhawks:   mat-light-theme($chicago-blackhawks-primary, $chicago-blackhawks-accent, $chicago-blackhawks-warn);
+
+.chicago-blackhawks {
+  @include angular-material-theme($chicago-blackhawks);
+}
+
+$colorado-avalanche-primary: mat-palette($mat-burgundy);
+$colorado-avalanche-accent:  mat-palette($mat-avalancheblue);
+$colorado-avalanche-warn:    mat-palette($mat-white);
+$colorado-avalanche:   mat-light-theme($colorado-avalanche-primary, $colorado-avalanche-accent, $colorado-avalanche-warn);
+
+.colorado-avalanche {
+  @include angular-material-theme($colorado-avalanche);
+}
+
+$columbus-bluejackets-primary: mat-palette($mat-bluejacketsblue);
+$columbus-bluejackets-accent:  mat-palette($mat-bluejacketsred);
+$columbus-bluejackets-warn:    mat-palette($mat-white);
+$columbus-bluejackets:   mat-light-theme($columbus-bluejackets-primary, $columbus-bluejackets-accent, $columbus-bluejackets-warn);
+
+.columbus-bluejackets {
+  @include angular-material-theme($columbus-bluejackets);
+}
+
+$dallas-stars-primary: mat-palette($mat-victorygreen);
+$dallas-stars-accent:  mat-palette($mat-starsblack);
+$dallas-stars-warn:    mat-palette($mat-white);
+$dallas-stars:   mat-light-theme($dallas-stars-primary, $dallas-stars-accent, $dallas-stars-warn);
+
+.dallas-stars {
+  @include angular-material-theme($dallas-stars);
+}
+
+$detroit-redwings-primary: mat-palette($mat-redwingsred);
+$detroit-redwings-accent:  mat-palette($mat-white);
+$detroit-redwings-warn:    mat-palette($mat-black);
+$detroit-redwings:   mat-light-theme($detroit-redwings-primary, $detroit-redwings-accent, $detroit-redwings-warn);
+
+.detroit-redwings {
+  @include angular-material-theme($detroit-redwings);
+}
+
+$edmonton-oilers-primary: mat-palette($mat-oilersorange);
+$edmonton-oilers-accent:  mat-palette($mat-oilersblue);
+$edmonton-oilers-warn:    mat-palette($mat-white);
+$edmonton-oilers:   mat-light-theme($edmonton-oilers-primary, $edmonton-oilers-accent, $edmonton-oilers-warn);
+
+.edmonton-oilers {
+  @include angular-material-theme($edmonton-oilers);
+}
+
+$florida-panthers-primary: mat-palette($mat-panthersred);
+$florida-panthers-accent:  mat-palette($mat-panthersblue);
+$florida-panthers-warn:    mat-palette($mat-panthersgold);
+$florida-panthers:   mat-light-theme($florida-panthers-primary, $florida-panthers-accent, $florida-panthers-warn);
+
+.florida-panthers {
+  @include angular-material-theme($florida-panthers);
+}
+
+$losangeles-kings-primary: mat-palette($mat-kingsblack);
+$losangeles-kings-accent:  mat-palette($mat-kingssilver);
+$losangeles-kings-warn:    mat-palette($mat-white);
+$losangeles-kings:   mat-light-theme($losangeles-kings-primary, $losangeles-kings-accent, $losangeles-kings-warn);
+
+.losangeles-kings {
+  @include angular-material-theme($losangeles-kings);
+}
+
+$minnesota-wild-primary: mat-palette($mat-wildgreen);
+$minnesota-wild-accent:  mat-palette($mat-wildred);
+$minnesota-wild-warn:    mat-palette($mat-beige);
+$minnesota-wild:   mat-light-theme($minnesota-wild-primary, $minnesota-wild-accent, $minnesota-wild-warn);
+
+.minnesota-wild {
+  @include angular-material-theme($minnesota-wild);
+}
+
+$montreal-canadiens-primary: mat-palette($mat-habsred);
+$montreal-canadiens-accent:  mat-palette($mat-habsblue);
+$montreal-canadiens-warn:    mat-palette($mat-white);
+$montreal-canadiens:   mat-light-theme($montreal-canadiens-primary, $montreal-canadiens-accent, $montreal-canadiens-warn);
+
+.montreal-canadiens {
+  @include angular-material-theme($montreal-canadiens);
+}
+
+$nashville-predators-primary: mat-palette($mat-predsyellow);
+$nashville-predators-accent:  mat-palette($mat-predsblue);
+$nashville-predators-warn:    mat-palette($mat-white);
+$nashville-predators:   mat-light-theme($nashville-predators-primary, $nashville-predators-accent, $nashville-predators-warn);
+
+.nashville-predators {
+  @include angular-material-theme($nashville-predators);
+}
+
+$newjersey-devils-primary: mat-palette($mat-devilsred);
+$newjersey-devils-accent:  mat-palette($mat-devilsblack);
+$newjersey-devils-warn:    mat-palette($mat-white);
+$newjersey-devils:   mat-light-theme($newjersey-devils-primary, $newjersey-devils-accent, $newjersey-devils-warn);
+
+.newjersey-devils {
+  @include angular-material-theme($newjersey-devils);
+}
+
+$newyork-islanders-primary: mat-palette($mat-islesblue);
+$newyork-islanders-accent:  mat-palette($mat-islesorange);
+$newyork-islanders-warn:    mat-palette($mat-white);
+$newyork-islanders:   mat-light-theme($newyork-islanders-primary, $newyork-islanders-accent, $newyork-islanders-warn);
+
+.newyork-islanders {
+  @include angular-material-theme($newyork-islanders);
+}
+
+$newyork-rangers-primary: mat-palette($mat-rangersblue);
+$newyork-rangers-accent:  mat-palette($mat-rangersred);
+$newyork-rangers-warn:    mat-palette($mat-white);
+$newyork-rangers:   mat-light-theme($newyork-rangers-primary, $newyork-rangers-accent, $newyork-rangers-warn);
+
+.newyork-rangers {
+  @include angular-material-theme($newyork-rangers);
+}
+
+$ottawa-senators-primary: mat-palette($mat-sensred);
+$ottawa-senators-accent:  mat-palette($mat-sensgold);
+$ottawa-senators-warn:    mat-palette($mat-black);
+$ottawa-senators:   mat-light-theme($ottawa-senators-primary, $ottawa-senators-accent, $ottawa-senators-warn);
+
+.ottawa-senators {
+  @include angular-material-theme($ottawa-senators);
+}
+
+$philadelphia-flyers-primary: mat-palette($mat-flyersorange);
+$philadelphia-flyers-accent:  mat-palette($mat-black);
+$philadelphia-flyers-warn:    mat-palette($mat-white);
+$philadelphia-flyers:   mat-light-theme($philadelphia-flyers-primary, $philadelphia-flyers-accent, $philadelphia-flyers-warn);
+
+.philadelphia-flyers {
+  @include angular-material-theme($philadelphia-flyers);
+}
+
+$pittsburgh-penguins-primary: mat-palette($mat-pensyellow);
+$pittsburgh-penguins-accent:  mat-palette($mat-black);
+$pittsburgh-penguins-warn:    mat-palette($mat-white);
+$pittsburgh-penguins:   mat-light-theme($pittsburgh-penguins-primary, $pittsburgh-penguins-accent, $pittsburgh-penguins-warn);
+
+.pittsburgh-penguins {
+  @include angular-material-theme($pittsburgh-penguins);
+}
+
+$sanjose-sharks-primary: mat-palette($mat-sharksteal);
+$sanjose-sharks-accent:  mat-palette($mat-sharksorange);
+$sanjose-sharks-warn:    mat-palette($mat-white);
+$sanjose-sharks:   mat-light-theme($sanjose-sharks-primary, $sanjose-sharks-accent, $sanjose-sharks-warn);
+
+.sanjose-sharks {
+  @include angular-material-theme($sanjose-sharks);
+}
+
+$stlouis-blues-primary: mat-palette($mat-bluesblue);
+$stlouis-blues-accent:  mat-palette($mat-bluesyellow);
+$stlouis-blues-warn:    mat-palette($mat-white);
+$stlouis-blues:   mat-light-theme($stlouis-blues-primary, $stlouis-blues-accent, $stlouis-blues-warn);
+
+.stlouis-blues {
+  @include angular-material-theme($stlouis-blues);
+}
+
+$tampabay-lightning-primary: mat-palette($mat-lightningblue);
+$tampabay-lightning-accent:  mat-palette($mat-white);
+$tampabay-lightning-warn:    mat-palette($mat-black);
+$tampabay-lightning:   mat-light-theme($tampabay-lightning-primary, $tampabay-lightning-accent, $tampabay-lightning-warn);
+
+.tampabay-lightning {
+  @include angular-material-theme($tampabay-lightning);
+}
+
+$toronto-mapleleafs-primary: mat-palette($mat-leafsblue);
+$toronto-mapleleafs-accent:  mat-palette($mat-white);
+$toronto-mapleleafs-warn:    mat-palette($mat-black);
+$toronto-mapleleafs:   mat-light-theme($toronto-mapleleafs-primary, $toronto-mapleleafs-accent, $toronto-mapleleafs-warn);
+
+.toronto-mapleleafs {
+  @include angular-material-theme($toronto-mapleleafs);
+}
+
+$vancouver-canucks-primary: mat-palette($mat-canucksblue);
+$vancouver-canucks-accent:  mat-palette($mat-canucksgreen);
+$vancouver-canucks-warn:    mat-palette($mat-white);
+$vancouver-canucks:   mat-light-theme($vancouver-canucks-primary, $vancouver-canucks-accent, $vancouver-canucks-warn);
+
+.vancouver-canucks {
+  @include angular-material-theme($vancouver-canucks);
+}
+
+$vegas-goldenknights-primary: mat-palette($mat-knightsgold);
+$vegas-goldenknights-accent:  mat-palette($mat-knightsgrey);
+$vegas-goldenknights-warn:    mat-palette($mat-knightsred);
+$vegas-goldenknights:   mat-light-theme($vegas-goldenknights-primary, $vegas-goldenknights-accent, $vegas-goldenknights-warn);
+
+.vegas-goldenknights {
+  @include angular-material-theme($vegas-goldenknights);
+}
+
+$washington-capitals-primary: mat-palette($mat-capsred);
+$washington-capitals-accent:  mat-palette($mat-capsblue);
+$washington-capitals-warn:    mat-palette($mat-white);
+$washington-capitals:   mat-light-theme($washington-capitals-primary, $washington-capitals-accent, $washington-capitals-warn);
+
+.washington-capitals {
+  @include angular-material-theme($washington-capitals);
+}
+
+$winnipeg-jets-primary: mat-palette($mat-jetsblue);
+$winnipeg-jets-accent:  mat-palette($mat-jetsred);
+$winnipeg-jets-warn:    mat-palette($mat-white);
+$winnipeg-jets:   mat-light-theme($winnipeg-jets-primary, $winnipeg-jets-accent, $winnipeg-jets-warn);
+
+.winnipeg-jets {
+  @include angular-material-theme($winnipeg-jets);
+}
