@@ -1,9 +1,9 @@
 @import '../../material/teams-themes';
 
 $theme-picker-menu-padding: 8px;
-$theme-picker-grid-cell-size: 48px;
-$theme-picker-grid-cells-per-row: 2;
-$theme-picker-swatch-size: 36px;
+$theme-picker-grid-cell-size: 96px;
+$theme-picker-grid-cells-per-row: 1;
+$theme-picker-swatch-size: 84px;
 $theme-picker-accent-stripe-size: 6px;
 
 
@@ -16,14 +16,15 @@ button {
     padding: $theme-picker-menu-padding;
   }
 
+  .mat-menu-item {
+    line-height: $theme-picker-grid-cell-size;
+    height: $theme-picker-grid-cell-size;
+  }
+
   [md-menu-item] {
     flex: 0 0 auto;
     padding: 0;
     overflow: hidden;
-  }
-
-  .mat-menu-item.selected {
-
   }
 
   .docs-theme-picker-swatch {

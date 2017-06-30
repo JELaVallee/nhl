@@ -4,7 +4,7 @@
 
 <!-- TODO: replace use of `md-menu` here with a custom overlay -->
 <md-menu class="docs-theme-picker-menu" #themeMenu="mdMenu" x-position="before">
-  <md-grid-list cols="2">
+  <md-grid-list cols="1">
     <md-grid-tile *ngFor="let theme of themes">
       <div md-menu-item (click)="setTheme(theme)">
         <div class="docs-theme-picker-swatch">
