@@ -1,0 +1,54 @@
+@import '../../../../node_modules/@angular/material/theming';
+@import '../../material/palette';
+@import '../../material/teams-themes';
+@import '../../material/team-logos';
+
+$small-breakpoint-width: 840px;
+
+md-spinner {
+  margin: 2em auto;
+}
+
+.mat-grid-tile {
+  .mat-figure {
+    align-items: flex-start;
+
+    .mat-list {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 20px;
+
+      .mat-subheader {
+        font-size: 1em;
+        padding-left: 42px;
+      }
+
+      .mat-list-item {
+        .mat-list-item-content {
+          height: auto;
+        }
+      }
+
+      @media (max-width: $small-breakpoint-width) {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+button {
+  opacity: 1;
+
+  .list-card {
+    cursor: pointer;
+    display: inline-block;
+    margin: 10px;
+    vertical-align: top;
+    padding: 0 !important;
+
+    .logo {
+      width: 200px;
+      height: 100px;
+    }
+  }
+}

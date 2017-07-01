@@ -1,0 +1,69 @@
+$small-breakpoint-width: 840px;
+$sidenav-spacing-unit: 8px;
+$sidenav-width: 240px;
+
+md-sidenav-container.mat-sidenav-container {
+  width: 100%;
+  top: 64px;
+
+  .mat-sidenav-content {
+    position: absolute;
+    right: 0;
+    left: 0;
+  }
+
+  @media (max-width: $small-breakpoint-width) {
+    top: 56px;
+  }
+
+  md-sidenav {
+    box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+    padding-bottom: 72px;
+    width: $sidenav-width;
+    bottom: 0;
+    overflow: auto;
+    height: 100%;
+
+    &.mat-sidenav-opened {
+      box-shadow: 3px 0 6px rgba(0, 0, 0, .24);
+    }
+
+    .mat-list {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+
+      .mat-list-item {
+        box-sizing: border-box;
+        display: block;
+        font-size: 14px;
+        font-weight: 400;
+        line-height: ($sidenav-spacing-unit * 6) - 1;
+        text-decoration: none;
+        transition: all .3s;
+        padding: 0 ($sidenav-spacing-unit * 2);
+        position: relative;
+
+        // Hide the border on the last item
+        &:last-child {
+          border-color: transparent;
+        }
+
+        &.item-selected {
+          font-weight: 600;
+        }
+      }
+    }
+  }
+
+  .example-scrolling-content {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    // The rule will match the element following the router-outlet which will be the routed component.
+    router-outlet + * {
+      flex-grow: 1;
+    }
+  }
+}

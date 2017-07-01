@@ -8,7 +8,19 @@ app-root {
   flex-direction: column;
 }
 
+div.container {
+  height: 100%;
+}
+
+app-sidenav {
+  flex: 1 1 auto;
+  display: flex;
+  height: 100%;
+}
+
 app-navbar {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   z-index: 10;
 }

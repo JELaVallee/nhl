@@ -1,11 +1,17 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './components/home/home.component';
+import { HistoryComponent } from './components/history/history.component';
 
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
-  { path: 'home', component: HomeComponent },
+  { path: '',
+    component: HomeComponent,
+    pathMatch: 'full',
+    children: [
+      { path: 'history', component: HistoryComponent }
+    ]
+  },
   { path: '**',  redirectTo: ''}
 ];
 

@@ -1,0 +1,18 @@
+<md-sidenav-container class="example-sidenav-fab-container">
+  <md-sidenav #sidenav [mode]="isScreenSmall() ? 'over' : 'side'" [opened]="!isScreenSmall()" class="nhl-sidebar">
+    <div class="example-scrolling-content">
+      <nav>
+        <md-list>
+          <a md-list-item [routerLink]="['/history/']" routerLinkActive="item-selected">
+            History
+          </a>
+        </md-list>
+      </nav>
+    </div>
+  </md-sidenav>
+  <div class="example-scrolling-content">
+    <app-header (toggleSidenav)="sidenav.toggle()"></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </div>
+</md-sidenav-container>

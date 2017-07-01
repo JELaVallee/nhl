@@ -1,0 +1,92 @@
+@import '../../../node_modules/@angular/material/theming';
+@import 'palette';
+
+$small-breakpoint-width: 840px;
+
+@mixin component-viewer-sidenav-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $sidenav: '.nhl-sidebar';
+
+
+  .nhl-sidebar {
+
+    // Sidenav navigation items
+    a {
+      border-color: rgba(mat-color($foreground, secondary-text), .06);
+      color: mat-color($foreground, secondary-text, 0.87);
+      &.is-selected,
+      &:hover,
+      &:focus {
+        background: rgba(mat-color($accent), .25);
+        color: mat-color($primary);
+      }
+    }
+  }
+}
+
+@mixin footer-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  app-footer {
+    .footer-links a, .footer-copyright {
+      color: mat-color($primary, default-contrast, 0.87);
+    }
+  }
+}
+
+@mixin component-category-list-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .list-card-summary {
+    color: mat-color($foreground, secondary-text);
+  }
+}
+
+
+@mixin material-docs-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+
+  .primary-header {
+    background: mat-color($primary);
+    padding-left: 20px;
+    display: flex;
+    align-items: center;
+
+    @media (max-width: $small-breakpoint-width) {
+      padding-left: 0;
+    }
+
+    h1 {
+      color: mat-color($primary, default-contrast, 0.87);
+      font-size: 30px;
+      font-weight: 300;
+      margin: 0;
+      padding: 50px;
+    }
+  }
+
+  .footer {
+    background: mat-color($primary);
+    color: mat-color($primary, default-contrast);
+  }
+
+  @include component-viewer-sidenav-theme($theme);
+  @include component-category-list-theme($theme);
+  @include footer-theme($theme);
+}

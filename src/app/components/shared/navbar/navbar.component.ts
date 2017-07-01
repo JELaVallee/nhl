@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from '../window.ref';
@@ -10,6 +10,7 @@ import { WindowRef } from '../window.ref';
 })
 export class NavbarComponent {
 
+  @Input() title: string;
   @Output() newTheme: EventEmitter<string> = new EventEmitter();
 
   constructor(private mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer, private windowRef: WindowRef) {
