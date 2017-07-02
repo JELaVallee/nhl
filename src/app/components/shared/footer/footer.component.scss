@@ -11,26 +11,10 @@
   padding: 8px;
 }
 
-.footer-copyright {
-  display: flex;
-  flex: 1;
-  justify-content: flex-end;
-}
-
-.footer-links ul {
-  list-style: none;
-  margin: 0 40px;
-  padding: 0;
-
-  a {
-    font-size: 16px;
-    padding: 0;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+.footer-logo {
+  height: 64px;
+  width: 64px;
+  margin: 0 auto;
 }
 
 @media screen and (max-width: 884px){

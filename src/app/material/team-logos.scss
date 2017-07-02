@@ -1,7 +1,7 @@
 @import './teams-themes';
 
 .nhl {
-  background: mat-color($nhl-primary, default) url('/assets/logos/nhl-primary.png') center no-repeat;
+  background: url('/assets/logos/nhl-primary.png') center no-repeat;
   background-size: cover;
 }
 

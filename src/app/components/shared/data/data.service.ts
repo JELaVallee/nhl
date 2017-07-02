@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { ConferenceStandings, DivisionStandings, LeagueStandings, Team } from './data-types';
+import {ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings} from './data-types';
 import {
-  ConferenceStandingsResponse, DivisionStandingsResponse, LeagueStandingsResponse,
+  ConferenceStandingsResponse, DivisionStandingsResponse, LeagueStandingsResponse, PlayoffStandingsResponse,
   StandingsResponseTeamEntry
 } from './response-interfaces';
 
@@ -28,7 +28,7 @@ export class DataService {
 
   }
 
-  get(season: string, feed: string, params: Params): Observable<DivisionStandings[] | ConferenceStandings[] | LeagueStandings> {
+  get(season: string, feed: string, params: Params): Observable<DivisionStandings[] | ConferenceStandings[] | LeagueStandings | WildCardStandings[]> {
     let urlSearchParams: URLSearchParams = new URLSearchParams();
     for (let p in params) {
       urlSearchParams.set(p, params[p]);
@@ -78,6 +78,22 @@ export class DataService {
             };
           });
           return leagueStandings;
+        } else if (response.json().playoffteamstandings) {
+          let responseData: PlayoffStandingsResponse = response.json();
+          let wildCardStandings: WildCardStandings[] = [];
+          responseData.playoffteamstandings.conference.forEach(conference => {
+            wildCardStandings.push({
+              lastUpdated : new Date(responseData.playoffteamstandings.lastUpdatedOn),
+              conference: conference['@name'],
+              teams: conference.teamentry.map((entry: StandingsResponseTeamEntry) => {
+                return {
+                  rank: parseInt(entry.rank),
+                  team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation)
+                };
+              })
+            });
+          });
+          return wildCardStandings;
         }
       }
     });

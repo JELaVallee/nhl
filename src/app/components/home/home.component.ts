@@ -8,8 +8,14 @@ import {
 } from '@angular/animations';
 import { PageTitleService } from '../shared/page-title/page-title';
 import { DataService } from '../shared/data/data.service';
-import {ConferenceStandings, DivisionStandings, League, LeagueStandings} from '../shared/data/data-types';
+import {
+  ConferenceStandings, DivisionStandings, League, LeagueStandings,
+  WildCardStandings
+} from '../shared/data/data-types';
 import { LeagueService } from '../shared/data/league.service';
+import {Router} from "@angular/router";
+
+const SMALL_WIDTH_BREAKPOINT = 840;
 
 @Component({
   selector: 'app-home',
@@ -92,6 +98,45 @@ export class HomeComponent implements OnInit {
       this.league.standings = standings;
       this.leagueLoaded = true;
     });
+
+    this.dataService.get('2017-2018-regular', 'playoff_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: WildCardStandings[]) => {
+      standings.forEach(conference => {
+        switch (conference.conference) {
+          case 'Eastern':
+            this.league.easternConference.wildCardStandings = conference;
+            break;
+          case 'Western':
+            this.league.westernConference.wildCardStandings = conference;
+            break;
+        }
+      });
+      this.wildCardLoaded = true;
+    });
   }
+
+  isScreenSmall(): boolean {
+    return window.matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`).matches;
+  }
+
+  getRowHeight(type: string): string {
+    switch (type) {
+      case 'division':
+        if (this.isScreenSmall()) {
+          return '1:8';
+        }
+        return '1:3';
+      case 'conference':
+        if (this.isScreenSmall()) {
+          return '1:7.5';
+        }
+        return '1:3.5';
+      case 'league':
+        if (this.isScreenSmall()) {
+          return '1:7.25';
+        }
+        return '1:3.25';
+    }
+  }
+
 
 }

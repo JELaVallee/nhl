@@ -15,6 +15,12 @@ export class ConferenceStandings {
   teams: StandingsTeamEntry[];
 }
 
+export class WildCardStandings {
+  lastUpdated: Date;
+  conference: string;
+  teams: StandingsTeamEntry[];
+}
+
 export class LeagueStandings {
   lastUpdated: Date;
   teams: StandingsTeamEntry[];
@@ -109,6 +115,7 @@ export class PacificDivision extends Division {
 export class Conference {
   name: string;
   standings: ConferenceStandings;
+  wildCardStandings: WildCardStandings;
 }
 
 export class EasternConference extends Conference {

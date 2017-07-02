@@ -26,6 +26,15 @@ export interface ConferenceStandingsResponse {
   }
 }
 
+export interface PlayoffStandingsResponse {
+  playoffteamstandings: {
+    lastUpdatedOn: string,
+    conference: [{
+      teamentry: StandingsResponseTeamEntry[]
+    }]
+  }
+}
+
 export interface LeagueStandingsResponse {
   overallteamstandings: {
     lastUpdatedOn: string,

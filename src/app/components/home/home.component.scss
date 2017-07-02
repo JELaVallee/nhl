@@ -21,6 +21,11 @@ md-spinner {
       .mat-subheader {
         font-size: 1em;
         padding-left: 42px;
+
+        @media (max-width: $small-breakpoint-width) {
+          font-size: 0.8em;
+          padding-left: 16px;
+        }
       }
 
       .mat-list-item {
@@ -58,6 +63,21 @@ button {
       &.league {
         width: 1078px;
         height: 125px;
+      }
+
+      @media (max-width: $small-breakpoint-width) {
+        width: 64px;
+        height: 64px;
+
+        &.conference {
+          width: 128px;
+          height: 64px;
+        }
+
+        &.league {
+          width: 256px;
+          height: 64px;
+        }
       }
     }
   }
