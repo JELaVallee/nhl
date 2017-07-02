@@ -1,5 +1,5 @@
-<md-spinner *ngIf="!standingsLoaded"></md-spinner>
-<md-grid-list cols="4" rowHeight="1:3" *ngIf="standingsLoaded">
+<md-spinner *ngIf="!standingsLoaded" [@fadeInOut]="!standingsLoaded"></md-spinner>
+<md-grid-list cols="4" rowHeight="1:3" *ngIf="standingsLoaded" [@flyInOut]="standingsLoaded" [@fadeInOut]="standingsLoaded">
   <md-grid-tile>
     <md-list>
       <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
