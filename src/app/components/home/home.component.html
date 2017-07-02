@@ -1,62 +1,122 @@
-<md-spinner *ngIf="!standingsLoaded" [@fadeInOut]="!standingsLoaded"></md-spinner>
-<md-grid-list cols="4" rowHeight="1:3" *ngIf="standingsLoaded" [@flyInOut]="standingsLoaded" [@fadeInOut]="standingsLoaded">
-  <md-grid-tile>
-    <md-list>
-      <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
-      <md-list-item *ngFor="let entry of league.easternConference.atlanticDivision.standings?.teams">
-        <button md-button>
-          <md-card class="list-card">
-            <md-card-content>
-              <div class="logo" [ngClass]="entry.team.cssClass"></div>
-            </md-card-content>
-          </md-card>
-        </button>
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
+<md-tab-group>
+  <md-tab label="Division">
+    <md-spinner *ngIf="!divisionLoaded" [@fadeInOut]="!divisionLoaded"></md-spinner>
+    <md-grid-list cols="4" rowHeight="1:3" *ngIf="divisionLoaded" [@flyInOut]="divisionLoaded" [@fadeInOut]="divisionLoaded">
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference.atlanticDivision.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
 
-  <md-grid-tile>
-    <md-list>
-      <h1 md-subheader>{{league.easternConference.metropolitalDivision.name}}</h1>
-      <md-list-item *ngFor="let entry of league.easternConference.metropolitalDivision.standings?.teams">
-        <button md-button>
-          <md-card class="list-card">
-            <md-card-content>
-              <div class="logo" [ngClass]="entry.team.cssClass"></div>
-            </md-card-content>
-          </md-card>
-        </button>
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.easternConference.metropolitalDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference.metropolitalDivision.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
 
-  <md-grid-tile>
-    <md-list>
-      <h1 md-subheader>{{league.westernConference.centralDivision.name}}</h1>
-      <md-list-item *ngFor="let entry of league.westernConference.centralDivision.standings?.teams">
-        <button md-button>
-          <md-card class="list-card">
-            <md-card-content>
-              <div class="logo" [ngClass]="entry.team.cssClass"></div>
-            </md-card-content>
-          </md-card>
-        </button>
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.westernConference.centralDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.westernConference.centralDivision.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
 
-  <md-grid-tile>
-    <md-list>
-      <h1 md-subheader>{{league.westernConference.pacificDivision.name}}</h1>
-      <md-list-item *ngFor="let entry of league.westernConference.pacificDivision.standings?.teams">
-        <button md-button>
-          <md-card class="list-card">
-            <md-card-content>
-              <div class="logo" [ngClass]="entry.team.cssClass"></div>
-            </md-card-content>
-          </md-card>
-        </button>
-      </md-list-item>
-    </md-list>
-  </md-grid-tile>
-</md-grid-list>
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.westernConference.pacificDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.westernConference.pacificDivision.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+  <md-tab label="Conference">
+    <md-spinner *ngIf="!conferenceLoaded" [@fadeInOut]="!conferenceLoaded"></md-spinner>
+    <md-grid-list cols="2" rowHeight="1:3.5" *ngIf="conferenceLoaded" [@flyInOut]="conferenceLoaded" [@fadeInOut]="conferenceLoaded">
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.easternConference.name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.westernConference.name}}</h1>
+          <md-list-item *ngFor="let entry of league.westernConference.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+  <md-tab label="League">
+    <md-spinner *ngIf="!leagueLoaded" [@fadeInOut]="!leagueLoaded"></md-spinner>
+    <md-grid-list cols="1" rowHeight="1:3.25" *ngIf="leagueLoaded" [@flyInOut]="leagueLoaded" [@fadeInOut]="leagueLoaded">
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.name}}</h1>
+          <md-list-item *ngFor="let entry of league.standings?.teams">
+            <button md-button>
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo league wordmark" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+  </md-tab>
+  <md-tab label="Wild Card">
+    <md-spinner *ngIf="!wildCardLoaded" [@fadeInOut]="!wildCardLoaded"></md-spinner>
+  </md-tab>
+</md-tab-group>

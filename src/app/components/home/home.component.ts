@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 import { PageTitleService } from '../shared/page-title/page-title';
 import { DataService } from '../shared/data/data.service';
-import { League } from '../shared/data/data-types';
+import {ConferenceStandings, DivisionStandings, League, LeagueStandings} from '../shared/data/data-types';
 import { LeagueService } from '../shared/data/league.service';
 
 @Component({
@@ -42,16 +42,19 @@ import { LeagueService } from '../shared/data/league.service';
 export class HomeComponent implements OnInit {
 
   league: League;
-  standingsLoaded: boolean = false;
+  divisionLoaded: boolean = false;
+  conferenceLoaded: boolean = false;
+  leagueLoaded: boolean = false;
+  wildCardLoaded: boolean = false;
 
   constructor(private pageTitleService: PageTitleService, private dataService: DataService, private leagueService: LeagueService) {}
 
   ngOnInit() {
-    this.pageTitleService.title = 'Division Standings';
+    this.pageTitleService.title = 'Standings';
 
     this.league = this.leagueService.buildLeague();
 
-    this.dataService.get('2017-2018-regular', 'division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe(standings => {
+    this.dataService.get('2017-2018-regular', 'division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe((standings: DivisionStandings[]) => {
       standings.forEach(division => {
         switch (division.division) {
           case 'Eastern/Atlantic':
@@ -68,8 +71,26 @@ export class HomeComponent implements OnInit {
             break;
         }
       });
-      this.standingsLoaded = true;
-      console.log(this.league);
+      this.divisionLoaded = true;
+    });
+
+    this.dataService.get('2017-2018-regular', 'conference_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: ConferenceStandings[]) => {
+      standings.forEach(conference => {
+        switch (conference.conference) {
+          case 'Eastern':
+            this.league.easternConference.standings = conference;
+            break;
+          case 'Western':
+            this.league.westernConference.standings = conference;
+            break;
+        }
+      });
+      this.conferenceLoaded = true;
+    });
+
+    this.dataService.get('2017-2018-regular', 'overall_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: LeagueStandings) => {
+      this.league.standings = standings;
+      this.leagueLoaded = true;
     });
   }
 

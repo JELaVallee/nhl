@@ -8,154 +8,454 @@
 .anaheim-ducks {
   background: mat-color($anaheim-ducks-primary, default) url('/assets/logos/ana-primary.gif') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/ana-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($anaheim-ducks-primary, default) url('/assets/logos/ana-accent.gif') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .arizona-coyotes {
   background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/ari-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/ari-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/ari-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .boston-bruins {
   background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/bos-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .buffalo-sabres {
   background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/buf-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .calgary-flames {
   background: mat-color($calgary-flames-warn, default) url('/assets/logos/cgy-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/cgy-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($calgary-flames-warn, default) url('/assets/logos/cgy-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .carolina-hurricanes {
   background: mat-color($carolina-hurricanes-primary, default) url('/assets/logos/car-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/car-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/car-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .chicago-blackhawks {
   background: mat-color($chicago-blackhawks-primary, default) url('/assets/logos/chi-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/chi-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/chi-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .colorado-avalanche {
   background: mat-color($colorado-avalanche-primary, default) url('/assets/logos/col-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/col-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($colorado-avalanche-accent, default) url('/assets/logos/col-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .columbus-bluejackets {
   background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/cbj-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .dallas-stars {
   background: mat-color($dallas-stars-warn, default) url('/assets/logos/dal-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/dal-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($dallas-stars-primary, default) url('/assets/logos/dal-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .detroit-redwings {
   background: mat-color($detroit-redwings-accent, default) url('/assets/logos/det-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/det-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/det-accent.gif') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .edmonton-oilers {
   background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/edm-wordmark-accent.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .florida-panthers {
   background: mat-color($florida-panthers-primary, default) url('/assets/logos/fla-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/fla-wordmark-accent.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($florida-panthers-warn, default) url('/assets/logos/fla-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .losangeles-kings {
   background: mat-color($losangeles-kings-primary, default) url('/assets/logos/lak-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/lak-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/lak-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .minnesota-wild {
   background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/min-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .montreal-canadiens {
   background: mat-color($montreal-canadiens-primary, default) url('/assets/logos/mtl-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/mtl-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/mtl-primary.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .nashville-predators {
   background: mat-color($nashville-predators-primary, default) url('/assets/logos/nsh-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/nsh-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .newjersey-devils {
   background: mat-color($newjersey-devils-warn, default) url('/assets/logos/njd-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/njd-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .newyork-islanders {
   background: mat-color($newyork-islanders-primary, default) url('/assets/logos/nyi-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/nyi-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($newyork-islanders-accent, default) url('/assets/logos/nyi-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .newyork-rangers {
   background: mat-color($newyork-rangers-accent, default) url('/assets/logos/nyr-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/nyr-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($newyork-rangers-accent, default) url('/assets/logos/nyr-accent.gif') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .ottawa-senators {
   background: mat-color($ottawa-senators-primary, default) url('/assets/logos/ott-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/ott-wordmark-extra.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($ottawa-senators-primary, default) url('/assets/logos/ott-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .philadelphia-flyers {
   background: mat-color($philadelphia-flyers-primary, default) url('/assets/logos/phi-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/phi-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/phi-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .pittsburgh-penguins {
   background: mat-color($pittsburgh-penguins-warn, default) url('/assets/logos/pit-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/pit-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($pittsburgh-penguins-primary, default) url('/assets/logos/pit-accent.gif') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .sanjose-sharks {
   background: mat-color($sanjose-sharks-warn, default) url('/assets/logos/sjs-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/sjs-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($sanjose-sharks-accent, default) url('/assets/logos/sjs-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .stlouis-blues {
   background: mat-color($stlouis-blues-accent, default) url('/assets/logos/stl-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/stl-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($stlouis-blues-primary, default) url('/assets/logos/stl-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .tampabay-lightning {
   background: mat-color($tampabay-lightning-accent, default) url('/assets/logos/tbl-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/tbl-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/tbl-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .toronto-mapleleafs {
   background: mat-color($toronto-mapleleafs-accent, default) url('/assets/logos/tor-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/tor-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/tor-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .vancouver-canucks {
   background: mat-color($vancouver-canucks-warn, default) url('/assets/logos/van-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/van-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/van-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .vegas-goldenknights {
   background: mat-color($vegas-goldenknights-primary, default) url('/assets/logos/veg-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/veg-wordmark-accent.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($vegas-goldenknights-accent, default) url('/assets/logos/veg-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .washington-capitals {
   background: mat-color($washington-capitals-warn, default) url('/assets/logos/was-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/was-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: url('/assets/logos/was-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }
 
 .winnipeg-jets {
   background: mat-color($winnipeg-jets-primary, default) url('/assets/logos/wpg-primary.png') center no-repeat;
   background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/wpg-wordmark-accent.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($winnipeg-jets-accent, default) url('/assets/logos/wpg-accent.png') center no-repeat;
+    background-size: cover;
+  }
 }

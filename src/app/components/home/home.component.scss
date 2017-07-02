@@ -49,6 +49,16 @@ button {
     .logo {
       width: 200px;
       height: 100px;
+
+      &.conference {
+        width: 500px;
+        height: 125px;
+      }
+
+      &.league {
+        width: 1078px;
+        height: 125px;
+      }
     }
   }
 }
