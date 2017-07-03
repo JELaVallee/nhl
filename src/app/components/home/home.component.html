@@ -1,7 +1,7 @@
 <md-tab-group>
   <md-tab label="Division">
-    <md-spinner *ngIf="!dataService.divisionLoaded" [@fadeInOut]="!dataService.divisionLoaded"></md-spinner>
-    <md-grid-list cols="4" [rowHeight]="getRowHeight('division')" *ngIf="dataService.divisionLoaded" [@flyInOut]="dataService.divisionLoaded" [@fadeInOut]="dataService.divisionLoaded">
+    <md-spinner *ngIf="!dataService.divisionLoaded" [@loaderInOut]="!dataService.divisionLoaded"></md-spinner>
+    <md-grid-list cols="4" [rowHeight]="getRowHeight('division')" *ngIf="dataService.divisionLoaded" [@standingsInOut]="dataService.divisionLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
@@ -64,8 +64,8 @@
     </md-grid-list>
   </md-tab>
   <md-tab label="Conference">
-    <md-spinner *ngIf="!dataService.conferenceLoaded" [@fadeInOut]="!dataService.conferenceLoaded"></md-spinner>
-    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="dataService.conferenceLoaded" [@flyInOut]="dataService.conferenceLoaded" [@fadeInOut]="dataService.conferenceLoaded">
+    <md-spinner *ngIf="!dataService.conferenceLoaded" [@loaderInOut]="!dataService.conferenceLoaded"></md-spinner>
+    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="dataService.conferenceLoaded" [@standingsInOut]="dataService.conferenceLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.name}}</h1>
@@ -98,8 +98,8 @@
     </md-grid-list>
   </md-tab>
   <md-tab label="League">
-    <md-spinner *ngIf="!dataService.leagueLoaded" [@fadeInOut]="!dataService.leagueLoaded"></md-spinner>
-    <md-grid-list cols="1" [rowHeight]="getRowHeight('league')" *ngIf="dataService.leagueLoaded" [@flyInOut]="dataService.leagueLoaded" [@fadeInOut]="dataService.leagueLoaded">
+    <md-spinner *ngIf="!dataService.leagueLoaded" [@loaderInOut]="!dataService.leagueLoaded"></md-spinner>
+    <md-grid-list cols="1" [rowHeight]="getRowHeight('league')" *ngIf="dataService.leagueLoaded" [@standingsInOut]="dataService.leagueLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.name}}</h1>
@@ -117,8 +117,8 @@
     </md-grid-list>
   </md-tab>
   <md-tab label="Wild Card">
-    <md-spinner *ngIf="!dataService.wildCardLoaded" [@fadeInOut]="!dataService.wildCardLoaded"></md-spinner>
-    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="dataService.wildCardLoaded" [@flyInOut]="dataService.wildCardLoaded" [@fadeInOut]="dataService.wildCardLoaded">
+    <md-spinner *ngIf="!dataService.wildCardLoaded" [@loaderInOut]="!dataService.wildCardLoaded"></md-spinner>
+    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="dataService.wildCardLoaded" [@standingsInOut]="dataService.wildCardLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.name}}</h1>

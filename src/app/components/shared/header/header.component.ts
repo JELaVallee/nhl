@@ -26,8 +26,7 @@ export class HeaderComponent {
     { name: '2010-2011' },
     { name: '2009-2010' },
     { name: '2008-2009' },
-    { name: '2007-2008' },
-    { name: '2006-2007' }
+    { name: '2007-2008' }
   ];
   selectedSeason: SeasonOption = this.seasons[0];
 

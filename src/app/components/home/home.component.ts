@@ -24,23 +24,27 @@ const SMALL_WIDTH_BREAKPOINT = 840;
   styleUrls: ['./home.component.scss'],
   encapsulation: ViewEncapsulation.None,
   animations: [
-    trigger('flyInOut', [
-      state('in', style({transform: 'translateY(0)'})),
-      transition('void => *', [
+    trigger('standingsInOut', [
+      state('in', style({transform: 'translateY(0)', opacity: 1})),
+      transition(':enter', [
         style({transform: 'translateY(100%)'}),
         animate(500)
       ]),
-      transition('* => void', [
-        animate(100, style({transform: 'translateY(-100%)'}))
-      ])
-    ]),
-    trigger('fadeInOut', [
-      state('in', style({opacity: 1})),
-      transition('void => *', [
+      transition(':enter', [
         style({opacity: 1}),
         animate(1000)
       ]),
-      transition('* => void', [
+      transition(':leave', [
+        animate(50, style({opacity: 0}))
+      ])
+    ]),
+    trigger('loaderInOut', [
+      state('in', style({opacity: 1})),
+      transition(':enter', [
+        style({opacity: 1}),
+        animate(1000)
+      ]),
+      transition(':leave', [
         animate(250, style({opacity: 0}))
       ])
     ])
