@@ -4,4 +4,10 @@
   </button>
 
   <h1>{{getTitle()}} </h1>
+
+  <span class="spacer"></span>
+
+  <md-select placeholder="Season" panelClass="theme-select" (change)="selectSeason($event)">
+    <md-option *ngFor="let season of seasons" [value]="season.name + '-' + season.type" [disabled]="season.type === 'playoffs'">{{season.name}}<span *ngIf="season.type === 'playoffs'"> Playoffs</span></md-option>
+  </md-select>
 </div>

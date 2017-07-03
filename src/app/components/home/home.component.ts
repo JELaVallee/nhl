@@ -6,14 +6,15 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import { MdDialog } from '@angular/material';
 import { PageTitleService } from '../shared/page-title/page-title';
 import { DataService } from '../shared/data/data.service';
 import {
-  ConferenceStandings, DivisionStandings, League, LeagueStandings,
+  ConferenceStandings, DivisionStandings, League, LeagueStandings, StandingsTeamEntry,
   WildCardStandings
 } from '../shared/data/data-types';
 import { LeagueService } from '../shared/data/league.service';
-import {Router} from "@angular/router";
+import {TeamStatsDialogComponent} from "../shared/team-stats-dialog/team-stats-dialog.component";
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -48,19 +49,15 @@ const SMALL_WIDTH_BREAKPOINT = 840;
 export class HomeComponent implements OnInit {
 
   league: League;
-  divisionLoaded: boolean = false;
-  conferenceLoaded: boolean = false;
-  leagueLoaded: boolean = false;
-  wildCardLoaded: boolean = false;
 
-  constructor(private pageTitleService: PageTitleService, private dataService: DataService, private leagueService: LeagueService) {}
+  constructor(public dataService: DataService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
 
   ngOnInit() {
     this.pageTitleService.title = 'Standings';
 
     this.league = this.leagueService.buildLeague();
 
-    this.dataService.get('2017-2018-regular', 'division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe((standings: DivisionStandings[]) => {
+    this.dataService.getStandings('division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe((standings: DivisionStandings[]) => {
       standings.forEach(division => {
         switch (division.division) {
           case 'Eastern/Atlantic':
@@ -77,10 +74,10 @@ export class HomeComponent implements OnInit {
             break;
         }
       });
-      this.divisionLoaded = true;
+      this.dataService.divisionLoaded = true;
     });
 
-    this.dataService.get('2017-2018-regular', 'conference_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: ConferenceStandings[]) => {
+    this.dataService.getStandings('conference_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: ConferenceStandings[]) => {
       standings.forEach(conference => {
         switch (conference.conference) {
           case 'Eastern':
@@ -91,15 +88,15 @@ export class HomeComponent implements OnInit {
             break;
         }
       });
-      this.conferenceLoaded = true;
+      this.dataService.conferenceLoaded = true;
     });
 
-    this.dataService.get('2017-2018-regular', 'overall_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: LeagueStandings) => {
+    this.dataService.getStandings('overall_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: LeagueStandings) => {
       this.league.standings = standings;
-      this.leagueLoaded = true;
+      this.dataService.leagueLoaded = true;
     });
 
-    this.dataService.get('2017-2018-regular', 'playoff_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: WildCardStandings[]) => {
+    this.dataService.getStandings('playoff_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: WildCardStandings[]) => {
       standings.forEach(conference => {
         switch (conference.conference) {
           case 'Eastern':
@@ -110,7 +107,7 @@ export class HomeComponent implements OnInit {
             break;
         }
       });
-      this.wildCardLoaded = true;
+      this.dataService.wildCardLoaded = true;
     });
   }
 
@@ -138,5 +135,7 @@ export class HomeComponent implements OnInit {
     }
   }
 
-
+  openDialog(entry: StandingsTeamEntry) {
+    this.mdDialog.open(TeamStatsDialogComponent, {data: entry});
+  }
 }

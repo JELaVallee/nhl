@@ -1,12 +1,12 @@
 <md-tab-group>
   <md-tab label="Division">
-    <md-spinner *ngIf="!divisionLoaded" [@fadeInOut]="!divisionLoaded"></md-spinner>
-    <md-grid-list cols="4" [rowHeight]="getRowHeight('division')" *ngIf="divisionLoaded" [@flyInOut]="divisionLoaded" [@fadeInOut]="divisionLoaded">
+    <md-spinner *ngIf="!dataService.divisionLoaded" [@fadeInOut]="!dataService.divisionLoaded"></md-spinner>
+    <md-grid-list cols="4" [rowHeight]="getRowHeight('division')" *ngIf="dataService.divisionLoaded" [@flyInOut]="dataService.divisionLoaded" [@fadeInOut]="dataService.divisionLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
           <md-list-item *ngFor="let entry of league.easternConference.atlanticDivision.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo" [ngClass]="entry.team.cssClass"></div>
@@ -21,7 +21,7 @@
         <md-list>
           <h1 md-subheader>{{league.easternConference.metropolitalDivision.name}}</h1>
           <md-list-item *ngFor="let entry of league.easternConference.metropolitalDivision.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo" [ngClass]="entry.team.cssClass"></div>
@@ -36,7 +36,7 @@
         <md-list>
           <h1 md-subheader>{{league.westernConference.centralDivision.name}}</h1>
           <md-list-item *ngFor="let entry of league.westernConference.centralDivision.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo" [ngClass]="entry.team.cssClass"></div>
@@ -51,7 +51,7 @@
         <md-list>
           <h1 md-subheader>{{league.westernConference.pacificDivision.name}}</h1>
           <md-list-item *ngFor="let entry of league.westernConference.pacificDivision.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo" [ngClass]="entry.team.cssClass"></div>
@@ -64,13 +64,13 @@
     </md-grid-list>
   </md-tab>
   <md-tab label="Conference">
-    <md-spinner *ngIf="!conferenceLoaded" [@fadeInOut]="!conferenceLoaded"></md-spinner>
-    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="conferenceLoaded" [@flyInOut]="conferenceLoaded" [@fadeInOut]="conferenceLoaded">
+    <md-spinner *ngIf="!dataService.conferenceLoaded" [@fadeInOut]="!dataService.conferenceLoaded"></md-spinner>
+    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="dataService.conferenceLoaded" [@flyInOut]="dataService.conferenceLoaded" [@fadeInOut]="dataService.conferenceLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.name}}</h1>
           <md-list-item *ngFor="let entry of league.easternConference.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
@@ -85,7 +85,7 @@
         <md-list>
           <h1 md-subheader>{{league.westernConference.name}}</h1>
           <md-list-item *ngFor="let entry of league.westernConference.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
@@ -98,13 +98,13 @@
     </md-grid-list>
   </md-tab>
   <md-tab label="League">
-    <md-spinner *ngIf="!leagueLoaded" [@fadeInOut]="!leagueLoaded"></md-spinner>
-    <md-grid-list cols="1" [rowHeight]="getRowHeight('league')" *ngIf="leagueLoaded" [@flyInOut]="leagueLoaded" [@fadeInOut]="leagueLoaded">
+    <md-spinner *ngIf="!dataService.leagueLoaded" [@fadeInOut]="!dataService.leagueLoaded"></md-spinner>
+    <md-grid-list cols="1" [rowHeight]="getRowHeight('league')" *ngIf="dataService.leagueLoaded" [@flyInOut]="dataService.leagueLoaded" [@fadeInOut]="dataService.leagueLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.name}}</h1>
           <md-list-item *ngFor="let entry of league.standings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo league wordmark" [ngClass]="entry.team.cssClass"></div>
@@ -117,13 +117,13 @@
     </md-grid-list>
   </md-tab>
   <md-tab label="Wild Card">
-    <md-spinner *ngIf="!wildCardLoaded" [@fadeInOut]="!wildCardLoaded"></md-spinner>
-    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="wildCardLoaded" [@flyInOut]="wildCardLoaded" [@fadeInOut]="wildCardLoaded">
+    <md-spinner *ngIf="!dataService.wildCardLoaded" [@fadeInOut]="!dataService.wildCardLoaded"></md-spinner>
+    <md-grid-list cols="2" [rowHeight]="getRowHeight('conference')" *ngIf="dataService.wildCardLoaded" [@flyInOut]="dataService.wildCardLoaded" [@fadeInOut]="dataService.wildCardLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.name}}</h1>
           <md-list-item *ngFor="let entry of league.easternConference.wildCardStandings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
@@ -138,7 +138,7 @@
         <md-list>
           <h1 md-subheader>{{league.westernConference.name}}</h1>
           <md-list-item *ngFor="let entry of league.westernConference.wildCardStandings?.teams">
-            <button md-button>
+            <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
                   <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>

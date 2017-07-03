@@ -65,11 +65,13 @@ $small-breakpoint-width: 840px;
   .primary-header {
     background: mat-color($primary);
     padding-left: 20px;
+    padding-right: 70px;
     display: flex;
     align-items: center;
 
     @media (max-width: $small-breakpoint-width) {
       padding-left: 0;
+      padding-right: 32px;
     }
 
     h1 {
@@ -78,7 +80,33 @@ $small-breakpoint-width: 840px;
       font-weight: 300;
       margin: 0;
       padding: 50px;
+
+      @media (max-width: $small-breakpoint-width) {
+        padding-left: 0;
+      }
     }
+
+    .mat-select-trigger, .mat-select-value, .mat-select-arrow {
+      color: mat-color($primary, default-contrast, 0.87);
+    }
+
+    .mat-select-trigger {
+      min-width: 160px;
+    }
+
+    .mat-select-underline {
+      background-color: mat-color($primary, default-contrast, 0.87);
+    }
+  }
+
+  .theme-select {
+    .mat-selected {
+      color: mat-color($primary);
+    }
+  }
+
+  .theme-select .mat-option.mat-selected:not(.mat-option-multiple) {
+    background: rgba(mat-color($accent), .25);
   }
 
   .footer {

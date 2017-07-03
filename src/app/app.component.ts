@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import {Component, Renderer2, ViewEncapsulation} from '@angular/core';
 import { Router } from '@angular/router';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
@@ -12,11 +12,12 @@ const SMALL_WIDTH_BREAKPOINT = 840;
 export class AppComponent {
 
   title: string = 'National Hockey League';
-  teamTheme: string = 'dallas-stars';
+  teamTheme: string;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private renderer: Renderer2) {}
 
   ngOnInit() {
+    this.setTheme('dallas-stars');
     this.router.events.subscribe(() => {
       if (this.isScreenSmall()) {
         this.title = 'NHL';
@@ -30,5 +31,6 @@ export class AppComponent {
 
   setTheme(theme: string) {
     this.teamTheme = theme;
+    this.renderer.addClass(document.body, this.teamTheme);
   }
 }

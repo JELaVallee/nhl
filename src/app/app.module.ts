@@ -10,7 +10,7 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
-import { ThemepickerComponent } from './components/themepicker/themepicker.component';
+import { ThemepickerComponent } from './components/shared/themepicker/themepicker.component';
 import { WindowRef } from './components/shared/window.ref';
 import { HistoryComponent } from './components/history/history.component';
 import { HeaderComponent } from './components/shared/header/header.component';
@@ -20,6 +20,7 @@ import { AppRequestOptions } from './components/shared/request-options';
 import { DataService } from './components/shared/data/data.service';
 import { LeagueService } from './components/shared/data/league.service';
 import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
+import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/team-stats-dialog.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { SidenavComponent } from './components/shared/sidenav/sidenav.component'
     HistoryComponent,
     HeaderComponent,
     FooterComponent,
-    SidenavComponent
+    SidenavComponent,
+    TeamStatsDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -48,6 +50,7 @@ import { SidenavComponent } from './components/shared/sidenav/sidenav.component'
     DataService,
     LeagueService
   ],
+  entryComponents: [ TeamStatsDialogComponent ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
