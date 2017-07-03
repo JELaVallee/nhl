@@ -29,7 +29,7 @@ export class DataService {
   standingsSeason$: Observable<string>;
   private base: string = 'https://www.mysportsfeeds.com/api/feed/pull/nhl/';
   private format: string = '.json?';
-  private currentStandingsSeason: string = '2017-2018-regular';
+  private currentStandingsSeason: string = '2017-2018';
   private standingsSeasonSource: BehaviorSubject<string> = new BehaviorSubject<string>(this.currentStandingsSeason);
 
   constructor(private http: Http) {
@@ -59,7 +59,7 @@ export class DataService {
       for (let p in params) {
         urlSearchParams.set(p, params[p]);
       }
-      return this.http.get(`${this.base}${this.selectedSeason}/${feed}${this.format}`, { params: urlSearchParams });
+      return this.http.get(`${this.base}${this.selectedSeason}-regular/${feed}${this.format}`, { params: urlSearchParams });
     }).map((response: Response) => {
       if (response.json()) {
         if (response.json().divisionteamstandings) {
