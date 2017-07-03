@@ -30,6 +30,7 @@ export class AppComponent {
   }
 
   setTheme(theme: string) {
+    this.renderer.removeClass(document.body, this.teamTheme);
     this.teamTheme = theme;
     this.renderer.addClass(document.body, this.teamTheme);
   }
