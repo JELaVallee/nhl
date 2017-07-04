@@ -28,7 +28,7 @@ export class HeaderComponent {
     { name: '2008-2009' },
     { name: '2007-2008' }
   ];
-  selectedSeason: SeasonOption = this.seasons[0];
+  selectedSeason: string = this.seasons[0].name;
 
   constructor(private pageTitleService: PageTitleService, private dataService: DataService) { }
 

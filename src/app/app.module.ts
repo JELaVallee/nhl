@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpModule, RequestOptions } from '@angular/http';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -39,6 +40,7 @@ import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/
     BrowserAnimationsModule,
     HttpModule,
     CommonModule,
+    FormsModule,
     MaterialModule,
     NgxChartsModule,
     AppRoutingModule

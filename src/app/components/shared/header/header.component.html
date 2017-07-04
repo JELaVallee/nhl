@@ -7,7 +7,7 @@
 
   <span class="spacer"></span>
 
-  <md-select placeholder="Season" panelClass="theme-select" (change)="selectSeason($event)">
+  <md-select placeholder="Season" panelClass="theme-select" (change)="selectSeason($event)" [(ngModel)]="selectedSeason">
     <md-option *ngFor="let season of seasons" [value]="season.name">{{season.name}}</md-option>
   </md-select>
 </div>
