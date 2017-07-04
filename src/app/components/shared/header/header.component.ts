@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MdSelectChange } from '@angular/material';
 import { PageTitleService } from '../page-title/page-title';
-import { DataService } from '../data/data.service';
+import { SeasonService } from '../services/season.service';
 
 interface SeasonOption {
   name: string
@@ -30,14 +30,14 @@ export class HeaderComponent {
   ];
   selectedSeason: string = this.seasons[0].name;
 
-  constructor(private pageTitleService: PageTitleService, private dataService: DataService) { }
+  constructor(private pageTitleService: PageTitleService, private seasonService: SeasonService) { }
 
   getTitle() {
     return this.pageTitleService.title;
   }
 
   selectSeason(event: MdSelectChange) {
-    this.dataService.selectedSeason = event.value;
+    this.seasonService.season = event.value;
   }
 
 }

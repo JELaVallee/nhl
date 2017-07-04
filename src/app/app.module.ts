@@ -18,10 +18,11 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { PageTitleService } from './components/shared/page-title/page-title';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { AppRequestOptions } from './components/shared/request-options';
-import { DataService } from './components/shared/data/data.service';
-import { LeagueService } from './components/shared/data/league.service';
+import { DataService } from './components/shared/services/data.service';
+import { LeagueService } from './components/shared/services/league.service';
 import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
 import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/team-stats-dialog.component';
+import { SeasonService } from './components/shared/services/season.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +51,8 @@ import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/
     WindowRef,
     PageTitleService,
     DataService,
-    LeagueService
+    LeagueService,
+    SeasonService
   ],
   entryComponents: [ TeamStatsDialogComponent ],
   bootstrap: [AppComponent]

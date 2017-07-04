@@ -35,6 +35,21 @@
   }
 }
 
+.phoenix-coyotes {
+  background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/phx-primary.png') center no-repeat;
+  background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/phx-wordmark.png') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/phx-accent.png') center no-repeat;
+    background-size: cover;
+  }
+}
+
 .boston-bruins {
   background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-primary.png') center no-repeat;
   background-size: cover;
@@ -47,6 +62,10 @@
   &.accent {
     background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -54,9 +73,17 @@
   background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/buf-wordmark.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/buf-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
@@ -122,6 +149,10 @@
   &.accent {
     background: mat-color($colorado-avalanche-accent, default) url('/assets/logos/col-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($colorado-avalanche-accent, default) url('/assets/logos/col-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -137,6 +168,10 @@
   &.accent {
     background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -144,14 +179,26 @@
   background: mat-color($dallas-stars-warn, default) url('/assets/logos/dal-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($dallas-stars-warn, default) url('/assets/logos/dal-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/dal-wordmark.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/dal-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
     background: mat-color($dallas-stars-primary, default) url('/assets/logos/dal-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($dallas-stars-primary, default) url('/assets/logos/dal-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -174,9 +221,17 @@
   background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/edm-wordmark-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/edm-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
@@ -189,14 +244,26 @@
   background: mat-color($florida-panthers-primary, default) url('/assets/logos/fla-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($florida-panthers-primary, default) url('/assets/logos/fla-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/fla-wordmark-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/fla-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
     background: mat-color($florida-panthers-warn, default) url('/assets/logos/fla-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($florida-panthers-warn, default) url('/assets/logos/fla-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -204,14 +271,26 @@
   background: mat-color($losangeles-kings-primary, default) url('/assets/logos/lak-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($losangeles-kings-primary, default) url('/assets/logos/lak-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/lak-wordmark.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/lak-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
     background: url('/assets/logos/lak-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/lak-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -219,14 +298,26 @@
   background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/min-wordmark.gif') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/min-wordmark-old.gif') center no-repeat;
+    }
   }
 
   &.accent {
     background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -249,9 +340,26 @@
   background: mat-color($nashville-predators-primary, default) url('/assets/logos/nsh-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($nashville-predators-primary, default) url('/assets/logos/nsh-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/nsh-wordmark.gif') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/nsh-wordmark-old.gif') center no-repeat;
+    }
+  }
+
+  &.accent {
+    background: url('/assets/logos/nsh-accent.png') center no-repeat;
+    background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/nsh-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -268,6 +376,10 @@
 .newyork-islanders {
   background: mat-color($newyork-islanders-primary, default) url('/assets/logos/nyi-primary.png') center no-repeat;
   background-size: cover;
+
+  &.old {
+    background: mat-color($newyork-islanders-primary, default) url('/assets/logos/nyi-primary-old.png') center no-repeat;
+  }
 
   &.wordmark {
     background: url('/assets/logos/nyi-wordmark.gif') center no-repeat;
@@ -298,6 +410,10 @@
 .ottawa-senators {
   background: mat-color($ottawa-senators-primary, default) url('/assets/logos/ott-primary.png') center no-repeat;
   background-size: cover;
+
+  &.old {
+    background: mat-color($ottawa-senators-primary, default) url('/assets/logos/ott-primary-old.png') center no-repeat;
+  }
 
   &.wordmark {
     background: url('/assets/logos/ott-wordmark-extra.gif') center no-repeat;
@@ -344,14 +460,26 @@
   background: mat-color($sanjose-sharks-warn, default) url('/assets/logos/sjs-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($sanjose-sharks-warn, default) url('/assets/logos/sjs-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/sjs-wordmark.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/sjs-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
     background: mat-color($sanjose-sharks-accent, default) url('/assets/logos/sjs-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: mat-color($sanjose-sharks-accent, default) url('/assets/logos/sjs-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -362,6 +490,10 @@
   &.wordmark {
     background: url('/assets/logos/stl-wordmark.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/stl-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
@@ -374,14 +506,26 @@
   background: mat-color($tampabay-lightning-accent, default) url('/assets/logos/tbl-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($tampabay-lightning-accent, default) url('/assets/logos/tbl-primary-old.gif') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/tbl-wordmark.gif') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/tbl-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
     background: url('/assets/logos/tbl-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/tbl-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -389,14 +533,26 @@
   background: mat-color($toronto-mapleleafs-accent, default) url('/assets/logos/tor-primary.png') center no-repeat;
   background-size: cover;
 
+  &.old {
+    background: mat-color($toronto-mapleleafs-accent, default) url('/assets/logos/tor-primary-old.png') center no-repeat;
+  }
+
   &.wordmark {
     background: url('/assets/logos/tor-wordmark.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/tor-wordmark-old.png') center no-repeat;
+    }
   }
 
   &.accent {
     background: url('/assets/logos/tor-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/tor-accent-old.png') center no-repeat;
+    }
   }
 }
 
@@ -412,6 +568,10 @@
   &.accent {
     background: url('/assets/logos/van-accent.png') center no-repeat;
     background-size: cover;
+
+    &.old {
+      background: url('/assets/logos/van-accent-old.gif') center no-repeat;
+    }
   }
 }
 
@@ -456,6 +616,21 @@
 
   &.accent {
     background: mat-color($winnipeg-jets-accent, default) url('/assets/logos/wpg-accent.png') center no-repeat;
+    background-size: cover;
+  }
+}
+
+.atlanta-thrashers {
+  background: mat-color($atlanta-thrashers-warn, default) url('/assets/logos/atl-primary.gif') center no-repeat;
+  background-size: cover;
+
+  &.wordmark {
+    background: url('/assets/logos/atl-wordmark.gif') center no-repeat;
+    background-size: cover;
+  }
+
+  &.accent {
+    background: mat-color($atlanta-thrashers-warn, default) url('/assets/logos/atl-accent.gif') center no-repeat;
     background-size: cover;
   }
 }

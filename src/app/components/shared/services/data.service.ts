@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
-import {ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings} from './data-types';
+import { ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings } from './data-types';
 import {
   ConferenceStandingsResponse, DivisionStandingsResponse, LeagueStandingsResponse, PlayoffStandingsResponse,
   StandingsResponseTeamEntry
 } from './response-interfaces';
+import { SeasonService } from './season.service';
 
 export interface Params {
   team?: string,
@@ -26,24 +26,10 @@ export class DataService {
   conferenceLoaded: boolean = false;
   leagueLoaded: boolean = false;
   wildCardLoaded: boolean = false;
-  standingsSeason$: Observable<string>;
   private base: string = 'https://www.mysportsfeeds.com/api/feed/pull/nhl/';
   private format: string = '.json?';
-  private currentStandingsSeason: string = '2017-2018';
-  private standingsSeasonSource: BehaviorSubject<string> = new BehaviorSubject<string>(this.currentStandingsSeason);
 
-  constructor(private http: Http) {
-    this.standingsSeason$ = new Observable(fn => this.standingsSeasonSource.subscribe(fn));
-  }
-
-  set selectedSeason(value: string) {
-    this.currentStandingsSeason = value;
-    this.standingsSeasonSource.next(this.currentStandingsSeason);
-  }
-
-  get selectedSeason(): string {
-    return this.currentStandingsSeason;
-  }
+  constructor(private http: Http, private seasonService: SeasonService) {}
 
   unLoad() {
     this.divisionLoaded = false;
@@ -53,13 +39,13 @@ export class DataService {
   }
 
   getStandings(feed: string, params: Params): Observable<DivisionStandings[] | ConferenceStandings[] | LeagueStandings | WildCardStandings[]> {
-    return this.standingsSeason$.switchMap(season => {
+    return this.seasonService.standingsSeason$.switchMap(season => {
       this.unLoad();
       let urlSearchParams: URLSearchParams = new URLSearchParams();
       for (let p in params) {
         urlSearchParams.set(p, params[p]);
       }
-      return this.http.get(`${this.base}${this.selectedSeason}-regular/${feed}${this.format}`, { params: urlSearchParams });
+      return this.http.get(`${this.base}${season}-regular/${feed}${this.format}`, { params: urlSearchParams });
     }).map((response: Response) => {
       if (response.json()) {
         if (response.json().divisionteamstandings) {

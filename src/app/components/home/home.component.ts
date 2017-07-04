@@ -8,13 +8,14 @@ import {
 } from '@angular/animations';
 import { MdDialog } from '@angular/material';
 import { PageTitleService } from '../shared/page-title/page-title';
-import { DataService } from '../shared/data/data.service';
+import { DataService } from '../shared/services/data.service';
 import {
   ConferenceStandings, DivisionStandings, League, LeagueStandings, StandingsTeamEntry,
   WildCardStandings
-} from '../shared/data/data-types';
-import { LeagueService } from '../shared/data/league.service';
-import {TeamStatsDialogComponent} from "../shared/team-stats-dialog/team-stats-dialog.component";
+} from '../shared/services/data-types';
+import { LeagueService } from '../shared/services/league.service';
+import { TeamStatsDialogComponent } from '../shared/team-stats-dialog/team-stats-dialog.component';
+import { SeasonService } from '../shared/services/season.service';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -54,12 +55,12 @@ export class HomeComponent implements OnInit {
 
   league: League;
 
-  constructor(public dataService: DataService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
+  constructor(public dataService: DataService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog, private seasonService: SeasonService) {}
 
   ngOnInit() {
     this.pageTitleService.title = 'Standings';
 
-    this.league = this.leagueService.buildLeague();
+    this.leagueService.buildLeague().subscribe(league => this.league = league);
 
     this.dataService.getStandings('division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe((standings: DivisionStandings[]) => {
       standings.forEach(division => {
@@ -68,13 +69,22 @@ export class HomeComponent implements OnInit {
             this.league.easternConference.atlanticDivision.standings = division;
             break;
           case 'Eastern/Metropolitan':
-            this.league.easternConference.metropolitalDivision.standings = division;
+            this.league.easternConference['metropolitanDivision'].standings = division;
+            break;
+          case 'Eastern/Northeast':
+            this.league.easternConference['northeastDivision'].standings = division;
+            break;
+          case 'Eastern/Southeast':
+            this.league.easternConference['southeastDivision'].standings = division;
             break;
           case 'Western/Central':
             this.league.westernConference.centralDivision.standings = division;
             break;
           case 'Western/Pacific':
             this.league.westernConference.pacificDivision.standings = division;
+            break;
+          case 'Western/Northwest':
+            this.league.westernConference['northwestDivision'].standings = division;
             break;
         }
       });

@@ -322,3 +322,13 @@ $winnipeg-jets:   mat-light-theme($winnipeg-jets-primary, $winnipeg-jets-accent,
   @include angular-material-theme($winnipeg-jets);
   @include material-docs-app-theme($winnipeg-jets);
 }
+
+$atlanta-thrashers-primary: mat-palette($mat-thrashersnavy);
+$atlanta-thrashers-accent:  mat-palette($mat-copper);
+$atlanta-thrashers-warn:    mat-palette($mat-thrashersblue);
+$atlanta-thrashers:   mat-light-theme($atlanta-thrashers-primary, $atlanta-thrashers-accent, $atlanta-thrashers-warn);
+
+.atlanta-thrashers {
+  @include angular-material-theme($atlanta-thrashers);
+  @include material-docs-app-theme($atlanta-thrashers);
+}

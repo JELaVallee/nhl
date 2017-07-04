@@ -1,7 +1,7 @@
 <md-tab-group>
   <md-tab label="Division">
     <md-spinner *ngIf="!dataService.divisionLoaded" [@loaderInOut]="!dataService.divisionLoaded"></md-spinner>
-    <md-grid-list cols="4" [rowHeight]="getRowHeight('division')" *ngIf="dataService.divisionLoaded" [@standingsInOut]="dataService.divisionLoaded">
+    <md-grid-list cols="4" [rowHeight]="getRowHeight('division')" *ngIf="dataService.divisionLoaded && !seasonService.oldLeagueFormat()" [@standingsInOut]="dataService.divisionLoaded">
       <md-grid-tile>
         <md-list>
           <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
@@ -19,8 +19,8 @@
 
       <md-grid-tile>
         <md-list>
-          <h1 md-subheader>{{league.easternConference.metropolitalDivision.name}}</h1>
-          <md-list-item *ngFor="let entry of league.easternConference.metropolitalDivision.standings?.teams">
+          <h1 md-subheader>{{league.easternConference['metropolitanDivision'].name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference['metropolitanDivision'].standings?.teams">
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
@@ -36,6 +36,97 @@
         <md-list>
           <h1 md-subheader>{{league.westernConference.centralDivision.name}}</h1>
           <md-list-item *ngFor="let entry of league.westernConference.centralDivision.standings?.teams">
+            <button md-button (click)="openDialog(entry)">
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.westernConference.pacificDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.westernConference.pacificDivision.standings?.teams">
+            <button md-button (click)="openDialog(entry)">
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+    </md-grid-list>
+    <md-grid-list cols="6" [rowHeight]="getRowHeight('division')" *ngIf="dataService.divisionLoaded && seasonService.oldLeagueFormat()" [@standingsInOut]="dataService.divisionLoaded">
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.easternConference.atlanticDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference.atlanticDivision.standings?.teams">
+            <button md-button (click)="openDialog(entry)">
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.easternConference['northeastDivision'].name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference['northeastDivision'].standings?.teams">
+            <button md-button (click)="openDialog(entry)">
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.easternConference['southeastDivision'].name}}</h1>
+          <md-list-item *ngFor="let entry of league.easternConference['southeastDivision'].standings?.teams">
+            <button md-button (click)="openDialog(entry)">
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.westernConference.centralDivision.name}}</h1>
+          <md-list-item *ngFor="let entry of league.westernConference.centralDivision.standings?.teams">
+            <button md-button (click)="openDialog(entry)">
+              <md-card class="list-card">
+                <md-card-content>
+                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                </md-card-content>
+              </md-card>
+            </button>
+          </md-list-item>
+        </md-list>
+      </md-grid-tile>
+
+      <md-grid-tile>
+        <md-list>
+          <h1 md-subheader>{{league.westernConference['northwestDivision'].name}}</h1>
+          <md-list-item *ngFor="let entry of league.westernConference['northwestDivision'].standings?.teams">
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
