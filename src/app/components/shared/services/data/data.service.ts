@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings } from '../../data/league';
+import { ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings } from '../../data';
 import {
   ConferenceStandingsResponse, DivisionStandingsResponse, LeagueStandingsResponse, PlayoffStandingsResponse,
   StandingsResponseTeamEntry
