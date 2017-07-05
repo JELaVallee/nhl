@@ -62,22 +62,22 @@ export class HomeComponent implements OnInit {
 
     this.leagueService.buildLeague().subscribe(league => this.league = league);
 
-    this.dataService.getStandings('division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe((standings: DivisionStandings[]) => {
+    this.dataService.getStandings('division_team_standings', {playerstats:'none'}).subscribe((standings: DivisionStandings[]) => {
       this.setDivisionStandings(standings);
       this.dataService.divisionLoaded = true;
     });
 
-    this.dataService.getStandings('conference_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: ConferenceStandings[]) => {
+    this.dataService.getStandings('conference_team_standings', {playerstats: 'none'}).subscribe((standings: ConferenceStandings[]) => {
       this.setConferenceStandings(standings);
       this.dataService.conferenceLoaded = true;
     });
 
-    this.dataService.getStandings('overall_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: LeagueStandings) => {
+    this.dataService.getStandings('overall_team_standings', {playerstats: 'none'}).subscribe((standings: LeagueStandings) => {
       this.league.standings = standings;
       this.dataService.leagueLoaded = true;
     });
 
-    this.dataService.getStandings('playoff_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: WildCardStandings[]) => {
+    this.dataService.getStandings('playoff_team_standings', {playerstats: 'none'}).subscribe((standings: WildCardStandings[]) => {
       this.setConferenceStandings(standings, true);
       this.dataService.wildCardLoaded = true;
     });

@@ -117,13 +117,43 @@ export class StandingsService {
     if (entry.team.City === 'Arizona' && this.seasonService.phoenixSeason()) {
       return {
         rank: parseInt(entry.rank),
-        team: new Team('Phoenix', entry.team.Name, 'PHX')
+        team: new Team('Phoenix', entry.team.Name, 'PHX'),
+        stats: this.mapStats(entry)
       };
     }
     return {
       rank: parseInt(entry.rank),
-      team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation)
+      team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation),
+      stats: this.mapStats(entry)
     };
+  }
+
+  private mapStats(entry: StandingsResponseTeamEntry) {
+    return {
+      gamesPlayed: { abbreviation: entry.stats.GamesPlayed['@abbreviation'], value: entry.stats.GamesPlayed['#text']},
+      faceoffLosses: { abbreviation: entry.stats.stats.FaceoffLosses['@abbreviation'], value: entry.stats.stats.FaceoffLosses['#text']},
+      faceoffPercent: { abbreviation: entry.stats.stats.FaceoffPercent['@abbreviation'], value: entry.stats.stats.FaceoffWins['#text']},
+      faceoffWins: { abbreviation: entry.stats.stats.FaceoffWins['@abbreviation'], value: entry.stats.stats.FaceoffWins['#text']},
+      goalsAgainst: { abbreviation: entry.stats.stats.GoalsAgainst['@abbreviation'], value: entry.stats.stats.GoalsAgainst['#text']},
+      goalsFor: { abbreviation: entry.stats.stats.GoalsFor['@abbreviation'], value: entry.stats.stats.GoalsFor['#text']},
+      hits: { abbreviation: entry.stats.stats.Hits['@abbreviation'], value: entry.stats.stats.Hits['#text']},
+      losses: { abbreviation: entry.stats.stats.Losses['@abbreviation'], value: entry.stats.stats.Losses['#text']},
+      overtimeLosses: { abbreviation: entry.stats.stats.OvertimeLosses['@abbreviation'], value: entry.stats.stats.OvertimeLosses['#text']},
+      overtimeWins: { abbreviation: entry.stats.stats.OvertimeWins['@abbreviation'], value: entry.stats.stats.OvertimeWins['#text']},
+      penalties: { abbreviation: entry.stats.stats.Penalties['@abbreviation'], value: entry.stats.stats.Penalties['#text']},
+      penaltyKillGoalsAllowed: { abbreviation: entry.stats.stats.PenaltyKillGoalsAllowed['@abbreviation'], value: entry.stats.stats.PenaltyKillGoalsAllowed['#text']},
+      penaltyKillPercent: { abbreviation: entry.stats.stats.PenaltyKillPercent['@abbreviation'], value: entry.stats.stats.PenaltyKillPercent['#text']},
+      penaltyKills: { abbreviation: entry.stats.stats.PenaltyKills['@abbreviation'], value: entry.stats.stats.PenaltyKills['#text']},
+      penaltyMinutes: { abbreviation: entry.stats.stats.PenaltyMinutes['@abbreviation'], value: entry.stats.stats.PenaltyMinutes['#text']},
+      points: { abbreviation: entry.stats.stats.Points['@abbreviation'], value: entry.stats.stats.Points['#text']},
+      powerplayGoals: { abbreviation: entry.stats.stats.PowerplayGoals['@abbreviation'], value: entry.stats.stats.PowerplayGoals['#text']},
+      powerplayPercent: { abbreviation: entry.stats.stats.PowerplayPercent['@abbreviation'], value: entry.stats.stats.PowerplayPercent['#text']},
+      powerplays: { abbreviation: entry.stats.stats.Powerplays['@abbreviation'], value: entry.stats.stats.Powerplays['#text']},
+      shorthandedGoalsAgainst: { abbreviation: entry.stats.stats.ShorthandedGoalsAgainst['@abbreviation'], value: entry.stats.stats.ShorthandedGoalsAgainst['#text']},
+      shorthandedGoalsFor: { abbreviation: entry.stats.stats.ShorthandedGoalsFor['@abbreviation'], value: entry.stats.stats.ShorthandedGoalsFor['#text']},
+      shots: { abbreviation: entry.stats.stats.Shots['@abbreviation'], value: entry.stats.stats.Shots['#text']},
+      wins: { abbreviation: entry.stats.stats.Wins['@abbreviation'], value: entry.stats.stats.Wins['#text']},
+    }
   }
 
 }

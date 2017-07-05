@@ -6,6 +6,36 @@ export interface StandingsResponseTeamEntry {
     Abbreviation: string
   },
   rank: string,
+  stats: {
+    GamesPlayed: {
+      "#text": string,
+      "@abbreviation": string
+    },
+    stats: {
+      FaceoffLosses: { "#text": string, "@abbreviation": string },
+      FaceoffPercent: { "#text": string, "@abbreviation": string },
+      FaceoffWins: { "#text": string, "@abbreviation": string },
+      GoalsAgainst: { "#text": string, "@abbreviation": string },
+      GoalsFor: { "#text": string, "@abbreviation": string },
+      Hits: { "#text": string, "@abbreviation": string },
+      Losses: { "#text": string, "@abbreviation": string },
+      OvertimeLosses: { "#text": string, "@abbreviation": string },
+      OvertimeWins: { "#text": string, "@abbreviation": string },
+      Penalties: { "#text": string, "@abbreviation": string },
+      PenaltyKillGoalsAllowed: { "#text": string, "@abbreviation": string },
+      PenaltyKillPercent: { "#text": string, "@abbreviation": string },
+      PenaltyKills: { "#text": string, "@abbreviation": string },
+      PenaltyMinutes: { "#text": string, "@abbreviation": string },
+      Points: { "#text": string, "@abbreviation": string },
+      PowerplayGoals: { "#text": string, "@abbreviation": string },
+      PowerplayPercent: { "#text": string, "@abbreviation": string },
+      Powerplays: { "#text": string, "@abbreviation": string },
+      ShorthandedGoalsAgainst: { "#text": string, "@abbreviation": string },
+      ShorthandedGoalsFor: { "#text": string, "@abbreviation": string },
+      Shots: { "#text": string, "@abbreviation": string },
+      Wins: { "#text": string, "@abbreviation": string },
+    }
+  }
 }
 
 export interface DivisionStandingsResponse {
