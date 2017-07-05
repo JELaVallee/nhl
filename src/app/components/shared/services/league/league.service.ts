@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { EasternConference, League, OldEasternConference, OldWesternConference, WesternConference } from './data-types';
-import { SeasonService } from './season.service';
+import { EasternConference, League, OldEasternConference, OldWesternConference, WesternConference } from '../../data';
+import { SeasonService } from '../season/season.service';
 
 @Injectable()
 export class LeagueService {

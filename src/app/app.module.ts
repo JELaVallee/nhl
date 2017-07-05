@@ -12,17 +12,18 @@ import { AppRoutingModule } from './app.routing';
 import { HomeComponent } from './components/home/home.component';
 import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ThemepickerComponent } from './components/shared/themepicker/themepicker.component';
-import { WindowRef } from './components/shared/window.ref';
+import { WindowRef } from './components/shared/services/window.ref';
 import { HistoryComponent } from './components/history/history.component';
 import { HeaderComponent } from './components/shared/header/header.component';
-import { PageTitleService } from './components/shared/page-title/page-title';
+import { PageTitleService } from './components/shared/services/page-title/page-title';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { AppRequestOptions } from './components/shared/request-options';
-import { DataService } from './components/shared/services/data.service';
-import { LeagueService } from './components/shared/services/league.service';
+import { DataService } from './components/shared/services/data/data.service';
+import { LeagueService } from './components/shared/services/league/league.service';
 import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
 import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/team-stats-dialog.component';
-import { SeasonService } from './components/shared/services/season.service';
+import { SeasonService } from './components/shared/services/season/season.service';
+import { DocumentRef } from './components/shared/services/document.ref';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { SeasonService } from './components/shared/services/season.service';
   providers: [
     { provide: RequestOptions, useClass: AppRequestOptions },
     WindowRef,
+    DocumentRef,
     PageTitleService,
     DataService,
     LeagueService,

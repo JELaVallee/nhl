@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
-import { WindowRef } from '../window.ref';
+import { WindowRef } from '../services/window.ref';
 
 @Component({
   selector: 'app-navbar',

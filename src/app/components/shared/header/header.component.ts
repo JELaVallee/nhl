@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MdSelectChange } from '@angular/material';
-import { PageTitleService } from '../page-title/page-title';
-import { SeasonService } from '../services/season.service';
+import { PageTitleService } from '../services/page-title/page-title';
+import { SeasonService } from '../services/season/season.service';
 
 interface SeasonOption {
   name: string

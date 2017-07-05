@@ -1,54 +1,6 @@
-import { ATLANTA_SEASONS } from './season.service';
-
-export interface StandingsTeamEntry {
-  rank: number,
-  team: Team
-}
-
-export class DivisionStandings {
-  lastUpdated: Date;
-  division: string;
-  teams: StandingsTeamEntry[];
-}
-
-export class ConferenceStandings {
-  lastUpdated: Date;
-  conference: string;
-  teams: StandingsTeamEntry[];
-}
-
-export class WildCardStandings {
-  lastUpdated: Date;
-  conference: string;
-  teams: StandingsTeamEntry[];
-}
-
-export class LeagueStandings {
-  lastUpdated: Date;
-  teams: StandingsTeamEntry[];
-}
-
-export class Team {
-  cssClass: string;
-  city: string;
-  name: string;
-  abbreviation: string;
-  logoUrl: string;
-  accentLogoUrl: string;
-  wordmarkUrl: string;
-  wordmarkAccentUrl: string;
-
-  constructor(city: string, name: string, abbreviation: string, primaryLogoUrl?: string, accentLogoUrl?: string, wordmarkUrl?: string, wordmarkAccentUrl?: string) {
-    this.cssClass = `${city.toLowerCase().replace(/[\s.]/g, '')}-${name.toLowerCase().replace(/[\s.]/g, '')}`;
-    this.city = city;
-    this.name = name;
-    this.abbreviation = abbreviation;
-    this.logoUrl = primaryLogoUrl;
-    this.accentLogoUrl = accentLogoUrl;
-    this.wordmarkUrl = wordmarkUrl;
-    this.wordmarkAccentUrl = wordmarkAccentUrl;
-  }
-}
+import { ATLANTA_SEASONS } from '../services/season/season.service';
+import { DivisionStandings } from './standings';
+import { Team } from './team';
 
 export class Division {
   name: string;
@@ -200,43 +152,4 @@ export class OldPacificDivision extends Division {
   get teams() {
     return [this.anaheimDucks, this.dallasStars, this.losAngelesKings, this.phoenixCoyotes, this.sanJoseSharks];
   }
-}
-
-export class Conference {
-  name: string;
-  standings: ConferenceStandings;
-  wildCardStandings: WildCardStandings;
-}
-
-export class EasternConference extends Conference {
-  name: string = 'Eastern';
-  atlanticDivision: AtlanticDivision = new AtlanticDivision();
-  metropolitanDivision: MetropolitanDivision = new MetropolitanDivision();
-}
-
-export class OldEasternConference extends Conference {
-  name: string = 'Eastern';
-  atlanticDivision: OldAtlanticDivision = new OldAtlanticDivision();
-  northeastDivision: OldNortheastDivision = new OldNortheastDivision();
-  southeastDivision: OldSoutheastDivision = new OldSoutheastDivision();
-}
-
-export class WesternConference extends Conference {
-  name: string = 'Western';
-  centralDivision: CentralDivision = new CentralDivision();
-  pacificDivision: PacificDivision = new PacificDivision();
-}
-
-export class OldWesternConference extends Conference {
-  name: string = 'Western';
-  centralDivision: OldCentralDivision = new OldCentralDivision();
-  northwestDivision: OldNorthwestDivision = new OldNorthwestDivision();
-  pacificDivision: OldPacificDivision = new OldPacificDivision();
-}
-
-export class League {
-  name: string = 'National Hockey League';
-  standings: LeagueStandings;
-  easternConference: EasternConference | OldEasternConference;
-  westernConference: WesternConference | OldWesternConference;
 }

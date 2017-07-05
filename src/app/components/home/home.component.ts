@@ -7,15 +7,15 @@ import {
   transition
 } from '@angular/animations';
 import { MdDialog } from '@angular/material';
-import { PageTitleService } from '../shared/page-title/page-title';
-import { DataService } from '../shared/services/data.service';
+import { PageTitleService } from '../shared/services/page-title/page-title';
+import { DataService } from '../shared/services/data/data.service';
 import {
   ConferenceStandings, DivisionStandings, League, LeagueStandings, StandingsTeamEntry,
   WildCardStandings
-} from '../shared/services/data-types';
-import { LeagueService } from '../shared/services/league.service';
+} from '../shared/data';
+import { LeagueService } from '../shared/services/league/league.service';
 import { TeamStatsDialogComponent } from '../shared/team-stats-dialog/team-stats-dialog.component';
-import { SeasonService } from '../shared/services/season.service';
+import { SeasonService } from '../shared/services/season/season.service';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
