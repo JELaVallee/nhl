@@ -8,7 +8,7 @@ import {
 } from '@angular/animations';
 import { MdDialog } from '@angular/material';
 import { PageTitleService } from '../shared/services/page-title/page-title';
-import { DataService } from '../shared/services/data/data.service';
+import { StandingsService } from '../shared/services/standings/standings.service';
 import {
   ConferenceStandings, DivisionStandings, League, LeagueStandings, StandingsTeamEntry,
   WildCardStandings
@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
   league: League;
 
-  constructor(public dataService: DataService, public seasonService: SeasonService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
+  constructor(public dataService: StandingsService, public seasonService: SeasonService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
 
   ngOnInit() {
     this.pageTitleService.title = 'Standings';
@@ -63,45 +63,12 @@ export class HomeComponent implements OnInit {
     this.leagueService.buildLeague().subscribe(league => this.league = league);
 
     this.dataService.getStandings('division_team_standings', {playerstats:'none', teamstats: 'none'}).subscribe((standings: DivisionStandings[]) => {
-      standings.forEach(division => {
-        switch (division.division) {
-          case 'Eastern/Atlantic':
-            this.league.easternConference.atlanticDivision.standings = division;
-            break;
-          case 'Eastern/Metropolitan':
-            this.league.easternConference['metropolitanDivision'].standings = division;
-            break;
-          case 'Eastern/Northeast':
-            this.league.easternConference['northeastDivision'].standings = division;
-            break;
-          case 'Eastern/Southeast':
-            this.league.easternConference['southeastDivision'].standings = division;
-            break;
-          case 'Western/Central':
-            this.league.westernConference.centralDivision.standings = division;
-            break;
-          case 'Western/Pacific':
-            this.league.westernConference.pacificDivision.standings = division;
-            break;
-          case 'Western/Northwest':
-            this.league.westernConference['northwestDivision'].standings = division;
-            break;
-        }
-      });
+      this.setDivisionStandings(standings);
       this.dataService.divisionLoaded = true;
     });
 
     this.dataService.getStandings('conference_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: ConferenceStandings[]) => {
-      standings.forEach(conference => {
-        switch (conference.conference) {
-          case 'Eastern':
-            this.league.easternConference.standings = conference;
-            break;
-          case 'Western':
-            this.league.westernConference.standings = conference;
-            break;
-        }
-      });
+      this.setConferenceStandings(standings);
       this.dataService.conferenceLoaded = true;
     });
 
@@ -111,22 +78,9 @@ export class HomeComponent implements OnInit {
     });
 
     this.dataService.getStandings('playoff_team_standings', {playerstats: 'none', teamstats: 'none'}).subscribe((standings: WildCardStandings[]) => {
-      standings.forEach(conference => {
-        switch (conference.conference) {
-          case 'Eastern':
-            this.league.easternConference.wildCardStandings = conference;
-            break;
-          case 'Western':
-            this.league.westernConference.wildCardStandings = conference;
-            break;
-        }
-      });
+      this.setConferenceStandings(standings, true);
       this.dataService.wildCardLoaded = true;
     });
-  }
-
-  isScreenSmall(): boolean {
-    return window.matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`).matches;
   }
 
   getRowHeight(type: string): string {
@@ -160,5 +114,58 @@ export class HomeComponent implements OnInit {
 
   openDialog(entry: StandingsTeamEntry) {
     this.mdDialog.open(TeamStatsDialogComponent, {data: entry});
+  }
+
+  private setDivisionStandings(standings: DivisionStandings[]) {
+    standings.forEach(division => {
+      switch (division.division) {
+        case 'Eastern/Atlantic':
+          this.league.easternConference.atlanticDivision.standings = division;
+          break;
+        case 'Eastern/Metropolitan':
+          this.league.easternConference['metropolitanDivision'].standings = division;
+          break;
+        case 'Eastern/Northeast':
+          this.league.easternConference['northeastDivision'].standings = division;
+          break;
+        case 'Eastern/Southeast':
+          this.league.easternConference['southeastDivision'].standings = division;
+          break;
+        case 'Western/Central':
+          this.league.westernConference.centralDivision.standings = division;
+          break;
+        case 'Western/Pacific':
+          this.league.westernConference.pacificDivision.standings = division;
+          break;
+        case 'Western/Northwest':
+          this.league.westernConference['northwestDivision'].standings = division;
+          break;
+      }
+    });
+  }
+
+  private setConferenceStandings(standings: ConferenceStandings[], wildCard: boolean = false) {
+    standings.forEach(conference => {
+      switch (conference.conference) {
+        case 'Eastern':
+          if (wildCard) {
+            this.league.easternConference.wildCardStandings = conference;
+          } else {
+            this.league.easternConference.standings = conference;
+          }
+          break;
+        case 'Western':
+          if (wildCard) {
+            this.league.westernConference.wildCardStandings = conference;
+          } else {
+            this.league.westernConference.standings = conference;
+          }
+          break;
+      }
+    });
+  }
+
+  private isScreenSmall(): boolean {
+    return window.matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`).matches;
   }
 }

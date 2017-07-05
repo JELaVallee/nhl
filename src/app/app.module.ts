@@ -18,7 +18,7 @@ import { HeaderComponent } from './components/shared/header/header.component';
 import { PageTitleService } from './components/shared/services/page-title/page-title';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { AppRequestOptions } from './components/shared/request-options';
-import { DataService } from './components/shared/services/data/data.service';
+import { StandingsService } from './components/shared/services/standings/standings.service';
 import { LeagueService } from './components/shared/services/league/league.service';
 import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
 import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/team-stats-dialog.component';
@@ -52,7 +52,7 @@ import { DocumentRef } from './components/shared/services/document.ref';
     WindowRef,
     DocumentRef,
     PageTitleService,
-    DataService,
+    StandingsService,
     LeagueService,
     SeasonService
   ],
