@@ -56,6 +56,12 @@ export class DataService {
               lastUpdated : new Date(responseData.divisionteamstandings.lastUpdatedOn),
               division : division['@name'],
               teams : division.teamentry.map((entry: StandingsResponseTeamEntry) => {
+                if (entry.team.City === 'Arizona' && this.seasonService.phoenixSeason()) {
+                  return {
+                    rank: parseInt(entry.rank),
+                    team: new Team('Phoenix', entry.team.Name, 'PHX')
+                  };
+                }
                 return {
                   rank: parseInt(entry.rank),
                   team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation)
@@ -72,6 +78,12 @@ export class DataService {
               lastUpdated : new Date(responseData.conferenceteamstandings.lastUpdatedOn),
               conference: conference['@name'],
               teams: conference.teamentry.map((entry: StandingsResponseTeamEntry) => {
+                if (entry.team.City === 'Arizona' && this.seasonService.phoenixSeason()) {
+                  return {
+                    rank: parseInt(entry.rank),
+                    team: new Team('Phoenix', entry.team.Name, 'PHX')
+                  };
+                }
                 return {
                   rank: parseInt(entry.rank),
                   team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation)
@@ -85,6 +97,12 @@ export class DataService {
           let leagueStandings: LeagueStandings = new LeagueStandings();
           leagueStandings.lastUpdated = new Date(responseData.overallteamstandings.lastUpdatedOn),
           leagueStandings.teams = responseData.overallteamstandings.teamstandingsentry.map((entry: StandingsResponseTeamEntry) => {
+            if (entry.team.City === 'Arizona' && this.seasonService.phoenixSeason()) {
+              return {
+                rank: parseInt(entry.rank),
+                team: new Team('Phoenix', entry.team.Name, 'PHX')
+              };
+            }
             return {
               rank: parseInt(entry.rank),
               team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation)
@@ -99,6 +117,12 @@ export class DataService {
               lastUpdated : new Date(responseData.playoffteamstandings.lastUpdatedOn),
               conference: conference['@name'],
               teams: conference.teamentry.map((entry: StandingsResponseTeamEntry) => {
+                if (entry.team.City === 'Arizona' && this.seasonService.phoenixSeason()) {
+                  return {
+                    rank: parseInt(entry.rank),
+                    team: new Team('Phoenix', entry.team.Name, 'PHX')
+                  };
+                }
                 return {
                   rank: parseInt(entry.rank),
                   team: new Team(entry.team.City, entry.team.Name, entry.team.Abbreviation)

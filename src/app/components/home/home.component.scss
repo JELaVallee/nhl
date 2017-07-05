@@ -69,6 +69,11 @@ button {
         width: 64px;
         height: 64px;
 
+        &.old {
+          width: 48px;
+          height: 48px;
+        }
+
         &.conference {
           width: 128px;
           height: 64px;

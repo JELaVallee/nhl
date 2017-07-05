@@ -55,7 +55,7 @@ export class HomeComponent implements OnInit {
 
   league: League;
 
-  constructor(public dataService: DataService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog, private seasonService: SeasonService) {}
+  constructor(public dataService: DataService, public seasonService: SeasonService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
 
   ngOnInit() {
     this.pageTitleService.title = 'Standings';
@@ -133,19 +133,28 @@ export class HomeComponent implements OnInit {
     switch (type) {
       case 'division':
         if (this.isScreenSmall()) {
+          if (this.seasonService.oldLeagueFormat()) {
+            return '1:6.75';
+          }
           return '1:8';
         }
-        return '1:3';
+        return '1:3.25';
       case 'conference':
         if (this.isScreenSmall()) {
+          if (this.seasonService.oldLeagueFormat()) {
+            return '1:7';
+          }
           return '1:7.5';
         }
-        return '1:3.5';
+        return '1:3.75';
       case 'league':
         if (this.isScreenSmall()) {
+          if (this.seasonService.oldLeagueFormat()) {
+            return '1:7';
+          }
           return '1:7.25';
         }
-        return '1:3.25';
+        return '1:3.6';
     }
   }
 

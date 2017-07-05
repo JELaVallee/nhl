@@ -83,15 +83,12 @@ $small-breakpoint-width: 840px;
 
       @media (max-width: $small-breakpoint-width) {
         padding-left: 0;
+        padding-right: 30px;
       }
     }
 
     .mat-select-trigger, .mat-select-value, .mat-select-arrow {
       color: mat-color($primary, default-contrast, 0.87);
-    }
-
-    .mat-select-trigger {
-      min-width: 160px;
     }
 
     .mat-select-underline {

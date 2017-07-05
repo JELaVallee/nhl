@@ -70,7 +70,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo old" [ngClass]="entry.team.cssClass"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -85,7 +85,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo old" [ngClass]="entry.team.cssClass"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -100,7 +100,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo old" [ngClass]="entry.team.cssClass"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -115,7 +115,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo old" [ngClass]="entry.team.cssClass"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -130,7 +130,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo old" [ngClass]="entry.team.cssClass"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -145,7 +145,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo old" [ngClass]="entry.team.cssClass"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -164,7 +164,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo conference accent" [ngClass]="[entry.team.cssClass, seasonService.oldLeagueFormat() ? 'old': '']"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -179,7 +179,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo conference accent" [ngClass]="[entry.team.cssClass, seasonService.oldLeagueFormat() ? 'old': '']"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -198,7 +198,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo league wordmark" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo league wordmark" [ngClass]="[entry.team.cssClass, seasonService.oldLeagueFormat() ? 'old': '']"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -217,7 +217,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo conference accent" [ngClass]="[entry.team.cssClass, seasonService.oldLeagueFormat() ? 'old': '']"></div>
                 </md-card-content>
               </md-card>
             </button>
@@ -232,7 +232,7 @@
             <button md-button (click)="openDialog(entry)">
               <md-card class="list-card">
                 <md-card-content>
-                  <div class="logo conference accent" [ngClass]="entry.team.cssClass"></div>
+                  <div class="logo conference accent" [ngClass]="[entry.team.cssClass, seasonService.oldLeagueFormat() ? 'old': '']"></div>
                 </md-card-content>
               </md-card>
             </button>

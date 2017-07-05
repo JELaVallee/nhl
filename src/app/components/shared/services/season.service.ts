@@ -3,6 +3,7 @@ import { Observable } from 'rxjs/Observable';
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export const ATLANTA_SEASONS: string[] = ['2007-2008', '2008-2009', '2009-2010', '2010-2011'];
+export const PHOENIX_SEASONS: string[] = ['2007-2008', '2008-2009', '2009-2010', '2010-2011', '2011-2012', '2012-2013', '2013-2014'];
 export const OLD_LEAGUE_FORMAT: string[] = ['2007-2008', '2008-2009', '2009-2010', '2010-2011', '2011-2012', '2012-2013'];
 
 @Injectable()
@@ -31,6 +32,10 @@ export class SeasonService {
 
   atlantaSeason(): boolean {
     return ATLANTA_SEASONS.includes(this.season);
+  }
+
+  phoenixSeason(): boolean {
+    return PHOENIX_SEASONS.includes(this.season);
   }
 
 }
