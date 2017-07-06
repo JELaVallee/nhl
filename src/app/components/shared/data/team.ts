@@ -7,8 +7,9 @@ export class Team {
   accentLogoUrl: string;
   wordmarkUrl: string;
   wordmarkAccentUrl: string;
+  colors: { primary: string, accent: string, warn: string };
 
-  constructor(city: string, name: string, abbreviation: string, primaryLogoUrl?: string, accentLogoUrl?: string, wordmarkUrl?: string, wordmarkAccentUrl?: string) {
+  constructor(city: string, name: string, abbreviation: string, colors?: {primary: string, accent: string, warn: string}, primaryLogoUrl?: string, accentLogoUrl?: string, wordmarkUrl?: string, wordmarkAccentUrl?: string) {
     this.cssClass = `${city.toLowerCase().replace(/[\s.]/g, '')}-${name.toLowerCase().replace(/[\s.]/g, '')}`;
     this.city = city;
     this.name = name;
@@ -17,5 +18,6 @@ export class Team {
     this.accentLogoUrl = accentLogoUrl;
     this.wordmarkUrl = wordmarkUrl;
     this.wordmarkAccentUrl = wordmarkAccentUrl;
+    this.colors = colors;
   }
 }

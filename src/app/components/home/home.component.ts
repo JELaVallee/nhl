@@ -113,7 +113,7 @@ export class HomeComponent implements OnInit {
   }
 
   openDialog(entry: StandingsTeamEntry) {
-    this.mdDialog.open(TeamStatsDialogComponent, {data: entry});
+    this.mdDialog.open(TeamStatsDialogComponent, {data: {entry: entry, team: this.league.teams.find(team => team.city === entry.team.city)}});
   }
 
   private setDivisionStandings(standings: DivisionStandings[]) {

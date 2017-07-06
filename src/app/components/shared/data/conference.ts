@@ -4,6 +4,7 @@ import {
   OldNortheastDivision, OldNorthwestDivision, OldPacificDivision,
   OldSoutheastDivision, PacificDivision
 } from './division';
+import { Team } from './team';
 
 export class Conference {
   name: string;
@@ -15,6 +16,7 @@ export class EasternConference extends Conference {
   name: string = 'Eastern';
   atlanticDivision: AtlanticDivision = new AtlanticDivision();
   metropolitanDivision: MetropolitanDivision = new MetropolitanDivision();
+  teams: Team[] = [...this.atlanticDivision.teams, ...this.metropolitanDivision.teams];
 }
 
 export class OldEasternConference extends Conference {
@@ -22,12 +24,14 @@ export class OldEasternConference extends Conference {
   atlanticDivision: OldAtlanticDivision = new OldAtlanticDivision();
   northeastDivision: OldNortheastDivision = new OldNortheastDivision();
   southeastDivision: OldSoutheastDivision = new OldSoutheastDivision();
+  teams: Team[] = [...this.atlanticDivision.teams, ...this.northeastDivision.teams, ...this.southeastDivision.teams];
 }
 
 export class WesternConference extends Conference {
   name: string = 'Western';
   centralDivision: CentralDivision = new CentralDivision();
   pacificDivision: PacificDivision = new PacificDivision();
+  teams: Team[] = [...this.centralDivision.teams, ...this.pacificDivision.teams];
 }
 
 export class OldWesternConference extends Conference {
@@ -35,4 +39,5 @@ export class OldWesternConference extends Conference {
   centralDivision: OldCentralDivision = new OldCentralDivision();
   northwestDivision: OldNorthwestDivision = new OldNorthwestDivision();
   pacificDivision: OldPacificDivision = new OldPacificDivision();
+  teams: Team[] = [...this.centralDivision.teams, ...this.northwestDivision.teams, ...this.pacificDivision.teams];
 }

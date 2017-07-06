@@ -24,6 +24,7 @@ export class LeagueService {
         this.league.easternConference = this.easternConference;
         this.league.westernConference = this.westernconference;
       }
+      this.league.teams = [...this.easternConference.teams, ...this.westernconference.teams];
       return this.league;
     });
   }

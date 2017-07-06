@@ -1,6 +1,14 @@
-<h1 md-dialog-title>Team Stats</h1>
+<h1 md-dialog-title>{{data.team.city}} {{data.team.name}}</h1>
 <md-dialog-content>
-  stats
+  <ngx-charts-number-card
+    [view]="view"
+    class="chart-container"
+    [scheme]="colorScheme"
+    [cardColor]="data.team.colors.primary"
+    emptyColor="#ffffff"
+    [results]="cards"
+    (select)="select($event)">
+  </ngx-charts-number-card>
 </md-dialog-content>
 <md-dialog-actions>
   <button md-button md-dialog-close>Close</button>
