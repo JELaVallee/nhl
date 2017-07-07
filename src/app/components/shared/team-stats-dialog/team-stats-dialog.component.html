@@ -1,4 +1,4 @@
-<h1 md-dialog-title>{{data.team.city}} {{data.team.name}}</h1>
+<img [src]="data.team.wordmarkUrl" width="200px"/>
 <md-dialog-content>
   <ngx-charts-number-card
     [view]="view"
@@ -6,10 +6,46 @@
     [scheme]="colorScheme"
     [cardColor]="data.team.colors.primary"
     emptyColor="#ffffff"
-    [results]="cards"
+    [results]="games"
+    (select)="select($event)">
+  </ngx-charts-number-card>
+  <ngx-charts-number-card
+    [view]="view"
+    class="chart-container"
+    [scheme]="colorScheme"
+    [cardColor]="data.team.colors.primary"
+    emptyColor="#ffffff"
+    [results]="misc"
+    (select)="select($event)">
+  </ngx-charts-number-card>
+  <ngx-charts-number-card
+    [view]="view"
+    class="chart-container"
+    [scheme]="colorScheme"
+    [cardColor]="data.team.colors.primary"
+    emptyColor="#ffffff"
+    [results]="faceoff"
+    (select)="select($event)">
+  </ngx-charts-number-card>
+  <ngx-charts-number-card
+    [view]="view"
+    class="chart-container"
+    [scheme]="colorScheme"
+    [cardColor]="data.team.colors.primary"
+    emptyColor="#ffffff"
+    [results]="powerplay"
+    (select)="select($event)">
+  </ngx-charts-number-card>
+  <ngx-charts-number-card
+    [view]="view"
+    class="chart-container"
+    [scheme]="colorScheme"
+    [cardColor]="data.team.colors.primary"
+    emptyColor="#ffffff"
+    [results]="penalty"
     (select)="select($event)">
   </ngx-charts-number-card>
 </md-dialog-content>
 <md-dialog-actions>
-  <button md-button md-dialog-close>Close</button>
+  <button md-button md-dialog-close [ngStyle]="{'color': data.team.colors.primary, 'background-color': hover ? hexToRGB(data.team.colors.accent.slice(1)) : ''}" (mouseover)="hover = true" (mouseleave)="hover = false">Close</button>
 </md-dialog-actions>

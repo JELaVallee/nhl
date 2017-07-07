@@ -8,3 +8,31 @@ body {
     position: fixed;
   }
 }
+
+ngx-charts-number-card {
+  ngx-charts-chart {
+    .ngx-charts-outer {
+      .ngx-charts {
+        margin-bottom: -20px;
+      }
+    }
+  }
+}
+
+.trimmed-label {
+  overflow: visible !important;
+
+  p {
+    overflow: visible !important;
+    white-space: normal !important;
+  }
+}
+
+md-dialog-actions {
+  button:hover, button:focus {
+    .mat-button-focus-overlay {
+      background-color: transparent;
+    }
+  }
+
+}
