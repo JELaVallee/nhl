@@ -15,6 +15,7 @@ const SMALL_WIDTH_BREAKPOINT = 840;
 })
 export class TeamStatsDialogComponent implements OnInit {
 
+  hover: boolean = false;
   games: Card[] = [];
   misc: Card[] = [];
   faceoff: Card[] = [];
