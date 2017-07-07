@@ -5,14 +5,9 @@ import { HistoryComponent } from './components/history/history.component';
 
 
 export const routes: Routes = [
-  { path: '',
-    component: HomeComponent,
-    pathMatch: 'full',
-    children: [
-      { path: 'history', component: HistoryComponent }
-    ]
-  },
-  { path: '**',  redirectTo: ''}
+  { path: '', component: HomeComponent },
+  { path: 'history', component: HistoryComponent },
+  { path: '**', redirectTo: '' }
 ];
 
 export const routing = RouterModule.forRoot(routes);

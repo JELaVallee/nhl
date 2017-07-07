@@ -1,671 +1,671 @@
 @import './teams-themes';
 
 .nhl {
-  background: url('/assets/logos/nhl-primary.png') center no-repeat;
+  background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nhl-primary.png') center no-repeat;
   background-size: cover;
 }
 
 .anaheim-ducks {
-  background: mat-color($anaheim-ducks-primary, default) url('/assets/logos/ana-primary.gif') center no-repeat;
+  background: mat-color($anaheim-ducks-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ana-primary.gif') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/ana-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/ana-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($anaheim-ducks-primary, default) url('/assets/logos/ana-accent.gif') center no-repeat;
+    background: mat-color($anaheim-ducks-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ana-accent.gif') center no-repeat;
     background-size: cover;
   }
 }
 
 .arizona-coyotes {
-  background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/ari-primary.png') center no-repeat;
+  background: mat-color($arizona-coyotes-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ari-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/ari-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/ari-wordmark.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/ari-accent.png') center no-repeat;
+    background: mat-color($arizona-coyotes-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ari-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .phoenix-coyotes {
-  background: mat-color($arizona-coyotes-accent, default) url('/assets/logos/phx-primary.png') center no-repeat;
+  background: mat-color($arizona-coyotes-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/phx-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/phx-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/phx-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($arizona-coyotes-primary, default) url('/assets/logos/phx-accent.gif') center no-repeat;
+    background: mat-color($arizona-coyotes-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/phx-accent.gif') center no-repeat;
     background-size: cover;
   }
 }
 
 .boston-bruins {
-  background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-primary.png') center no-repeat;
+  background: mat-color($boston-bruins-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/bos-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/bos-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/bos-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-accent.png') center no-repeat;
+    background: mat-color($boston-bruins-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/bos-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($boston-bruins-primary, default) url('/assets/logos/bos-accent-old.png') center no-repeat;
+      background: mat-color($boston-bruins-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/bos-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .buffalo-sabres {
-  background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-primary.png') center no-repeat;
+  background: mat-color($buffalo-sabres-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/buf-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-primary-old.png') center no-repeat;
+    background: mat-color($buffalo-sabres-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/buf-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/buf-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/buf-wordmark.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/buf-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/buf-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($buffalo-sabres-primary, default) url('/assets/logos/buf-accent.png') center no-repeat;
+    background: mat-color($buffalo-sabres-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/buf-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .calgary-flames {
-  background: mat-color($calgary-flames-warn, default) url('/assets/logos/cgy-primary.png') center no-repeat;
+  background: mat-color($calgary-flames-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/cgy-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/cgy-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/cgy-wordmark.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($calgary-flames-warn, default) url('/assets/logos/cgy-accent.png') center no-repeat;
+    background: mat-color($calgary-flames-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/cgy-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .carolina-hurricanes {
-  background: mat-color($carolina-hurricanes-primary, default) url('/assets/logos/car-primary.png') center no-repeat;
+  background: mat-color($carolina-hurricanes-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/car-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/car-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/car-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/car-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/car-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .chicago-blackhawks {
-  background: mat-color($chicago-blackhawks-primary, default) url('/assets/logos/chi-primary.png') center no-repeat;
+  background: mat-color($chicago-blackhawks-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/chi-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/chi-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/chi-wordmark.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/chi-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/chi-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .colorado-avalanche {
-  background: mat-color($colorado-avalanche-primary, default) url('/assets/logos/col-primary.png') center no-repeat;
+  background: mat-color($colorado-avalanche-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/col-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/col-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/col-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($colorado-avalanche-accent, default) url('/assets/logos/col-accent.png') center no-repeat;
+    background: mat-color($colorado-avalanche-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/col-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($colorado-avalanche-warn, default) url('/assets/logos/col-accent-old.png') center no-repeat;
+      background: mat-color($colorado-avalanche-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/col-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .columbus-bluejackets {
-  background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-primary.png') center no-repeat;
+  background: mat-color($columbus-bluejackets-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/cbj-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/cbj-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/cbj-wordmark.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-accent.png') center no-repeat;
+    background: mat-color($columbus-bluejackets-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/cbj-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($columbus-bluejackets-accent, default) url('/assets/logos/cbj-accent-old.png') center no-repeat;
+      background: mat-color($columbus-bluejackets-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/cbj-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .dallas-stars {
-  background: mat-color($dallas-stars-warn, default) url('/assets/logos/dal-primary.png') center no-repeat;
+  background: mat-color($dallas-stars-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/dal-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($dallas-stars-warn, default) url('/assets/logos/dal-primary-old.png') center no-repeat;
+    background: mat-color($dallas-stars-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/dal-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/dal-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/dal-wordmark.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/dal-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/dal-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($dallas-stars-primary, default) url('/assets/logos/dal-accent.png') center no-repeat;
+    background: mat-color($dallas-stars-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/dal-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($dallas-stars-warn, default) url('/assets/logos/dal-accent-old.png') center no-repeat;
+      background: mat-color($dallas-stars-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/dal-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .detroit-redwings {
-  background: mat-color($detroit-redwings-accent, default) url('/assets/logos/det-primary.png') center no-repeat;
+  background: mat-color($detroit-redwings-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/det-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/det-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/det-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/det-accent.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/det-accent.gif') center no-repeat;
     background-size: cover;
   }
 }
 
 .edmonton-oilers {
-  background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-primary.png') center no-repeat;
+  background: mat-color($edmonton-oilers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/edm-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-primary-old.png') center no-repeat;
+    background: mat-color($edmonton-oilers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/edm-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/edm-wordmark-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/edm-wordmark-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/edm-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/edm-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($edmonton-oilers-primary, default) url('/assets/logos/edm-accent.png') center no-repeat;
+    background: mat-color($edmonton-oilers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/edm-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .florida-panthers {
-  background: mat-color($florida-panthers-primary, default) url('/assets/logos/fla-primary.png') center no-repeat;
+  background: mat-color($florida-panthers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/fla-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($florida-panthers-primary, default) url('/assets/logos/fla-primary-old.gif') center no-repeat;
+    background: mat-color($florida-panthers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/fla-primary-old.gif') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/fla-wordmark-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/fla-wordmark-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/fla-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/fla-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($florida-panthers-warn, default) url('/assets/logos/fla-accent.png') center no-repeat;
+    background: mat-color($florida-panthers-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/fla-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($florida-panthers-primary, default) url('/assets/logos/fla-accent-old.png') center no-repeat;
+      background: mat-color($florida-panthers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/fla-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .losangeles-kings {
-  background: mat-color($losangeles-kings-primary, default) url('/assets/logos/lak-primary.png') center no-repeat;
+  background: mat-color($losangeles-kings-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/lak-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($losangeles-kings-primary, default) url('/assets/logos/lak-primary-old.png') center no-repeat;
+    background: mat-color($losangeles-kings-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/lak-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/lak-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/lak-wordmark.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/lak-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/lak-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: url('/assets/logos/lak-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/lak-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/lak-accent-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/lak-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .minnesota-wild {
-  background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-primary.png') center no-repeat;
+  background: mat-color($minnesota-wild-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/min-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-primary-old.png') center no-repeat;
+    background: mat-color($minnesota-wild-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/min-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/min-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/min-wordmark.gif') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/min-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/min-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-accent.png') center no-repeat;
+    background: mat-color($minnesota-wild-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/min-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($minnesota-wild-accent, default) url('/assets/logos/min-accent-old.png') center no-repeat;
+      background: mat-color($minnesota-wild-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/min-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .montreal-canadiens {
-  background: mat-color($montreal-canadiens-primary, default) url('/assets/logos/mtl-primary.png') center no-repeat;
+  background: mat-color($montreal-canadiens-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/mtl-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/mtl-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/mtl-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/mtl-primary.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/mtl-primary.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .nashville-predators {
-  background: mat-color($nashville-predators-primary, default) url('/assets/logos/nsh-primary.png') center no-repeat;
+  background: mat-color($nashville-predators-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nsh-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($nashville-predators-primary, default) url('/assets/logos/nsh-primary-old.png') center no-repeat;
+    background: mat-color($nashville-predators-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nsh-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/nsh-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nsh-wordmark.gif') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/nsh-wordmark-old.gif') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nsh-wordmark-old.gif') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: url('/assets/logos/nsh-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nsh-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/nsh-accent-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nsh-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .newjersey-devils {
-  background: mat-color($newjersey-devils-warn, default) url('/assets/logos/njd-primary.png') center no-repeat;
+  background: mat-color($newjersey-devils-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/njd-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/njd-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/njd-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 }
 
 .newyork-islanders {
-  background: mat-color($newyork-islanders-primary, default) url('/assets/logos/nyi-primary.png') center no-repeat;
+  background: mat-color($newyork-islanders-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyi-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($newyork-islanders-primary, default) url('/assets/logos/nyi-primary-old.png') center no-repeat;
+    background: mat-color($newyork-islanders-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyi-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/nyi-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyi-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($newyork-islanders-accent, default) url('/assets/logos/nyi-accent.png') center no-repeat;
+    background: mat-color($newyork-islanders-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyi-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .newyork-rangers {
-  background: mat-color($newyork-rangers-accent, default) url('/assets/logos/nyr-primary.png') center no-repeat;
+  background: mat-color($newyork-rangers-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyr-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/nyr-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyr-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($newyork-rangers-accent, default) url('/assets/logos/nyr-accent.gif') center no-repeat;
+    background: mat-color($newyork-rangers-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/nyr-accent.gif') center no-repeat;
     background-size: cover;
   }
 }
 
 .ottawa-senators {
-  background: mat-color($ottawa-senators-primary, default) url('/assets/logos/ott-primary.png') center no-repeat;
+  background: mat-color($ottawa-senators-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ott-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($ottawa-senators-accent, default) url('/assets/logos/ott-primary-old.png') center no-repeat;
+    background: mat-color($ottawa-senators-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ott-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/ott-wordmark-extra.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/ott-wordmark-extra.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($ottawa-senators-primary, default) url('/assets/logos/ott-accent.png') center no-repeat;
+    background: mat-color($ottawa-senators-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/ott-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .philadelphia-flyers {
-  background: mat-color($philadelphia-flyers-primary, default) url('/assets/logos/phi-primary.png') center no-repeat;
+  background: mat-color($philadelphia-flyers-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/phi-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/phi-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/phi-wordmark.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/phi-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/phi-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .pittsburgh-penguins {
-  background: mat-color($pittsburgh-penguins-warn, default) url('/assets/logos/pit-primary.png') center no-repeat;
+  background: mat-color($pittsburgh-penguins-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/pit-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/pit-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/pit-wordmark.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($pittsburgh-penguins-primary, default) url('/assets/logos/pit-accent.gif') center no-repeat;
+    background: mat-color($pittsburgh-penguins-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/pit-accent.gif') center no-repeat;
     background-size: cover;
   }
 }
 
 .sanjose-sharks {
-  background: mat-color($sanjose-sharks-warn, default) url('/assets/logos/sjs-primary.png') center no-repeat;
+  background: mat-color($sanjose-sharks-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/sjs-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($sanjose-sharks-warn, default) url('/assets/logos/sjs-primary-old.png') center no-repeat;
+    background: mat-color($sanjose-sharks-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/sjs-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/sjs-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/sjs-wordmark.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/sjs-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/sjs-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($sanjose-sharks-accent, default) url('/assets/logos/sjs-accent.png') center no-repeat;
+    background: mat-color($sanjose-sharks-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/sjs-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($sanjose-sharks-accent, default) url('/assets/logos/sjs-accent-old.gif') center no-repeat;
+      background: mat-color($sanjose-sharks-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/sjs-accent-old.gif') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .stlouis-blues {
-  background: mat-color($stlouis-blues-accent, default) url('/assets/logos/stl-primary.png') center no-repeat;
+  background: mat-color($stlouis-blues-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/stl-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/stl-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/stl-wordmark.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/stl-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/stl-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: mat-color($stlouis-blues-primary, default) url('/assets/logos/stl-accent.png') center no-repeat;
+    background: mat-color($stlouis-blues-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/stl-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .tampabay-lightning {
-  background: mat-color($tampabay-lightning-accent, default) url('/assets/logos/tbl-primary.png') center no-repeat;
+  background: mat-color($tampabay-lightning-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/tbl-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($tampabay-lightning-accent, default) url('/assets/logos/tbl-primary-old.gif') center no-repeat;
+    background: mat-color($tampabay-lightning-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/tbl-primary-old.gif') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/tbl-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tbl-wordmark.gif') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/tbl-wordmark-old.gif') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tbl-wordmark-old.gif') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: url('/assets/logos/tbl-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tbl-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/tbl-accent-old.gif') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tbl-accent-old.gif') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .toronto-mapleleafs {
-  background: mat-color($toronto-mapleleafs-accent, default) url('/assets/logos/tor-primary.png') center no-repeat;
+  background: mat-color($toronto-mapleleafs-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/tor-primary.png') center no-repeat;
   background-size: cover;
 
   &.old {
-    background: mat-color($toronto-mapleleafs-accent, default) url('/assets/logos/tor-primary-old.png') center no-repeat;
+    background: mat-color($toronto-mapleleafs-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/tor-primary-old.png') center no-repeat;
     background-size: cover;
   }
 
   &.wordmark {
-    background: url('/assets/logos/tor-wordmark.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tor-wordmark.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/tor-wordmark-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tor-wordmark-old.png') center no-repeat;
       background-size: cover;
     }
   }
 
   &.accent {
-    background: url('/assets/logos/tor-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tor-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: url('/assets/logos/tor-accent-old.png') center no-repeat;
+      background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/tor-accent-old.png') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .vancouver-canucks {
-  background: mat-color($vancouver-canucks-warn, default) url('/assets/logos/van-primary.png') center no-repeat;
+  background: mat-color($vancouver-canucks-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/van-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/van-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/van-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/van-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/van-accent.png') center no-repeat;
     background-size: cover;
 
     &.old {
-      background: mat-color($vancouver-canucks-primary, default) url('/assets/logos/van-accent-old.gif') center no-repeat;
+      background: mat-color($vancouver-canucks-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/van-accent-old.gif') center no-repeat;
       background-size: cover;
     }
   }
 }
 
 .vegas-goldenknights {
-  background: mat-color($vegas-goldenknights-primary, default) url('/assets/logos/veg-primary.png') center no-repeat;
+  background: mat-color($vegas-goldenknights-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/veg-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/veg-wordmark-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/veg-wordmark-accent.png') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($vegas-goldenknights-accent, default) url('/assets/logos/veg-accent.png') center no-repeat;
+    background: mat-color($vegas-goldenknights-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/veg-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .washington-capitals {
-  background: mat-color($washington-capitals-warn, default) url('/assets/logos/was-primary.png') center no-repeat;
+  background: mat-color($washington-capitals-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/was-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/was-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/was-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: url('/assets/logos/was-accent.png') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/was-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .winnipeg-jets {
-  background: mat-color($winnipeg-jets-primary, default) url('/assets/logos/wpg-primary.png') center no-repeat;
+  background: mat-color($winnipeg-jets-primary, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/wpg-primary.png') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/wpg-wordmark-accent.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/wpg-wordmark-accent.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($winnipeg-jets-accent, default) url('/assets/logos/wpg-accent.png') center no-repeat;
+    background: mat-color($winnipeg-jets-accent, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/wpg-accent.png') center no-repeat;
     background-size: cover;
   }
 }
 
 .atlanta-thrashers {
-  background: mat-color($atlanta-thrashers-warn, default) url('/assets/logos/atl-primary.gif') center no-repeat;
+  background: mat-color($atlanta-thrashers-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/atl-primary.gif') center no-repeat;
   background-size: cover;
 
   &.wordmark {
-    background: url('/assets/logos/atl-wordmark.gif') center no-repeat;
+    background: url('https://s3.amazonaws.com/dweitz21/nhl/logos/atl-wordmark.gif') center no-repeat;
     background-size: cover;
   }
 
   &.accent {
-    background: mat-color($atlanta-thrashers-warn, default) url('/assets/logos/atl-accent.gif') center no-repeat;
+    background: mat-color($atlanta-thrashers-warn, default) url('https://s3.amazonaws.com/dweitz21/nhl/logos/atl-accent.gif') center no-repeat;
     background-size: cover;
   }
 }

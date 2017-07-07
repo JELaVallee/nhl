@@ -2,11 +2,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MdIconRegistry } from '@angular/material';
 import { DomSanitizer } from '@angular/platform-browser';
 import { WindowRef } from '../services/window.ref';
+import { BaseRequestOptions, RequestOptions } from '@angular/http';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [ { provide: RequestOptions, useClass: BaseRequestOptions } ]
 })
 export class NavbarComponent {
 
@@ -14,7 +16,7 @@ export class NavbarComponent {
   @Output() newTheme: EventEmitter<string> = new EventEmitter();
 
   constructor(private mdIconRegistry: MdIconRegistry, sanitizer: DomSanitizer, private windowRef: WindowRef) {
-    mdIconRegistry.addSvgIcon('github-logo', sanitizer.bypassSecurityTrustResourceUrl('/assets/github-circle-white-transparent.svg'));
+    mdIconRegistry.addSvgIcon('github-logo', sanitizer.bypassSecurityTrustResourceUrl('https://s3.amazonaws.com/dweitz21/nhl/github-circle-white-transparent.svg'));
   }
 
   emitNewTheme(theme: string) {

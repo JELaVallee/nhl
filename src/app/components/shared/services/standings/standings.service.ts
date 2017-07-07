@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, URLSearchParams } from '@angular/http';
+import {Headers, Http, Response, URLSearchParams} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings } from '../../data';
 import {
@@ -46,7 +46,7 @@ export class StandingsService {
       for (let p in params) {
         urlSearchParams.set(p, params[p]);
       }
-      return this.http.get(`${this.base}${season}-regular/${feed}${this.format}`, { params: urlSearchParams });
+      return this.http.get(`${this.base}${season}-regular/${feed}${this.format}`, { params: urlSearchParams, headers: new Headers({Authorization: `Basic ${btoa('dweitz43:dallasStars43')}`}) });
     }).map((response: Response) => {
       if (response.json()) {
         if (response.json().divisionteamstandings) {

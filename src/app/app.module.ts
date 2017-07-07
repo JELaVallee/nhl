@@ -17,7 +17,6 @@ import { HistoryComponent } from './components/history/history.component';
 import { HeaderComponent } from './components/shared/header/header.component';
 import { PageTitleService } from './components/shared/services/page-title/page-title';
 import { FooterComponent } from './components/shared/footer/footer.component';
-import { AppRequestOptions } from './components/shared/request-options';
 import { StandingsService } from './components/shared/services/standings/standings.service';
 import { LeagueService } from './components/shared/services/league/league.service';
 import { SidenavComponent } from './components/shared/sidenav/sidenav.component';
@@ -48,7 +47,6 @@ import { DocumentRef } from './components/shared/services/document.ref';
     AppRoutingModule
   ],
   providers: [
-    { provide: RequestOptions, useClass: AppRequestOptions },
     WindowRef,
     DocumentRef,
     PageTitleService,
