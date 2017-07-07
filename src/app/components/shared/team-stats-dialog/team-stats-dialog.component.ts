@@ -27,9 +27,9 @@ export class TeamStatsDialogComponent implements OnInit {
   @HostListener('window:resize', ['$event'])
   onResize(event) {
     if (this.isScreenSmall()) {
-      this.view = [200, 2400];
+      this.view = [200, 600];
     } else {
-      this.view = [800, 100];
+      this.view = [800, 130];
     }
   }
 
@@ -37,7 +37,7 @@ export class TeamStatsDialogComponent implements OnInit {
 
   ngOnInit() {
     if (this.isScreenSmall()) {
-      this.view = [200, 2400];
+      this.view = [200, 600];
     }
 
     if (['Toronto', 'Tampa Bay', 'Detroit'].includes(this.data.team.city)) {
