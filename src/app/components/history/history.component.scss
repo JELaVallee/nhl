@@ -1,0 +1,26 @@
+.container {
+  padding: 0.5em 1em;
+
+  md-spinner {
+    margin: 2em auto;
+  }
+
+  .mat-input-container {
+    width: 100%;
+  }
+
+  input, .mat-input-placeholder-wrapper {
+    width: 12.5%;
+    display: inline-block;
+  }
+
+  md-chip-list {
+    width: 87.5%;
+    position:absolute;
+    top: -10px;
+
+    md-chip {
+      cursor: pointer;
+    }
+  }
+}

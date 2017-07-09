@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpModule, RequestOptions } from '@angular/http';
+import { HttpModule } from '@angular/http';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,7 +15,7 @@ import { ThemepickerComponent } from './components/shared/themepicker/themepicke
 import { WindowRef } from './components/shared/services/window.ref';
 import { HistoryComponent } from './components/history/history.component';
 import { HeaderComponent } from './components/shared/header/header.component';
-import { PageTitleService } from './components/shared/services/page-title/page-title';
+import { PageHeaderService } from './components/shared/services/page-header/page-header';
 import { FooterComponent } from './components/shared/footer/footer.component';
 import { StandingsService } from './components/shared/services/standings/standings.service';
 import { LeagueService } from './components/shared/services/league/league.service';
@@ -23,6 +23,7 @@ import { SidenavComponent } from './components/shared/sidenav/sidenav.component'
 import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/team-stats-dialog.component';
 import { SeasonService } from './components/shared/services/season/season.service';
 import { DocumentRef } from './components/shared/services/document.ref';
+import { SearchService } from './components/shared/services/search/search.service';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { DocumentRef } from './components/shared/services/document.ref';
     HttpModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     MaterialModule,
     NgxChartsModule,
     AppRoutingModule
@@ -49,10 +51,11 @@ import { DocumentRef } from './components/shared/services/document.ref';
   providers: [
     WindowRef,
     DocumentRef,
-    PageTitleService,
+    PageHeaderService,
     StandingsService,
     LeagueService,
-    SeasonService
+    SeasonService,
+    SearchService
   ],
   entryComponents: [ TeamStatsDialogComponent ],
   bootstrap: [AppComponent]

@@ -71,3 +71,31 @@ export interface LeagueStandingsResponse {
     teamstandingsentry: StandingsResponseTeamEntry[]
   }
 }
+
+export interface PlayersResponsePlayerEntry {
+  player: {
+    LastName: string,
+    FirstName: string,
+    JerseyNumber: string,
+    Position: string,
+    Height: string,
+    Weight: string,
+    BirthDate: string,
+    Age: string,
+    BirthCity: string,
+    BirthCountry: string,
+    IsRookie: string
+  },
+  team?: {
+    City: string,
+    Name: string,
+    Abbreviation: string
+  }
+}
+
+export interface ActivePlayersResponse {
+  activeplayers: {
+    lastUpdatedOn: string,
+    playerentry: PlayersResponsePlayerEntry[]
+  }
+}

@@ -1,3 +1,16 @@
-<p>
-  history works!
-</p>
+<div class="container">
+  <md-input-container>
+    <input type="text" mdInput placeholder="Search..." [formControl]="searchCtrl" [mdAutocomplete]="auto" (keyup)="submit($event)">
+
+    <md-chip-list>
+      <md-chip *ngFor="let player of selectedPlayers" color="primary" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+    </md-chip-list>
+  </md-input-container>
+
+  <md-autocomplete #auto="mdAutocomplete">
+    <md-option *ngFor="let player of filteredPlayers | async" [value]="player" (onSelectionChange)="select($event.source.value)">
+      {{ player.firstName }} {{ player.lastName }}
+    </md-option>
+  </md-autocomplete>
+  <md-spinner *ngIf="!searchService.playersLoaded" [@loaderInOut]="!searchService.playersLoaded"></md-spinner>
+</div>

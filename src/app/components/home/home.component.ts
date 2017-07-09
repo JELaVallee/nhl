@@ -7,7 +7,10 @@ import {
   transition
 } from '@angular/animations';
 import { MdDialog } from '@angular/material';
-import { PageTitleService } from '../shared/services/page-title/page-title';
+import {
+  HOME_TITLE, PageHeaderService, SEASON_OPTIONS,
+  SEASON_PLACEHOLDER
+} from '../shared/services/page-header/page-header';
 import { StandingsService } from '../shared/services/standings/standings.service';
 import {
   ConferenceStandings, DivisionStandings, League, LeagueStandings, StandingsTeamEntry,
@@ -55,10 +58,12 @@ export class HomeComponent implements OnInit {
 
   league: League;
 
-  constructor(public dataService: StandingsService, public seasonService: SeasonService, private pageTitleService: PageTitleService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
+  constructor(public dataService: StandingsService, public seasonService: SeasonService, private pageHeaderService: PageHeaderService, private leagueService: LeagueService, private mdDialog: MdDialog) {}
 
   ngOnInit() {
-    this.pageTitleService.title = 'Standings';
+    this.pageHeaderService.title = HOME_TITLE;
+    this.pageHeaderService.placeholder = SEASON_PLACEHOLDER;
+    this.pageHeaderService.options = SEASON_OPTIONS;
 
     this.leagueService.buildLeague().subscribe(league => this.league = league);
 

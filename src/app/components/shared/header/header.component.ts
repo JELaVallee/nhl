@@ -1,11 +1,7 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { MdSelectChange } from '@angular/material';
-import { PageTitleService } from '../services/page-title/page-title';
+import { PageHeaderService, SEASON_PLACEHOLDER, STAT_PLACEHOLDER } from '../services/page-header/page-header';
 import { SeasonService } from '../services/season/season.service';
-
-interface SeasonOption {
-  name: string
-}
 
 @Component({
   selector: 'app-header',
@@ -15,29 +11,21 @@ interface SeasonOption {
 export class HeaderComponent {
 
   @Output() toggleSidenav = new EventEmitter<void>();
-  seasons: SeasonOption[] = [
-    { name: '2017-2018' },
-    { name: '2016-2017' },
-    { name: '2015-2016' },
-    { name: '2014-2015' },
-    { name: '2013-2014' },
-    { name: '2012-2013' },
-    { name: '2011-2012' },
-    { name: '2010-2011' },
-    { name: '2009-2010' },
-    { name: '2008-2009' },
-    { name: '2007-2008' }
-  ];
-  selectedSeason: string = this.seasons[0].name;
+  selectedOption: string;
 
-  constructor(private pageTitleService: PageTitleService, private seasonService: SeasonService) { }
+  constructor(public pageHeaderService: PageHeaderService, private seasonService: SeasonService) { }
 
-  getTitle() {
-    return this.pageTitleService.title;
+  ngOnInit() {
+    this.selectedOption = this.pageHeaderService.options[0] ? this.pageHeaderService.options[0].name : '';
   }
 
-  selectSeason(event: MdSelectChange) {
-    this.seasonService.season = event.value;
+  selectOption(event: MdSelectChange) {
+    switch (this.pageHeaderService.placeholder) {
+      case SEASON_PLACEHOLDER:
+        this.seasonService.season = event.value;
+        break;
+      case STAT_PLACEHOLDER:
+        break;
+    }
   }
-
 }
