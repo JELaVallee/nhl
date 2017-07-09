@@ -14,7 +14,8 @@ import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
 import { Player } from '../shared/data/player';
 import { Observable } from 'rxjs/Observable';
-import {MdExpansionPanel} from "@angular/material";
+import { MdExpansionPanel } from '@angular/material';
+import { Team } from '../shared/data/team';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -38,15 +39,17 @@ const SMALL_WIDTH_BREAKPOINT = 840;
 export class HistoryComponent implements OnInit {
 
   searchCtrl: FormControl = new FormControl();
+  filteredOptions: Observable<any[]>;
   players: Player[] = [];
-  filteredPlayers: Observable<Player[]>;
   selectedPlayers: Player[] = [];
+  teams: Team[] = [];
+  selectedTeams: Team[] = [];
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
 
   constructor(public searchService: SearchService, private pageHeaderService: PageHeaderService) {
-    this.filteredPlayers = this.searchCtrl.valueChanges.startWith(null).map(search => {
+    this.filteredOptions = this.searchCtrl.valueChanges.startWith(null).map(search => {
       if ((typeof search) === 'string') {
-        return this.getPlayers(search);
+        return this.getOptions(search);
       }
     });
   }
@@ -60,27 +63,48 @@ export class HistoryComponent implements OnInit {
       this.players = players;
       this.searchService.playersLoaded = true;
     });
+
+    this.teams = this.searchService.getTeams();
   }
 
-  getPlayers(value: string) {
-    return value ? this.players.filter(player => this.selectedPlayers.findIndex(selectedPlayer => selectedPlayer === player) < 0 && (player.firstName.toLowerCase().indexOf(value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(value.toLowerCase()) === 0 || player.fullName.toLowerCase().indexOf(value.toLowerCase()) === 0)) : [];
+  getOptions(value: string) {
+    if (value) {
+      let players: Player[] = this.players.filter(player => this.selectedPlayers.findIndex(selectedPlayer => selectedPlayer === player) < 0 && (player.firstName.toLowerCase().indexOf(value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(value.toLowerCase()) === 0 || player.fullName.toLowerCase().indexOf(value.toLowerCase()) === 0));
+      let teams: Team[] = this.teams.filter(team => this.selectedTeams.findIndex(selectedTeam => selectedTeam === team) < 0 && (team.city.toLowerCase().indexOf(value.toLowerCase()) === 0 || team.name.toLowerCase().indexOf(value.toLowerCase()) === 0 || `${team.city.toLowerCase()} ${team.name.toLowerCase()}`.indexOf(value.toLowerCase()) === 0));
+      return [...players, ...teams];
+    } else {
+      return [];
+    }
   }
 
   submit(event: KeyboardEvent) {
     if (event.keyCode === 13 && this.searchCtrl.value && (typeof this.searchCtrl.value) === 'string') {
-      this.select(this.players.find(player => this.selectedPlayers.findIndex(selectedPlayer => selectedPlayer === player) < 0 && (player.fullName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.firstName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0)));
+      let player: Player = this.players.find(player => this.selectedPlayers.findIndex(selectedPlayer => selectedPlayer === player) < 0 && (player.fullName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.firstName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0));
+      if (player) {
+        this.selectPlayer(player);
+      } else {
+        let team: Team = this.teams.find(team => this.selectedTeams.findIndex(selectedTeam => selectedTeam === team) < 0 && (`${team.city.toLowerCase()} ${team.name.toLowerCase()}`.indexOf(this.searchCtrl.value.toLowerCase()) === 0 || team.name.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || team.city.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0));
+        if (team) this.selectTeam(team);
+      }
     }
   }
 
-  select(player: Player) {
+  select(option: Player | Team) {
+    let player: Player = this.players.find(p => p === option);
     if (player) {
-      this.selectedPlayers.push(player);
+      this.selectPlayer(player);
+    } else {
+      let team: Team = this.teams.find(t => t === option);
+      if (team) this.selectTeam(team);
     }
-    this.searchCtrl.setValue('');
   }
 
-  remove(player: Player) {
+  removePlayer(player: Player) {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
+  }
+
+  removeTeam(team: Team) {
+    this.selectedTeams.splice(this.selectedTeams.indexOf(team), 1);
   }
 
   isScreenSmall(): boolean {
@@ -89,7 +113,18 @@ export class HistoryComponent implements OnInit {
 
   clearSelections() {
     this.selectedPlayers = [];
+    this.selectedTeams = [];
     this.panel.close();
+  }
+
+  private selectPlayer(player: Player) {
+    this.selectedPlayers.push(player);
+    this.searchCtrl.setValue('');
+  }
+
+  private selectTeam(team: Team) {
+    this.selectedTeams.push(team);
+    this.searchCtrl.setValue('');
   }
 
 }

@@ -3,25 +3,29 @@
     <input type="text" mdInput placeholder="Search..." [formControl]="searchCtrl" [mdAutocomplete]="auto" (keyup)="submit($event)">
 
     <md-chip-list *ngIf="!isScreenSmall()">
-      <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+      <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="removePlayer(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+      <md-chip *ngFor="let team of selectedTeams" color="primary" selected="true" (click)="removeTeam(team)">{{team.city}} {{team.name}}</md-chip>
     </md-chip-list>
   </md-input-container>
 
   <md-autocomplete #auto="mdAutocomplete">
-    <md-option *ngFor="let player of filteredPlayers | async" [value]="player" (onSelectionChange)="select($event.source.value)">
-      {{ player.firstName }} {{ player.lastName }}
+    <md-option *ngFor="let option of filteredOptions | async" [value]="option" (onSelectionChange)="select($event.source.value)">
+      {{ option.firstName || option.city }} {{ option.lastName || option.name }}
     </md-option>
   </md-autocomplete>
 
     <md-expansion-panel #myPanel *ngIf="isScreenSmall()">
       <md-expansion-panel-header>
-        <mat-panel-title *ngIf="selectedPlayers.length === 0 || selectedPlayers.length >= 3">{{selectedPlayers.length}} players selected</mat-panel-title>
-        <md-chip-list *ngIf="selectedPlayers.length > 0 && selectedPlayers.length < 3">
-          <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+        <mat-panel-title *ngIf="selectedPlayers.length === 0 && selectedTeams.length === 0 || selectedPlayers.length + selectedTeams.length >= 3">{{selectedPlayers.length}} players selected</mat-panel-title>
+        <mat-panel-description *ngIf="selectedPlayers.length === 0 && selectedTeams.length === 0 || selectedPlayers.length + selectedTeams.length >= 3">{{selectedTeams.length}} teams selected</mat-panel-description>
+        <md-chip-list *ngIf="selectedPlayers.length + selectedTeams.length > 0 && selectedPlayers.length + selectedTeams.length < 3">
+          <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="removePlayer(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+          <md-chip *ngFor="let team of selectedTeams" color="primary" selected="true" (click)="removeTeam(team)">{{team.city}} {{team.name}}</md-chip>
         </md-chip-list>
       </md-expansion-panel-header>
-      <md-chip-list *ngIf="selectedPlayers.length >= 3" class="outside-header">
-        <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+      <md-chip-list *ngIf="selectedPlayers.length + selectedTeams.length >= 3" class="outside-header">
+        <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="removePlayer(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+        <md-chip *ngFor="let team of selectedTeams" color="primary" selected="true" (click)="removeTeam(team)">{{team.city}} {{team.name}}</md-chip>
       </md-chip-list>
       <md-action-row>
         <button md-button color="primary" (click)="clearSelections()">CLEAR</button>

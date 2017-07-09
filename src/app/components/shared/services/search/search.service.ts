@@ -4,6 +4,7 @@ import { ActivePlayersResponse } from '../../data/response-interfaces';
 import { Observable } from 'rxjs/Observable';
 import { Player } from '../../data/player';
 import { EasternConference, WesternConference } from '../../data/conference';
+import { Team } from '../../data/team';
 
 @Injectable()
 export class SearchService {
@@ -23,6 +24,12 @@ export class SearchService {
           return this.processActivePlayers(response.json());
         }
       });
+  }
+
+  getTeams(): Team[] {
+    let east: EasternConference = new EasternConference();
+    let west: WesternConference = new WesternConference();
+    return [...east.teams, ...west.teams];
   }
 
   private processActivePlayers(responseData: ActivePlayersResponse) : Player[] {
