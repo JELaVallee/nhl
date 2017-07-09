@@ -57,7 +57,7 @@ export class PageHeaderService {
   private _title = '';
   private dropdownVisible: boolean = true;
   private dropdownOptions: DropdownOption[] = [];
-  private dropdownPlaceholder: string = '';
+  private dropdownPlaceholder: string = 'Placeholder';
 
   get title(): string { return this._title; }
   set title(title: string) { this._title = title; }

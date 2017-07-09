@@ -88,11 +88,11 @@ $small-breakpoint-width: 840px;
     }
 
     .mat-select-trigger, .mat-select-value, .mat-select-arrow {
-      color: mat-color($primary, default-contrast, 0.87);
+      color: mat-color($primary, default-contrast, 0.87) !important;
     }
 
     .mat-select-underline {
-      background-color: mat-color($primary, default-contrast, 0.87);
+      background-color: mat-color($primary, default-contrast, 0.87) !important;
     }
   }
 
