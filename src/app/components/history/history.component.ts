@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   trigger,
   state,
@@ -14,6 +14,9 @@ import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
 import { Player } from '../shared/data/player';
 import { Observable } from 'rxjs/Observable';
+import {MdExpansionPanel} from "@angular/material";
+
+const SMALL_WIDTH_BREAKPOINT = 840;
 
 @Component({
   selector: 'app-history',
@@ -38,6 +41,7 @@ export class HistoryComponent implements OnInit {
   players: Player[] = [];
   filteredPlayers: Observable<Player[]>;
   selectedPlayers: Player[] = [];
+  @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
 
   constructor(public searchService: SearchService, private pageHeaderService: PageHeaderService) {
     this.filteredPlayers = this.searchCtrl.valueChanges.startWith(null).map(search => {
@@ -64,7 +68,7 @@ export class HistoryComponent implements OnInit {
 
   submit(event: KeyboardEvent) {
     if (event.keyCode === 13 && this.searchCtrl.value && (typeof this.searchCtrl.value) === 'string') {
-      this.select(this.players.find(player => player.fullName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.firstName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0));
+      this.select(this.players.find(player => this.selectedPlayers.findIndex(selectedPlayer => selectedPlayer === player) < 0 && (player.fullName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.firstName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0)));
     }
   }
 
@@ -77,6 +81,15 @@ export class HistoryComponent implements OnInit {
 
   remove(player: Player) {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
+  }
+
+  isScreenSmall(): boolean {
+    return window.matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`).matches;
+  }
+
+  clearSelections() {
+    this.selectedPlayers = [];
+    this.panel.close();
   }
 
 }

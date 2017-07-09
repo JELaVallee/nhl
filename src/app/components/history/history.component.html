@@ -2,8 +2,8 @@
   <md-input-container>
     <input type="text" mdInput placeholder="Search..." [formControl]="searchCtrl" [mdAutocomplete]="auto" (keyup)="submit($event)">
 
-    <md-chip-list>
-      <md-chip *ngFor="let player of selectedPlayers" color="primary" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+    <md-chip-list *ngIf="!isScreenSmall()">
+      <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
     </md-chip-list>
   </md-input-container>
 
@@ -12,5 +12,21 @@
       {{ player.firstName }} {{ player.lastName }}
     </md-option>
   </md-autocomplete>
+
+    <md-expansion-panel #myPanel *ngIf="isScreenSmall()">
+      <md-expansion-panel-header>
+        <mat-panel-title *ngIf="selectedPlayers.length === 0 || selectedPlayers.length >= 3">{{selectedPlayers.length}} players selected</mat-panel-title>
+        <md-chip-list *ngIf="selectedPlayers.length > 0 && selectedPlayers.length < 3">
+          <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+        </md-chip-list>
+      </md-expansion-panel-header>
+      <md-chip-list *ngIf="selectedPlayers.length >= 3" class="outside-header">
+        <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="remove(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+      </md-chip-list>
+      <md-action-row>
+        <button md-button color="primary" (click)="clearSelections()">CLEAR</button>
+      </md-action-row>
+    </md-expansion-panel>
+
   <md-spinner *ngIf="!searchService.playersLoaded" [@loaderInOut]="!searchService.playersLoaded"></md-spinner>
 </div>
