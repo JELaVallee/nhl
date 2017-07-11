@@ -14,8 +14,10 @@ import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
 import { Player } from '../shared/data/player';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/combineLatest';
 import { MdExpansionPanel } from '@angular/material';
 import { Team } from '../shared/data/team';
+import { StatsService } from '../shared/services/stats/stats.service';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -46,7 +48,7 @@ export class HistoryComponent implements OnInit {
   selectedTeams: Team[] = [];
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
 
-  constructor(public searchService: SearchService, private pageHeaderService: PageHeaderService) {
+  constructor(public searchService: SearchService, private pageHeaderService: PageHeaderService, private statsService: StatsService) {
     this.filteredOptions = this.searchCtrl.valueChanges.startWith(null).map(search => {
       if ((typeof search) === 'string') {
         return this.getOptions(search);
@@ -66,6 +68,16 @@ export class HistoryComponent implements OnInit {
     });
 
     this.teams = this.searchService.getTeams();
+
+    this.statsService.selectedStat$.subscribe((selectedStat: string) => {
+      console.log(selectedStat);
+    });
+
+    Observable.combineLatest(this.pageHeaderService.startDate$, this.pageHeaderService.endDate$).subscribe( ([startDate, endDate]: [Date, Date]) => {
+      if (startDate && endDate) {
+        console.log(`${startDate.toDateString()} - ${endDate.toDateString()}`);
+      }
+    });
   }
 
   getOptions(value: string) {

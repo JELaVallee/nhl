@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface DropdownOption {
   name: string,
@@ -54,11 +56,24 @@ export const STAT_PLACEHOLDER: string = 'Statistic';
  */
 @Injectable()
 export class PageHeaderService {
+  startDate$: Observable<Date>;
+  endDate$: Observable<Date>;
   private _title = '';
   private dropdownVisible: boolean = true;
   private dropdownOptions: DropdownOption[] = [];
   private dropdownPlaceholder: string = 'Placeholder';
   private datepickerVisible: boolean = false;
+  private datepickerStart: Date;
+  private datepickerEnd: Date;
+  private datepickerMin: Date = new Date(2007, 8, 1);
+  private datepickerMax: Date = new Date();
+  private startDateSource: BehaviorSubject<Date> = new BehaviorSubject(this.datepickerStart);
+  private endDateSource: BehaviorSubject<Date> = new BehaviorSubject(this.datepickerEnd);
+
+  constructor() {
+    this.startDate$ = new Observable(fn => this.startDateSource.subscribe(fn));
+    this.endDate$ = new Observable(fn => this.endDateSource.subscribe(fn));
+  }
 
   get title(): string { return this._title; }
   set title(title: string) { this._title = title; }
@@ -74,4 +89,22 @@ export class PageHeaderService {
 
   get datepicker(): boolean { return this.datepickerVisible; }
   set datepicker(value: boolean) { this.datepickerVisible = value; }
+
+  get startDate(): Date { return this.datepickerStart; }
+  set startDate(value: Date) {
+    this.datepickerStart = value;
+    this.startDateSource.next(this.datepickerStart);
+  }
+
+  get endDate(): Date { return this.datepickerEnd; }
+  set endDate(value: Date) {
+    this.datepickerEnd = value;
+    this.endDateSource.next(this.datepickerEnd);
+  }
+
+  get minDate(): Date { return this.datepickerMin; }
+  set minDate(value: Date) { this.datepickerMin = value; }
+
+  get maxDate(): Date { return this.datepickerMax; }
+  set maxDate(value: Date) { this.datepickerMax = value; }
 }

@@ -9,15 +9,37 @@
 
   <span *ngIf="!isScreenSmall() && pageHeaderService.datepicker">
     <md-input-container class="date">
-      <input mdInput [mdDatepicker]="start" placeholder="Start">
+      <input mdInput
+             [min]="pageHeaderService.minDate"
+             [max]="pageHeaderService.maxDate"
+             [mdDatepicker]="start"
+             placeholder="Start"
+             [(ngModel)]="startDate"
+             #startModel="ngModel"
+             #startElement
+             (change)="validateAndSelectStartDate(startModel)"
+             (blur)="validateAndSelectStartDate(startModel)">
       <button mdSuffix [mdDatepickerToggle]="start" [ngClass]="themeService.theme.type"></button>
+      <md-error *ngIf="startMinError">Too early</md-error>
+      <md-error *ngIf="startMaxError">Too late</md-error>
     </md-input-container>
-    <md-datepicker #start [touchUi]="isScreenSmall()"></md-datepicker>
+    <md-datepicker #start (selectedChanged)="selectStartDate($event)"></md-datepicker>
     <md-input-container class="date">
-      <input mdInput [mdDatepicker]="end" placeholder="End">
+      <input mdInput
+             [min]="pageHeaderService.minDate"
+             [max]="pageHeaderService.maxDate"
+             [mdDatepicker]="end"
+             placeholder="End"
+             [(ngModel)]="endDate"
+             #endModel="ngModel"
+             #endElement
+             (change)="validateAndSelectEndDate(endModel)"
+             (blur)="validateAndSelectEndDate(endModel)">
       <button mdSuffix [mdDatepickerToggle]="end" [ngClass]="themeService.theme.type"></button>
+      <md-error *ngIf="endMinError">Too early</md-error>
+      <md-error *ngIf="endMaxError">Too late</md-error>
     </md-input-container>
-    <md-datepicker #end [touchUi]="isScreenSmall()"></md-datepicker>
+    <md-datepicker #end (selectedChanged)="selectEndDate($event)"></md-datepicker>
   </span>
 
   <span class="spacer"></span>
@@ -28,13 +50,35 @@
 </div>
 <div *ngIf="isScreenSmall() && pageHeaderService.datepicker" class="primary-header page-header mobile-datepicker">
   <md-input-container class="date">
-    <input mdInput [mdDatepicker]="start" placeholder="Start">
+    <input mdInput
+           [min]="pageHeaderService.minDate"
+           [max]="pageHeaderService.maxDate"
+           [mdDatepicker]="start"
+           placeholder="Start"
+           [(ngModel)]="startDate"
+           #startModel="ngModel"
+           #startElement
+           (change)="validateAndSelectStartDate(startModel)"
+           (blur)="validateAndSelectStartDate(startModel)">
     <button mdSuffix [mdDatepickerToggle]="start" [ngClass]="themeService.theme.type"></button>
+    <md-error *ngIf="startMinError">Too early</md-error>
+    <md-error *ngIf="startMaxError">Too late</md-error>
   </md-input-container>
-  <md-datepicker #start [touchUi]="isScreenSmall()"></md-datepicker>
+  <md-datepicker #start touchUi="true" (selectedChanged)="selectStartDate($event)"></md-datepicker>
   <md-input-container class="date">
-    <input mdInput [mdDatepicker]="end" placeholder="End">
+    <input mdInput
+           [min]="pageHeaderService.minDate"
+           [max]="pageHeaderService.maxDate"
+           [mdDatepicker]="end"
+           placeholder="End"
+           [(ngModel)]="endDate"
+           #endModel="ngModel"
+           #endElement
+           (change)="validateAndSelectEndDate(endModel)"
+           (blur)="validateAndSelectEndDate(endModel)">
     <button mdSuffix [mdDatepickerToggle]="end" [ngClass]="themeService.theme.type"></button>
+    <md-error *ngIf="endMinError">Too early</md-error>
+    <md-error *ngIf="endMaxError">Too late</md-error>
   </md-input-container>
-  <md-datepicker #end [touchUi]="isScreenSmall()"></md-datepicker>
+  <md-datepicker #end touchUi="true" (selectedChanged)="selectEndDate($event)"></md-datepicker>
 </div>
