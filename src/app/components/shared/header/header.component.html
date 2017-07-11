@@ -10,16 +10,12 @@
   <span *ngIf="!isScreenSmall() && pageHeaderService.datepicker">
     <md-input-container class="date">
       <input mdInput [mdDatepicker]="start" placeholder="Start">
-      <button md-icon-button mdSuffix (click)="start.opened ? start.close() : start.open()">
-        <md-icon [svgIcon]="datepickerIcon"></md-icon>
-      </button>
+      <button mdSuffix [mdDatepickerToggle]="start" [ngClass]="themeService.theme.type"></button>
     </md-input-container>
     <md-datepicker #start [touchUi]="isScreenSmall()"></md-datepicker>
     <md-input-container class="date">
       <input mdInput [mdDatepicker]="end" placeholder="End">
-      <button md-icon-button mdSuffix (click)="end.opened ? end.close() : end.open()">
-        <md-icon [svgIcon]="datepickerIcon"></md-icon>
-      </button>
+      <button mdSuffix [mdDatepickerToggle]="end" [ngClass]="themeService.theme.type"></button>
     </md-input-container>
     <md-datepicker #end [touchUi]="isScreenSmall()"></md-datepicker>
   </span>
@@ -33,16 +29,12 @@
 <div *ngIf="isScreenSmall() && pageHeaderService.datepicker" class="primary-header page-header mobile-datepicker">
   <md-input-container class="date">
     <input mdInput [mdDatepicker]="start" placeholder="Start">
-    <button md-icon-button mdSuffix (click)="start.opened ? start.close() : start.open()">
-      <md-icon [svgIcon]="datepickerIcon"></md-icon>
-    </button>
+    <button mdSuffix [mdDatepickerToggle]="start" [ngClass]="themeService.theme.type"></button>
   </md-input-container>
   <md-datepicker #start [touchUi]="isScreenSmall()"></md-datepicker>
   <md-input-container class="date">
     <input mdInput [mdDatepicker]="end" placeholder="End">
-    <button md-icon-button mdSuffix (click)="end.opened ? end.close() : end.open()">
-      <md-icon [svgIcon]="datepickerIcon"></md-icon>
-    </button>
+    <button mdSuffix [mdDatepickerToggle]="end" [ngClass]="themeService.theme.type"></button>
   </md-input-container>
   <md-datepicker #end [touchUi]="isScreenSmall()"></md-datepicker>
 </div>
