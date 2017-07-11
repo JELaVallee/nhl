@@ -16,10 +16,20 @@ $small-breakpoint-width: 840px;
     height: 64px;
     width: 64px;
     line-height: 64px;
-    color: white;
   }
 }
 
 .spacer {
   flex: 1 1 auto;
+}
+
+.date {
+  margin: 0 6px;
+
+  md-icon {
+    width: 24px;
+    height: 24px;
+    vertical-align: text-bottom;
+    opacity: 0.87;
+  }
 }

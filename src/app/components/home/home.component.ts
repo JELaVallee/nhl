@@ -64,6 +64,7 @@ export class HomeComponent implements OnInit {
     this.pageHeaderService.title = HOME_TITLE;
     this.pageHeaderService.placeholder = SEASON_PLACEHOLDER;
     this.pageHeaderService.options = SEASON_OPTIONS;
+    this.pageHeaderService.datepicker = false;
 
     this.leagueService.buildLeague().subscribe(league => this.league = league);
 

@@ -1,6 +1,7 @@
 import { Component, Renderer2, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { DocumentRef } from './components/shared/services/document.ref';
+import { Theme, ThemeService } from './components/shared/services/theme.service';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -13,16 +14,19 @@ const SMALL_WIDTH_BREAKPOINT = 840;
 export class AppComponent {
 
   title: string = 'National Hockey League';
-  teamTheme: string;
+  teamTheme: Theme;
 
-  constructor(private router: Router, private renderer: Renderer2, private documentRef: DocumentRef) {}
+  constructor(private router: Router, private renderer: Renderer2, private documentRef: DocumentRef, private themeService: ThemeService) {}
 
   ngOnInit() {
-    this.setTheme('dallas-stars');
     this.router.events.subscribe(() => {
       if (this.isScreenSmall()) {
         this.title = 'NHL';
       }
+    });
+
+    this.themeService.theme$.subscribe(theme => {
+      this.setTheme(theme);
     });
   }
 
@@ -30,9 +34,11 @@ export class AppComponent {
     return window.matchMedia(`(max-width: ${SMALL_WIDTH_BREAKPOINT}px)`).matches;
   }
 
-  setTheme(theme: string) {
-    this.renderer.removeClass(this.documentRef.nativeDocument.body, this.teamTheme);
+  setTheme(theme: Theme) {
+    if (this.teamTheme) {
+      this.renderer.removeClass(this.documentRef.nativeDocument.body, this.teamTheme.name);
+    }
     this.teamTheme = theme;
-    this.renderer.addClass(this.documentRef.nativeDocument.body, this.teamTheme);
+    this.renderer.addClass(this.documentRef.nativeDocument.body, this.teamTheme.name);
   }
 }

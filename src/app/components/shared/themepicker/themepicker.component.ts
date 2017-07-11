@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { Theme, THEMES, ThemeService } from '../services/theme.service';
 
 @Component({
   selector: 'theme-picker',
@@ -9,48 +10,11 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output, ViewEncapsula
   host: {'aria-hidden': 'true'},
 })
 export class ThemepickerComponent {
-  currentTheme: string;
-  @Output() newTheme: EventEmitter<string> = new EventEmitter();
+  themes: Theme[] = THEMES;
 
-  themes: string[] = [
-    'nhl',
-    'anaheim-ducks',
-    'arizona-coyotes',
-    'boston-bruins',
-    'buffalo-sabres',
-    'calgary-flames',
-    'carolina-hurricanes',
-    'chicago-blackhawks',
-    'colorado-avalanche',
-    'columbus-bluejackets',
-    'dallas-stars',
-    'detroit-redwings',
-    'edmonton-oilers',
-    'florida-panthers',
-    'losangeles-kings',
-    'minnesota-wild',
-    'montreal-canadiens',
-    'nashville-predators',
-    'newjersey-devils',
-    'newyork-islanders',
-    'newyork-rangers',
-    'ottawa-senators',
-    'philadelphia-flyers',
-    'pittsburgh-penguins',
-    'sanjose-sharks',
-    'stlouis-blues',
-    'tampabay-lightning',
-    'toronto-mapleleafs',
-    'vancouver-canucks',
-    'vegas-goldenknights',
-    'washington-capitals',
-    'winnipeg-jets'
-  ];
+  constructor(private themeService: ThemeService) {}
 
-  constructor() {}
-
-  setTheme(theme: string) {
-    this.currentTheme = theme;
-    this.newTheme.emit(theme);
+  setTheme(theme: Theme) {
+    this.themeService.theme = theme;
   }
 }

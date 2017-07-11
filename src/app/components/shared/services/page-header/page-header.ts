@@ -58,6 +58,7 @@ export class PageHeaderService {
   private dropdownVisible: boolean = true;
   private dropdownOptions: DropdownOption[] = [];
   private dropdownPlaceholder: string = 'Placeholder';
+  private datepickerVisible: boolean = false;
 
   get title(): string { return this._title; }
   set title(title: string) { this._title = title; }
@@ -70,4 +71,7 @@ export class PageHeaderService {
 
   get placeholder(): string { return this.dropdownPlaceholder; }
   set placeholder(value: string) { this.dropdownPlaceholder = value; }
+
+  get datepicker(): boolean { return this.datepickerVisible; }
+  set datepicker(value: boolean) { this.datepickerVisible = value; }
 }

@@ -72,6 +72,11 @@ $small-breakpoint-width: 840px;
     @media (max-width: $small-breakpoint-width) {
       padding-left: 0;
       padding-right: 32px;
+
+      &.mobile-datepicker {
+        padding-right: 1em;
+        padding-left: 1em;
+      }
     }
 
     h1 {
@@ -82,16 +87,15 @@ $small-breakpoint-width: 840px;
       padding: 50px;
 
       @media (max-width: $small-breakpoint-width) {
-        padding-left: 0;
-        padding-right: 30px;
+        padding: 30px 30px 30px 0;
       }
     }
 
-    .mat-select-trigger, .mat-select-value, .mat-select-arrow {
+    .mat-select-trigger, .mat-select-value, .mat-select-arrow, .mat-input-element, .mat-input-placeholder {
       color: mat-color($primary, default-contrast, 0.87) !important;
     }
 
-    .mat-select-underline {
+    .mat-select-underline, .mat-input-underline {
       background-color: mat-color($primary, default-contrast, 0.87) !important;
     }
   }

@@ -58,6 +58,7 @@ export class HistoryComponent implements OnInit {
     this.pageHeaderService.title = HISTORY_TITLE;
     this.pageHeaderService.placeholder = STAT_PLACEHOLDER;
     this.pageHeaderService.options = STAT_OPTIONS;
+    this.pageHeaderService.datepicker = true;
 
     this.searchService.getPlayers('2017-2018').subscribe((players: Player[]) => {
       this.players = players;

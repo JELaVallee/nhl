@@ -14,23 +14,23 @@
     </md-option>
   </md-autocomplete>
 
-    <md-expansion-panel #myPanel *ngIf="isScreenSmall()">
-      <md-expansion-panel-header>
-        <mat-panel-title *ngIf="selectedPlayers.length === 0 && selectedTeams.length === 0 || selectedPlayers.length + selectedTeams.length >= 3">{{selectedPlayers.length}} players selected</mat-panel-title>
-        <mat-panel-description *ngIf="selectedPlayers.length === 0 && selectedTeams.length === 0 || selectedPlayers.length + selectedTeams.length >= 3">{{selectedTeams.length}} teams selected</mat-panel-description>
-        <md-chip-list *ngIf="selectedPlayers.length + selectedTeams.length > 0 && selectedPlayers.length + selectedTeams.length < 3">
-          <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="removePlayer(player)">{{player.firstName}} {{player.lastName}}</md-chip>
-          <md-chip *ngFor="let team of selectedTeams" color="primary" selected="true" (click)="removeTeam(team)">{{team.city}} {{team.name}}</md-chip>
-        </md-chip-list>
-      </md-expansion-panel-header>
-      <md-chip-list *ngIf="selectedPlayers.length + selectedTeams.length >= 3" class="outside-header">
+  <md-expansion-panel #myPanel *ngIf="isScreenSmall()">
+    <md-expansion-panel-header>
+      <mat-panel-title *ngIf="selectedPlayers.length === 0 && selectedTeams.length === 0 || selectedPlayers.length + selectedTeams.length >= 3">{{selectedPlayers.length}} players selected</mat-panel-title>
+      <mat-panel-description *ngIf="selectedPlayers.length === 0 && selectedTeams.length === 0 || selectedPlayers.length + selectedTeams.length >= 3">{{selectedTeams.length}} teams selected</mat-panel-description>
+      <md-chip-list *ngIf="selectedPlayers.length + selectedTeams.length > 0 && selectedPlayers.length + selectedTeams.length < 3">
         <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="removePlayer(player)">{{player.firstName}} {{player.lastName}}</md-chip>
         <md-chip *ngFor="let team of selectedTeams" color="primary" selected="true" (click)="removeTeam(team)">{{team.city}} {{team.name}}</md-chip>
       </md-chip-list>
-      <md-action-row>
-        <button md-button color="primary" (click)="clearSelections()">CLEAR</button>
-      </md-action-row>
-    </md-expansion-panel>
+    </md-expansion-panel-header>
+    <md-chip-list *ngIf="selectedPlayers.length + selectedTeams.length >= 3" class="outside-header">
+      <md-chip *ngFor="let player of selectedPlayers" color="accent" selected="true" (click)="removePlayer(player)">{{player.firstName}} {{player.lastName}}</md-chip>
+      <md-chip *ngFor="let team of selectedTeams" color="primary" selected="true" (click)="removeTeam(team)">{{team.city}} {{team.name}}</md-chip>
+    </md-chip-list>
+    <md-action-row>
+      <button md-button color="primary" (click)="clearSelections()">CLEAR</button>
+    </md-action-row>
+  </md-expansion-panel>
 
   <md-spinner *ngIf="!searchService.playersLoaded" [@loaderInOut]="!searchService.playersLoaded"></md-spinner>
 </div>

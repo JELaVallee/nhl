@@ -1,13 +1,48 @@
 <div class="primary-header page-header">
   <button md-button class="sidenav-toggle" (click)="toggleSidenav.emit()">
-    <md-icon>menu</md-icon>
+    <md-icon [style.color]="themeService.theme.type === 'light' ? 'white' : 'black'">menu</md-icon>
   </button>
 
   <h1>{{pageHeaderService.title}} </h1>
 
   <span class="spacer"></span>
 
+  <span *ngIf="!isScreenSmall() && pageHeaderService.datepicker">
+    <md-input-container class="date">
+      <input mdInput [mdDatepicker]="start" placeholder="Start">
+      <button md-icon-button mdSuffix (click)="start.opened ? start.close() : start.open()">
+        <md-icon [svgIcon]="datepickerIcon"></md-icon>
+      </button>
+    </md-input-container>
+    <md-datepicker #start [touchUi]="isScreenSmall()"></md-datepicker>
+    <md-input-container class="date">
+      <input mdInput [mdDatepicker]="end" placeholder="End">
+      <button md-icon-button mdSuffix (click)="end.opened ? end.close() : end.open()">
+        <md-icon [svgIcon]="datepickerIcon"></md-icon>
+      </button>
+    </md-input-container>
+    <md-datepicker #end [touchUi]="isScreenSmall()"></md-datepicker>
+  </span>
+
+  <span class="spacer"></span>
+
   <md-select *ngIf="pageHeaderService.dropdown" [placeholder]="pageHeaderService.placeholder" panelClass="theme-select" (change)="selectOption($event)" [(ngModel)]="selectedOption">
     <md-option *ngFor="let option of pageHeaderService.options" [value]="option.name">{{option.name}}</md-option>
   </md-select>
+</div>
+<div *ngIf="isScreenSmall() && pageHeaderService.datepicker" class="primary-header page-header mobile-datepicker">
+  <md-input-container class="date">
+    <input mdInput [mdDatepicker]="start" placeholder="Start">
+    <button md-icon-button mdSuffix (click)="start.opened ? start.close() : start.open()">
+      <md-icon [svgIcon]="datepickerIcon"></md-icon>
+    </button>
+  </md-input-container>
+  <md-datepicker #start [touchUi]="isScreenSmall()"></md-datepicker>
+  <md-input-container class="date">
+    <input mdInput [mdDatepicker]="end" placeholder="End">
+    <button md-icon-button mdSuffix (click)="end.opened ? end.close() : end.open()">
+      <md-icon [svgIcon]="datepickerIcon"></md-icon>
+    </button>
+  </md-input-container>
+  <md-datepicker #end [touchUi]="isScreenSmall()"></md-datepicker>
 </div>

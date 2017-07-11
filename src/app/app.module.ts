@@ -24,6 +24,7 @@ import { TeamStatsDialogComponent } from './components/shared/team-stats-dialog/
 import { SeasonService } from './components/shared/services/season/season.service';
 import { DocumentRef } from './components/shared/services/document.ref';
 import { SearchService } from './components/shared/services/search/search.service';
+import { ThemeService } from './components/shared/services/theme.service';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { SearchService } from './components/shared/services/search/search.servic
     StandingsService,
     LeagueService,
     SeasonService,
-    SearchService
+    SearchService,
+    ThemeService
   ],
   entryComponents: [ TeamStatsDialogComponent ],
   bootstrap: [AppComponent]

@@ -8,7 +8,7 @@
     <md-grid-tile *ngFor="let theme of themes">
       <div md-menu-item (click)="setTheme(theme)">
         <div class="docs-theme-picker-swatch">
-          <div class="docs-theme-picker-primary" [ngClass]="theme"></div>
+          <div class="docs-theme-picker-primary" [ngClass]="theme.name"></div>
         </div>
       </div>
     </md-grid-tile>
