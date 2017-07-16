@@ -1,24 +1,15 @@
 import { Injectable } from '@angular/core';
-import {Headers, Http, Response, URLSearchParams} from '@angular/http';
+import { Headers, Http, Response, URLSearchParams } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { ConferenceStandings, DivisionStandings, LeagueStandings, Team, WildCardStandings } from '../../data';
 import {
-  ConferenceStandingsResponse, DivisionStandingsResponse, LeagueStandingsResponse, PlayoffStandingsResponse,
+  ConferenceStandingsResponse, DivisionStandingsResponse, LeagueStandingsResponse, Params, PlayoffStandingsResponse,
   StandingsResponseTeamEntry
 } from '../../data/response-interfaces';
 import { SeasonService } from '../season/season.service';
 import { StandingsTeamEntry } from '../../data/standings';
 
-export interface Params {
-  team?: string,
-  division?: string,
-  playerstats?: string,
-  sort?: string,
-  offset?: string,
-  limit?: string,
-  force?: string,
-  teamstats?: string,
-}
+
 
 @Injectable()
 export class StandingsService {

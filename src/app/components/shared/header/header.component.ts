@@ -8,6 +8,7 @@ import { SeasonService } from '../services/season/season.service';
 import { ThemeService } from '../services/theme.service';
 import { StatsService } from '../services/stats/stats.service';
 import { NgModel } from '@angular/forms';
+import { STAT_OPTIONS } from '../data';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -41,7 +42,7 @@ export class HeaderComponent {
         this.seasonService.season = event.value;
         break;
       case STAT_PLACEHOLDER:
-        this.statsService.stat = event.value;
+        this.statsService.stat = STAT_OPTIONS.find(stat => stat.name === event.value);
         break;
     }
   }

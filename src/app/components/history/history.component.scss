@@ -66,4 +66,12 @@ $small-breakpoint-width: 840px;
       padding-bottom: 8px;
     }
   }
+
+  :host /deep/ ngx-charts-line-chart {
+    ngx-charts-chart {
+      .ngx-charts-outer {
+        margin-left: -1em;
+      }
+    }
+  }
 }

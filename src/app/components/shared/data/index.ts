@@ -4,3 +4,8 @@ export * from './league';
 export * from './response-interfaces';
 export * from './standings';
 export * from './team';
+export * from './season';
+export * from './stats';
+export * from './game';
+export * from './player';
+export * from './chart-types';

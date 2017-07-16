@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, Response } from '@angular/http';
 import { ActivePlayersResponse } from '../../data/response-interfaces';
 import { Observable } from 'rxjs/Observable';
-import { Player } from '../../data/player';
-import { EasternConference, WesternConference } from '../../data/conference';
-import { Team } from '../../data/team';
+import { Player, Team, WesternConference, EasternConference, OldSoutheastDivision, OldPacificDivision } from '../../data';
 
 @Injectable()
 export class SearchService {
@@ -29,13 +27,15 @@ export class SearchService {
   getTeams(): Team[] {
     let east: EasternConference = new EasternConference();
     let west: WesternConference = new WesternConference();
-    return [...east.teams, ...west.teams];
+    let oldSoutheast: OldSoutheastDivision = new OldSoutheastDivision();
+    let oldPacific: OldPacificDivision = new OldPacificDivision();
+    return [...east.teams, ...west.teams, oldSoutheast.atlantaThrashers, oldPacific.phoenixCoyotes];
   }
 
   private processActivePlayers(responseData: ActivePlayersResponse) : Player[] {
     let activePlayers: Player[] = [];
     responseData.activeplayers.playerentry.forEach(entry => {
-      let player: Player = new Player(entry.player.LastName, entry.player.FirstName, parseInt(entry.player.JerseyNumber), entry.player.Position, entry.player.Height, entry.player.Weight, new Date(entry.player.BirthDate), parseInt(entry.player.Age), entry.player.BirthCity, entry.player.BirthCountry, entry.player.IsRookie === 'true')
+      let player: Player = new Player(entry.player.LastName, entry.player.FirstName, parseInt(entry.player.JerseyNumber), entry.player.Position, entry.player.Height, entry.player.Weight, new Date(entry.player.BirthDate), parseInt(entry.player.Age), entry.player.BirthCity, entry.player.BirthCountry, entry.player.IsRookie === 'true', parseInt(entry.player.ID));
       if (entry.team) {
         let east: EasternConference = new EasternConference();
         let west: WesternConference = new WesternConference();

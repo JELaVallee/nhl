@@ -4,7 +4,8 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 export interface DropdownOption {
   name: string,
-  abbreviation?: string
+  abbreviation?: string,
+  category?: string
 }
 
 export const HOME_TITLE: string = 'Standings';
@@ -25,30 +26,6 @@ export const SEASON_OPTIONS: DropdownOption[] = [
 ];
 export const SEASON_PLACEHOLDER: string = 'Season';
 
-export const STAT_OPTIONS: DropdownOption[] = [
-  { name: 'Goals', abbreviation: 'G' },
-  { name: 'Assists', abbreviation: 'A' },
-  { name: 'Points', abbreviation: 'Pts' },
-  { name: 'Hat Tricks', abbreviation: 'Hat' },
-  { name: 'Plus / Minus', abbreviation: '+/-' },
-  { name: 'Shots', abbreviation: 'Sh' },
-  { name: 'Shot Percentage', abbreviation: 'Sh %' },
-  { name: 'Penalties', abbreviation: 'Pn' },
-  { name: 'Penalty Minutes', abbreviation: 'PIM' },
-  { name: 'Powerplay Goals', abbreviation: 'PP G' },
-  { name: 'Powerplay Assists', abbreviation: 'PP A' },
-  { name: 'Powerplay Points', abbreviation: 'PP Pts' },
-  { name: 'Shorthanded Goals', abbreviation: 'SHG' },
-  { name: 'Shorthanded Assists', abbreviation: 'SHA' },
-  { name: 'Shorthanded Points', abbreviation: 'Sh Pts' },
-  { name: 'Game-Winning Goals', abbreviation: 'GWG' },
-  { name: 'Game-Tying Goals', abbreviation: 'GTG' },
-  { name: 'Hits', abbreviation: 'Ht' },
-  { name: 'Faceoffs', abbreviation: 'F/O' },
-  { name: 'Faceoff Wins', abbreviation: 'F/O W' },
-  { name: 'Faceoff Losses', abbreviation: 'F/O L' },
-  { name: 'Faceoff Percentage', abbreviation: 'F/O %' }
-];
 export const STAT_PLACEHOLDER: string = 'Statistic';
 
 /**

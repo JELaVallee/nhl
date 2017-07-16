@@ -7,16 +7,15 @@ import {
   transition
 } from '@angular/animations';
 import {
-  HISTORY_TITLE, PageHeaderService, STAT_OPTIONS,
+  HISTORY_TITLE, PageHeaderService,
   STAT_PLACEHOLDER
 } from '../shared/services/page-header/page-header';
 import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
-import { Player } from '../shared/data/player';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
 import { MdExpansionPanel } from '@angular/material';
-import { Team } from '../shared/data/team';
+import { Team, LineChartSeries, Player, Stat, STAT_OPTIONS } from '../shared/data';
 import { StatsService } from '../shared/services/stats/stats.service';
 
 const SMALL_WIDTH_BREAKPOINT = 840;
@@ -46,9 +45,13 @@ export class HistoryComponent implements OnInit {
   selectedPlayers: Player[] = [];
   teams: Team[] = [];
   selectedTeams: Team[] = [];
+  lineChart: LineChartSeries[] = [];
+  colorScheme = {
+    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
+  };
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
 
-  constructor(public searchService: SearchService, private pageHeaderService: PageHeaderService, private statsService: StatsService) {
+  constructor(public searchService: SearchService, public statsService: StatsService, private pageHeaderService: PageHeaderService) {
     this.filteredOptions = this.searchCtrl.valueChanges.startWith(null).map(search => {
       if ((typeof search) === 'string') {
         return this.getOptions(search);
@@ -69,15 +72,9 @@ export class HistoryComponent implements OnInit {
 
     this.teams = this.searchService.getTeams();
 
-    this.statsService.selectedStat$.subscribe((selectedStat: string) => {
-      console.log(selectedStat);
-    });
+    this.watchSelectedStat();
 
-    Observable.combineLatest(this.pageHeaderService.startDate$, this.pageHeaderService.endDate$).subscribe( ([startDate, endDate]: [Date, Date]) => {
-      if (startDate && endDate) {
-        console.log(`${startDate.toDateString()} - ${endDate.toDateString()}`);
-      }
-    });
+    this.watchDateRange();
   }
 
   getOptions(value: string) {
@@ -95,6 +92,9 @@ export class HistoryComponent implements OnInit {
       let player: Player = this.players.find(player => this.selectedPlayers.findIndex(selectedPlayer => selectedPlayer === player) < 0 && (player.fullName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.lastName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || player.firstName.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0));
       if (player) {
         this.selectPlayer(player);
+        if (this.pageHeaderService.startDate && this.pageHeaderService.endDate) {
+          this.getStats(this.selectedPlayers, this.pageHeaderService.startDate, this.pageHeaderService.endDate);
+        }
       } else {
         let team: Team = this.teams.find(team => this.selectedTeams.findIndex(selectedTeam => selectedTeam === team) < 0 && (`${team.city.toLowerCase()} ${team.name.toLowerCase()}`.indexOf(this.searchCtrl.value.toLowerCase()) === 0 || team.name.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0 || team.city.toLowerCase().indexOf(this.searchCtrl.value.toLowerCase()) === 0));
         if (team) this.selectTeam(team);
@@ -106,6 +106,9 @@ export class HistoryComponent implements OnInit {
     let player: Player = this.players.find(p => p === option);
     if (player) {
       this.selectPlayer(player);
+      if (this.pageHeaderService.startDate && this.pageHeaderService.endDate) {
+        this.getStats(this.selectedPlayers, this.pageHeaderService.startDate, this.pageHeaderService.endDate);
+      }
     } else {
       let team: Team = this.teams.find(t => t === option);
       if (team) this.selectTeam(team);
@@ -128,6 +131,54 @@ export class HistoryComponent implements OnInit {
     this.selectedPlayers = [];
     this.selectedTeams = [];
     this.panel.close();
+  }
+
+  private watchSelectedStat() {
+    this.statsService.selectedStat$.subscribe((selectedStat: Stat) => {
+      if (this.pageHeaderService.startDate && this.pageHeaderService.endDate) {
+        this.buildChart();
+      }
+    });
+  }
+
+  private watchDateRange() {
+    Observable.combineLatest(this.pageHeaderService.startDate$, this.pageHeaderService.endDate$).subscribe( ([startDate, endDate]: [Date, Date]) => {
+      if (startDate && endDate) {
+        if (this.selectedPlayers.length > 0) {
+          this.getStats(this.selectedPlayers, startDate, endDate);
+        }
+      }
+    });
+  }
+
+  private getStats(players: Player[], start: Date, end: Date) {
+    this.lineChart = [];
+    this.statsService.getPlayerStats(players, start, end).forEach((seasonStats, index) => {
+      this.statsService.statsLoadedMap.set(index, false);
+      seasonStats.subscribe(stats => {
+        this.selectedPlayers.forEach(player => {
+          player.stats = stats.filter(gameStats => player.id === gameStats.playerId);
+        });
+        this.statsService.statsLoadedMap.set(index, true);
+        this.buildChart();
+      });
+    });
+  }
+
+  private buildChart() {
+    this.lineChart = [];
+    if (this.statsService.stat) {
+      this.selectedPlayers.forEach(player => {
+        if (player.stats) {
+          let playerSeries: LineChartSeries = { name: player.fullName, series: [] };
+          player.stats.map(gameLog => {
+            playerSeries.series.push({name: gameLog.game.date, value: gameLog[this.statsService.stat.category][this.statsService.stat.name.toLowerCase()].value});
+          });
+          this.lineChart.push(playerSeries);
+        }
+      });
+    }
+    console.log(this.lineChart);
   }
 
   private selectPlayer(player: Player) {
