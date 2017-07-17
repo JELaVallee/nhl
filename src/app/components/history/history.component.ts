@@ -14,6 +14,7 @@ import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/startWith';
 import { MdExpansionPanel } from '@angular/material';
 import { Team, LineChartSeries, Player, Stat, STAT_OPTIONS } from '../shared/data';
 import { StatsService } from '../shared/services/stats/stats.service';
