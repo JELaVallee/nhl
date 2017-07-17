@@ -5,6 +5,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
+    "start:c9": "ng serve --host 0.0.0.0 --port 8080 --disable-host-check",
     "build": "ng build --prod --aot --base-href \"https://dweitz43.github.io/nhl/\"",
     "test": "ng test",
     "lint": "ng lint",

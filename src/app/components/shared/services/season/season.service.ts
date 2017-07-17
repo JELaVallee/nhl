@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { BehaviorSubject } from 'rxjs/BehaviorSubject';
+import { Observable, BehaviorSubject } from 'rxjs';
 import { Season } from '../../data/season';
 
 export const ATLANTA_SEASONS: string[] = ['2007-2008', '2008-2009', '2009-2010', '2010-2011'];
