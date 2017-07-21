@@ -19,6 +19,10 @@ import { MdExpansionPanel } from '@angular/material';
 import { Team, LineChartSeries, Player, Stat, STAT_OPTIONS } from '../shared/data';
 import { StatsService } from '../shared/services/stats/stats.service';
 
+export interface ColorScheme {
+  domain: string[]
+}
+
 const SMALL_WIDTH_BREAKPOINT = 840;
 
 @Component({
@@ -47,9 +51,10 @@ export class HistoryComponent implements OnInit {
   teams: Team[] = [];
   selectedTeams: Team[] = [];
   lineChart: LineChartSeries[] = [];
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
+  colorScheme: ColorScheme = { domain: [
+    '#f44336', '#3f51b5', '#4caf50', '#ff9800', '#673ab7', '#009688', '#ffc107', '#607d8b', '#e91e63', '#2196f3',
+    '#8bc34a', '#ff5722', '#9c27b0', '#00bcd4', '#ffeb3b', '#9e9e9e', '#03a9f4', '#cddc39', '#795548'
+  ]};
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
 
   constructor(public searchService: SearchService, public statsService: StatsService, private pageHeaderService: PageHeaderService) {
@@ -173,7 +178,7 @@ export class HistoryComponent implements OnInit {
         if (player.stats) {
           let playerSeries: LineChartSeries = { name: player.fullName, series: [] };
           player.stats.map(gameLog => {
-            playerSeries.series.push({name: gameLog.game.date, value: gameLog[this.statsService.stat.category][this.statsService.stat.name.toLowerCase()].value});
+            playerSeries.series.push({name: gameLog.game.date, value: gameLog[this.statsService.stat.category][this.statsService.stat.key].value});
           });
           this.lineChart.push(playerSeries);
         }

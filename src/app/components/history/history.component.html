@@ -34,11 +34,13 @@
 
   <md-spinner *ngIf="!searchService.playersLoaded || !statsService.loaded" [@loaderInOut]="!searchService.playersLoaded || !statsService.loaded"></md-spinner>
 
-  <ngx-charts-line-chart
-    [scheme]="colorScheme"
-    [results]="lineChart"
-    xAxis="true"
-    yAxis="true"
-    autoScale="true">
-  </ngx-charts-line-chart>
+  <div class="line-chart">
+    <ngx-charts-line-chart
+      [scheme]="colorScheme"
+      [results]="lineChart"
+      xAxis="true"
+      yAxis="true"
+      autoScale="true">
+    </ngx-charts-line-chart>
+  </div>
 </div>
