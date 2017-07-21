@@ -19,6 +19,7 @@ import 'rxjs/add/operator/startWith';
 import { MdExpansionPanel } from '@angular/material';
 import { Team, LineChartSeries, Player, Stat, STAT_OPTIONS } from '../shared/data';
 import { StatsService } from '../shared/services/stats/stats.service';
+import { ReferenceLine } from '../shared/data/chart-types';
 
 export interface ColorScheme {
   domain: string[]
@@ -57,6 +58,7 @@ export class HistoryComponent implements OnInit {
     '#8bc34a', '#ff5722', '#9c27b0', '#00bcd4', '#ffeb3b', '#9e9e9e', '#03a9f4', '#cddc39', '#795548'
   ]};
   legendTitle: string = '';
+  refLines: ReferenceLine[] = [];
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
   statsSubscriptions: Map<number, Subscription> = new Map();
 
@@ -191,14 +193,30 @@ export class HistoryComponent implements OnInit {
 
   private buildChart() {
     this.lineChart = [];
+    this.refLines = [];
     if (this.statsService.stat) {
       this.selectedPlayers.forEach(player => {
         if (player.stats) {
+          let minRefLine: ReferenceLine = { name: `${player.fullName} minimum`, value: 0 };
+          let maxRefLine: ReferenceLine = { name: `${player.fullName} maximum`, value: 0 };
+          let avgRefLine: ReferenceLine = { name: `${player.fullName} average`, value: 0 };
           let playerSeries: LineChartSeries = { name: player.fullName, series: [] };
           player.stats.map(gameLog => {
-            playerSeries.series.push({name: gameLog.game.date, value: gameLog[this.statsService.stat.category][this.statsService.stat.key].value});
+            let value: number = gameLog[this.statsService.stat.category][this.statsService.stat.key].value;
+            playerSeries.series.push({name: gameLog.game.date, value: value});
+            if (value <= minRefLine.value) {
+              minRefLine.value = value;
+            }
+            if (value >= maxRefLine.value) {
+              maxRefLine.value = value;
+            }
+            avgRefLine.value += value;
           });
+          avgRefLine.value /= player.stats.length;
           this.lineChart.push(playerSeries);
+          this.refLines.push(minRefLine);
+          this.refLines.push(maxRefLine);
+          this.refLines.push(avgRefLine);
         }
       });
     }
