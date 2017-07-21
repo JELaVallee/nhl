@@ -164,6 +164,9 @@ export class HistoryComponent implements OnInit {
 
   private getStats(players: Player[], start: Date, end: Date) {
     this.statsSubscriptions.forEach(subscription => subscription.unsubscribe());
+    this.statsSubscriptions.clear();
+    this.statsService.statsLoadedMap.clear();
+    this.selectedPlayers.forEach(player => player.stats = []);
     this.lineChart = [];
     this.statsService.getPlayerStats(players, start, end).forEach((seasonStats, index) => {
       this.statsService.statsLoadedMap.set(index, false);
