@@ -56,6 +56,7 @@ export class HistoryComponent implements OnInit {
     '#f44336', '#3f51b5', '#4caf50', '#ff9800', '#673ab7', '#009688', '#ffc107', '#607d8b', '#e91e63', '#2196f3',
     '#8bc34a', '#ff5722', '#9c27b0', '#00bcd4', '#ffeb3b', '#9e9e9e', '#03a9f4', '#cddc39', '#795548'
   ]};
+  legendTitle: string = '';
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
   statsSubscriptions: Map<number, Subscription> = new Map();
 
@@ -146,8 +147,11 @@ export class HistoryComponent implements OnInit {
 
   private watchSelectedStat() {
     this.statsService.selectedStat$.subscribe((selectedStat: Stat) => {
-      if (this.pageHeaderService.startDate && this.pageHeaderService.endDate) {
-        this.buildChart();
+      if (selectedStat) {
+        this.legendTitle = selectedStat.name;
+        if (this.pageHeaderService.startDate && this.pageHeaderService.endDate && this.selectedPlayers.length > 0) {
+          this.buildChart();
+        }
       }
     });
   }
