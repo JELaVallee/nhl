@@ -13,6 +13,7 @@ import {
 import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/combineLatest';
 import 'rxjs/add/operator/startWith';
 import { MdExpansionPanel } from '@angular/material';
@@ -56,6 +57,7 @@ export class HistoryComponent implements OnInit {
     '#8bc34a', '#ff5722', '#9c27b0', '#00bcd4', '#ffeb3b', '#9e9e9e', '#03a9f4', '#cddc39', '#795548'
   ]};
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
+  statsSubscriptions: Map<number, Subscription> = new Map();
 
   constructor(public searchService: SearchService, public statsService: StatsService, private pageHeaderService: PageHeaderService) {
     this.filteredOptions = this.searchCtrl.valueChanges.startWith(null).map(search => {
@@ -123,6 +125,9 @@ export class HistoryComponent implements OnInit {
 
   removePlayer(player: Player) {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
+    this.lineChart = this.lineChart.filter(playerSeries => {
+      return playerSeries.name !== player.fullName;
+    });
   }
 
   removeTeam(team: Team) {
@@ -158,16 +163,18 @@ export class HistoryComponent implements OnInit {
   }
 
   private getStats(players: Player[], start: Date, end: Date) {
+    this.statsSubscriptions.forEach(subscription => subscription.unsubscribe());
     this.lineChart = [];
     this.statsService.getPlayerStats(players, start, end).forEach((seasonStats, index) => {
       this.statsService.statsLoadedMap.set(index, false);
-      seasonStats.subscribe(stats => {
+      let subscription: Subscription = seasonStats.subscribe(stats => {
         this.selectedPlayers.forEach(player => {
           player.stats = stats.filter(gameStats => player.id === gameStats.playerId);
         });
         this.statsService.statsLoadedMap.set(index, true);
         this.buildChart();
       });
+      this.statsSubscriptions.set(index, subscription);
     });
   }
 
@@ -184,7 +191,6 @@ export class HistoryComponent implements OnInit {
         }
       });
     }
-    console.log(this.lineChart);
   }
 
   private selectPlayer(player: Player) {
