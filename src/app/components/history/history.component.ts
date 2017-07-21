@@ -169,7 +169,11 @@ export class HistoryComponent implements OnInit {
       this.statsService.statsLoadedMap.set(index, false);
       let subscription: Subscription = seasonStats.subscribe(stats => {
         this.selectedPlayers.forEach(player => {
-          player.stats = stats.filter(gameStats => player.id === gameStats.playerId);
+          if (player.stats) {
+            player.stats = player.stats.concat(stats.filter(gameStats => player.id === gameStats.playerId));
+          } else {
+            player.stats = stats.filter(gameStats => player.id === gameStats.playerId);
+          }
         });
         this.statsService.statsLoadedMap.set(index, true);
         this.buildChart();

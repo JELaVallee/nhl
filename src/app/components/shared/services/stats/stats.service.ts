@@ -15,7 +15,7 @@ export class StatsService {
   statsLoadedMap: Map<number, boolean> = new Map();
   private currentSelectedStat: Stat;
   private selectedStatSource: BehaviorSubject<Stat> = new BehaviorSubject(this.currentSelectedStat);
-  private base: string = 'https://www.mysportsfeeds.com/api/feed/pull/nhl/';
+  private base: string = 'https://api.mysportsfeeds.com/v1.1/pull/nhl/';
   private format: string = '.json?';
   private selectedPlayers: Player[] = [];
 

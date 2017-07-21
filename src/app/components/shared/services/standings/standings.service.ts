@@ -20,7 +20,7 @@ export class StandingsService {
   conferenceLoaded: boolean = false;
   leagueLoaded: boolean = false;
   wildCardLoaded: boolean = false;
-  private base: string = 'https://www.mysportsfeeds.com/api/feed/pull/nhl/';
+  private base: string = 'https://api.mysportsfeeds.com/v1.1/pull/nhl/';
   private format: string = '.json?';
 
   constructor(private http: Http, private seasonService: SeasonService) {}
