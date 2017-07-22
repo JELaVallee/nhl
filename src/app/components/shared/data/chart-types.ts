@@ -7,3 +7,10 @@ export interface LineChartSeries {
   name: string,
   series: DataPoint[]
 }
+
+export interface ReferenceLine {
+  name: string,
+  value: number,
+  key: string,
+  color?: string,
+}

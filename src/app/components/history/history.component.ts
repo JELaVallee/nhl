@@ -13,10 +13,17 @@ import {
 import { FormControl } from "@angular/forms";
 import { SearchService } from '../shared/services/search/search.service';
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import 'rxjs/add/observable/combineLatest';
+import 'rxjs/add/operator/startWith';
 import { MdExpansionPanel } from '@angular/material';
 import { Team, LineChartSeries, Player, Stat, STAT_OPTIONS } from '../shared/data';
 import { StatsService } from '../shared/services/stats/stats.service';
+import { ReferenceLine } from '../shared/data/chart-types';
+
+export interface ColorScheme {
+  domain: string[]
+}
 
 const SMALL_WIDTH_BREAKPOINT = 840;
 
@@ -46,10 +53,14 @@ export class HistoryComponent implements OnInit {
   teams: Team[] = [];
   selectedTeams: Team[] = [];
   lineChart: LineChartSeries[] = [];
-  colorScheme = {
-    domain: ['#5AA454', '#A10A28', '#C7B42C', '#AAAAAA']
-  };
+  colorScheme: ColorScheme = { domain: [
+    '#f44336', '#3f51b5', '#4caf50', '#ff9800', '#673ab7', '#009688', '#ffc107', '#607d8b', '#e91e63', '#2196f3',
+    '#8bc34a', '#ff5722', '#9c27b0', '#00bcd4', '#ffeb3b', '#9e9e9e', '#03a9f4', '#cddc39', '#795548'
+  ]};
+  legendTitle: string = '';
+  refLines: ReferenceLine[] = [];
   @ViewChild(MdExpansionPanel) panel : MdExpansionPanel;
+  statsSubscriptions: Map<number, Subscription> = new Map();
 
   constructor(public searchService: SearchService, public statsService: StatsService, private pageHeaderService: PageHeaderService) {
     this.filteredOptions = this.searchCtrl.valueChanges.startWith(null).map(search => {
@@ -117,6 +128,8 @@ export class HistoryComponent implements OnInit {
 
   removePlayer(player: Player) {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
+    this.lineChart = this.lineChart.filter(playerSeries => playerSeries.name !== player.fullName);
+    this.refLines = this.refLines.filter(refLine => refLine.key !== player.fullName);
   }
 
   removeTeam(team: Team) {
@@ -135,8 +148,11 @@ export class HistoryComponent implements OnInit {
 
   private watchSelectedStat() {
     this.statsService.selectedStat$.subscribe((selectedStat: Stat) => {
-      if (this.pageHeaderService.startDate && this.pageHeaderService.endDate) {
-        this.buildChart();
+      if (selectedStat) {
+        this.legendTitle = selectedStat.name;
+        if (this.pageHeaderService.startDate && this.pageHeaderService.endDate && this.selectedPlayers.length > 0) {
+          this.buildChart();
+        }
       }
     });
   }
@@ -152,33 +168,57 @@ export class HistoryComponent implements OnInit {
   }
 
   private getStats(players: Player[], start: Date, end: Date) {
+    this.statsSubscriptions.forEach(subscription => subscription.unsubscribe());
+    this.statsSubscriptions.clear();
+    this.statsService.statsLoadedMap.clear();
+    this.selectedPlayers.forEach(player => player.stats = []);
     this.lineChart = [];
     this.statsService.getPlayerStats(players, start, end).forEach((seasonStats, index) => {
       this.statsService.statsLoadedMap.set(index, false);
-      seasonStats.subscribe(stats => {
+      let subscription: Subscription = seasonStats.subscribe(stats => {
         this.selectedPlayers.forEach(player => {
-          player.stats = stats.filter(gameStats => player.id === gameStats.playerId);
+          if (player.stats) {
+            player.stats = player.stats.concat(stats.filter(gameStats => player.id === gameStats.playerId));
+          } else {
+            player.stats = stats.filter(gameStats => player.id === gameStats.playerId);
+          }
         });
         this.statsService.statsLoadedMap.set(index, true);
         this.buildChart();
       });
+      this.statsSubscriptions.set(index, subscription);
     });
   }
 
   private buildChart() {
     this.lineChart = [];
+    this.refLines = [];
     if (this.statsService.stat) {
-      this.selectedPlayers.forEach(player => {
+      this.selectedPlayers.forEach((player, index) => {
         if (player.stats) {
+          let minRefLine: ReferenceLine = { name: 'minimum', value: 0, color: this.colorScheme.domain[index], key: player.fullName };
+          let maxRefLine: ReferenceLine = { name: 'maximum', value: 0, color: this.colorScheme.domain[index], key: player.fullName };
+          let avgRefLine: ReferenceLine = { name: 'average', value: 0, color: this.colorScheme.domain[index], key: player.fullName };
           let playerSeries: LineChartSeries = { name: player.fullName, series: [] };
           player.stats.map(gameLog => {
-            playerSeries.series.push({name: gameLog.game.date, value: gameLog[this.statsService.stat.category][this.statsService.stat.name.toLowerCase()].value});
+            let value: number = gameLog[this.statsService.stat.category][this.statsService.stat.key].value;
+            playerSeries.series.push({name: gameLog.game.date, value: value});
+            if (value <= minRefLine.value) {
+              minRefLine.value = value;
+            }
+            if (value >= maxRefLine.value) {
+              maxRefLine.value = value;
+            }
+            avgRefLine.value += value;
           });
+          avgRefLine.value /= player.stats.length;
           this.lineChart.push(playerSeries);
+          this.refLines.push(minRefLine);
+          this.refLines.push(maxRefLine);
+          this.refLines.push(avgRefLine);
         }
       });
     }
-    console.log(this.lineChart);
   }
 
   private selectPlayer(player: Player) {
