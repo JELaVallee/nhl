@@ -39,3 +39,19 @@ md-dialog-actions {
 .mat-autocomplete-panel {
   width: 200px;
 }
+
+.ngx-charts {
+  .gridline-path {
+    stroke-dasharray: 2px;
+  }
+
+  .tick {
+    text {
+      fill: rgba(0,0,0,.4);
+    }
+  }
+
+  .line {
+    stroke-width: 4px;
+  }
+}

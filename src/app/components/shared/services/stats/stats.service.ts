@@ -15,7 +15,7 @@ export class StatsService {
   statsLoadedMap: Map<number, boolean> = new Map();
   private currentSelectedStat: Stat;
   private selectedStatSource: BehaviorSubject<Stat> = new BehaviorSubject(this.currentSelectedStat);
-  private base: string = 'https://www.mysportsfeeds.com/api/feed/pull/nhl/';
+  private base: string = 'https://api.mysportsfeeds.com/v1.1/pull/nhl/';
   private format: string = '.json?';
   private selectedPlayers: Player[] = [];
 
@@ -92,7 +92,7 @@ export class StatsService {
           playerStats.scoring.points.value = parseInt(playerGameLog.stats.Points['#text']);
           playerStats.scoring.powerplayAssists.value = parseInt(playerGameLog.stats.PowerplayAssists['#text']);
           playerStats.scoring.powerplayGoals.value = parseInt(playerGameLog.stats.PowerplayGoals['#text']);
-          playerStats.scoring.powerplayPoints.value = parseInt(playerGameLog.stats.PowerplayPoints['#text']);
+          playerStats.scoring.powerplayPoints.value = parseInt(playerGameLog.stats.PowerplayPoints ? playerGameLog.stats.PowerplayPoints['#text'] : '0');
           playerStats.scoring.shorthandedAssists.value = parseInt(playerGameLog.stats.ShorthandedAssists['#text']);
           playerStats.scoring.shorthandedGoals.value = parseInt(playerGameLog.stats.ShorthandedGoals['#text']);
           playerStats.scoring.shorthandedPoints.value = parseInt(playerGameLog.stats.ShorthandedPoints['#text']);

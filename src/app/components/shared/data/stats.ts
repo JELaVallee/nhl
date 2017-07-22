@@ -5,47 +5,48 @@ export class Stat implements DropdownOption {
   name: string;
   abbreviation: string;
   category: string;
+  key: string;
 
-  constructor(name: string, abbreviation: string, category: string) {
+  constructor(name: string, abbreviation: string, category: string, key?: string) {
     this.name = name;
     this.abbreviation = abbreviation;
     this.category = category;
+    this.key = key;
   }
 }
 
 export const STAT_OPTIONS: Stat[] = [
-  { name: 'Goals', abbreviation: 'G', category: 'scoring' },
-  { name: 'Assists', abbreviation: 'A', category: 'scoring' },
-  { name: 'Points', abbreviation: 'Pts', category: 'scoring' },
-  { name: 'Hat Tricks', abbreviation: 'Hat', category: 'scoring' },
-  { name: 'Plus / Minus', abbreviation: '+/-', category: 'skating' },
-  { name: 'Shots', abbreviation: 'Sh', category: 'skating' },
-  { name: 'Penalties', abbreviation: 'Pn', category: 'skating' },
-  { name: 'Penalty Minutes', abbreviation: 'PIM', category: 'penalties' },
-  { name: 'Powerplay Goals', abbreviation: 'PP G', category: 'scoring' },
-  { name: 'Powerplay Assists', abbreviation: 'PP A', category: 'scoring' },
-  { name: 'Powerplay Points', abbreviation: 'PP Pts', category: 'scoring' },
-  { name: 'Shorthanded Goals', abbreviation: 'SHG', category: 'scoring' },
-  { name: 'Shorthanded Assists', abbreviation: 'SHA', category: 'scoring' },
-  { name: 'Shorthanded Points', abbreviation: 'Sh Pts', category: 'scoring' },
-  { name: 'Game-Winning Goals', abbreviation: 'GWG', category: 'scoring' },
-  { name: 'Game-Tying Goals', abbreviation: 'GTG', category: 'scoring' },
-  { name: 'Hits', abbreviation: 'Ht', category: 'skating' },
-  { name: 'Faceoffs', abbreviation: 'F/O', category: 'skating' },
-  { name: 'Faceoff Wins', abbreviation: 'F/O W', category: 'skating' },
-  { name: 'Faceoff Losses', abbreviation: 'F/O L', category: 'skating' },
-  { name: 'Faceoff Percentage', abbreviation: 'F/O %', category: 'skating' },
-  { name: 'Credit For Game', abbreviation: 'Cr G', category: 'goaltending' },
-  { name: 'Goals Against', abbreviation: 'GA', category: 'goaltending' },
-  { name: 'Goals Against Average', abbreviation: 'GAA', category: 'goaltending' },
-  { name: 'Losses', abbreviation: 'L', category: 'goaltending' },
-  { name: 'Minutes Played', abbreviation: 'MIN', category: 'goaltending' },
-  { name: 'Overtime Losses', abbreviation: 'OTL', category: 'goaltending' },
-  { name: 'Overtime Wins', abbreviation: 'OTW', category: 'goaltending' },
-  { name: 'Saves', abbreviation: 'Sv', category: 'goaltending' },
-  { name: 'Shots Against', abbreviation: 'SA', category: 'goaltending' },
-  { name: 'Shutouts', abbreviation: 'SO', category: 'goaltending' },
-  { name: 'Save Percentage', abbreviation: 'Sv %', category: 'goaltending' },
+  { name: 'Goals', abbreviation: 'G', category: 'scoring', key: 'goals' },
+  { name: 'Assists', abbreviation: 'A', category: 'scoring', key: 'assists' },
+  { name: 'Points', abbreviation: 'Pts', category: 'scoring', key: 'points' },
+  { name: 'Hat Tricks', abbreviation: 'Hat', category: 'scoring', key: 'hatTricks' },
+  { name: 'Plus / Minus', abbreviation: '+/-', category: 'skating', key: 'plusMinus' },
+  { name: 'Shots', abbreviation: 'Sh', category: 'skating', key: 'shots' },
+  { name: 'Penalties', abbreviation: 'Pn', category: 'penalties', key: 'penalties' },
+  { name: 'Penalty Minutes', abbreviation: 'PIM', category: 'penalties', key: 'penaltyMinutes' },
+  { name: 'Powerplay Goals', abbreviation: 'PP G', category: 'scoring', key: 'powerplayGoals' },
+  { name: 'Powerplay Assists', abbreviation: 'PP A', category: 'scoring', key: 'powerplayAssists' },
+  { name: 'Powerplay Points', abbreviation: 'PP Pts', category: 'scoring', key: 'powerplayPoints' },
+  { name: 'Shorthanded Goals', abbreviation: 'SHG', category: 'scoring', key: 'shorthandedGoals' },
+  { name: 'Shorthanded Assists', abbreviation: 'SHA', category: 'scoring', key: 'shorthandedAssists' },
+  { name: 'Shorthanded Points', abbreviation: 'Sh Pts', category: 'scoring', key: 'shorthandedPoints' },
+  { name: 'Game-Winning Goals', abbreviation: 'GWG', category: 'scoring', key: 'gameWinningGoals' },
+  { name: 'Game-Tying Goals', abbreviation: 'GTG', category: 'scoring', key: 'gameTyingGoals' },
+  { name: 'Hits', abbreviation: 'Ht', category: 'skating', key: 'hits' },
+  { name: 'Faceoffs', abbreviation: 'F/O', category: 'skating', key: 'faceoffs' },
+  { name: 'Faceoff Wins', abbreviation: 'F/O W', category: 'skating', key: 'faceoffWins' },
+  { name: 'Faceoff Losses', abbreviation: 'F/O L', category: 'skating', key: 'faceoffLosses' },
+  { name: 'Credit For Game', abbreviation: 'Cr G', category: 'goaltending', key: 'creditForGame' },
+  { name: 'Goals Against', abbreviation: 'GA', category: 'goaltending', key: 'goalsAgainst' },
+  { name: 'Goals Against Average', abbreviation: 'GAA', category: 'goaltending', key: 'goalsAgainstAverage' },
+  { name: 'Losses', abbreviation: 'L', category: 'goaltending', key: 'losses' },
+  { name: 'Minutes Played', abbreviation: 'MIN', category: 'goaltending', key: 'minutesPlayed' },
+  { name: 'Overtime Losses', abbreviation: 'OTL', category: 'goaltending', key: 'overtimeLosses' },
+  { name: 'Overtime Wins', abbreviation: 'OTW', category: 'goaltending', key: 'overtimeWins' },
+  { name: 'Saves', abbreviation: 'Sv', category: 'goaltending', key: 'saves' },
+  { name: 'Shots Against', abbreviation: 'SA', category: 'goaltending', key: 'shotsAgainst' },
+  { name: 'Shutouts', abbreviation: 'SO', category: 'goaltending', key: 'shutouts' },
+  { name: 'Save Percentage', abbreviation: 'Sv %', category: 'goaltending', key: 'savePercentage' },
 ];
 
 export class PlayerStats {

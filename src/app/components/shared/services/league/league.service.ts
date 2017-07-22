@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 import { EasternConference, League, OldEasternConference, OldWesternConference, WesternConference } from '../../data';
 import { SeasonService } from '../season/season.service';
 
