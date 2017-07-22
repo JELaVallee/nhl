@@ -10,5 +10,7 @@ export interface LineChartSeries {
 
 export interface ReferenceLine {
   name: string,
-  value: number
+  value: number,
+  key: string,
+  color?: string,
 }

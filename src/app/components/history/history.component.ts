@@ -128,9 +128,8 @@ export class HistoryComponent implements OnInit {
 
   removePlayer(player: Player) {
     this.selectedPlayers.splice(this.selectedPlayers.indexOf(player), 1);
-    this.lineChart = this.lineChart.filter(playerSeries => {
-      return playerSeries.name !== player.fullName;
-    });
+    this.lineChart = this.lineChart.filter(playerSeries => playerSeries.name !== player.fullName);
+    this.refLines = this.refLines.filter(refLine => refLine.key !== player.fullName);
   }
 
   removeTeam(team: Team) {
@@ -195,11 +194,11 @@ export class HistoryComponent implements OnInit {
     this.lineChart = [];
     this.refLines = [];
     if (this.statsService.stat) {
-      this.selectedPlayers.forEach(player => {
+      this.selectedPlayers.forEach((player, index) => {
         if (player.stats) {
-          let minRefLine: ReferenceLine = { name: `${player.fullName} minimum`, value: 0 };
-          let maxRefLine: ReferenceLine = { name: `${player.fullName} maximum`, value: 0 };
-          let avgRefLine: ReferenceLine = { name: `${player.fullName} average`, value: 0 };
+          let minRefLine: ReferenceLine = { name: 'minimum', value: 0, color: this.colorScheme.domain[index], key: player.fullName };
+          let maxRefLine: ReferenceLine = { name: 'maximum', value: 0, color: this.colorScheme.domain[index], key: player.fullName };
+          let avgRefLine: ReferenceLine = { name: 'average', value: 0, color: this.colorScheme.domain[index], key: player.fullName };
           let playerSeries: LineChartSeries = { name: player.fullName, series: [] };
           player.stats.map(gameLog => {
             let value: number = gameLog[this.statsService.stat.category][this.statsService.stat.key].value;

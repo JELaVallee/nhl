@@ -92,7 +92,7 @@ export class StatsService {
           playerStats.scoring.points.value = parseInt(playerGameLog.stats.Points['#text']);
           playerStats.scoring.powerplayAssists.value = parseInt(playerGameLog.stats.PowerplayAssists['#text']);
           playerStats.scoring.powerplayGoals.value = parseInt(playerGameLog.stats.PowerplayGoals['#text']);
-          playerStats.scoring.powerplayPoints.value = parseInt(playerGameLog.stats.PowerplayPoints['#text']);
+          playerStats.scoring.powerplayPoints.value = parseInt(playerGameLog.stats.PowerplayPoints ? playerGameLog.stats.PowerplayPoints['#text'] : '0');
           playerStats.scoring.shorthandedAssists.value = parseInt(playerGameLog.stats.ShorthandedAssists['#text']);
           playerStats.scoring.shorthandedGoals.value = parseInt(playerGameLog.stats.ShorthandedGoals['#text']);
           playerStats.scoring.shorthandedPoints.value = parseInt(playerGameLog.stats.ShorthandedPoints['#text']);
